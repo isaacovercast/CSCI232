@@ -2,7 +2,7 @@
 title: "CSCI 232 - Data Structures and Algorithms"
 ---
 
-# Hack the Planet
+# CSCI 232
 
 ## (Programming and Data Science for Biologists)
 Welcome to the landing page for EEEB G4050, Programming and Data 
