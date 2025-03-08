@@ -1,0 +1,96 @@
+site_name: CSCI 232 - Data Structures and Algorithms
+site_url: https://isaacovercast.github.io/CSCI232
+repo_url: https://isaacovercast.github.io/CSCI232
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  highlightjs: true
+  palette:
+    - scheme: default
+      primary: blue
+      ascent: indigo
+      toggle: 
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      ascent: indigo
+      toggle: 
+        icon: material/lightbulb
+        name: Switch to lightmode
+  favicon: /images/favicon.ico
+  icon:
+    logo: material/hexagon-multiple-outline
+  features:
+    - navigation.instant     # revisit this if reloading is not great...
+    - navigation.tracking
+    - search.highlight    # - navigation.indexes
+    - search.suggest
+    - content.code.annotate # 
+    - content.code.copy
+    # - toc.follow    
+    # - navigation.expand    
+    # - navigation.sections
+    # - navigation.tabs      
+
+extra_javascript:
+
+extra_css:
+  - stylesheets/pages.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai.min.css  
+  # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai-sublime.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16-unikitty-light.min.css  
+
+extra_javascript:
+  # - javascripts/extra.js
+  # - javascripts/mathjax.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js  
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - tables
+  - md_in_html
+  - pymdownx.details  
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg      
+  # - pymdownx.highlight:
+  #     use_pygments: true
+  #     pygments_lang_class: true
+
+nav: 
+  - About: index.md
+  - Syllabus: pages/syllabus
+  - Schedule: pages/schedule
+  - Sessions: 
+    - Session 1 - (1/21): sessions/session-1
+    - Session 2 - (1/23): sessions/session-2
+  - Tutorials:
+    - Session 2 - (1/23):
+        - 2.0 -- GitHub: tutorials/2.0-github
+        - 2.1 -- Shell: tutorials/2.1-shell
+        - 2.2 -- Shell challenge: tutorials/2.2-bash
+    - Session 3 - (1/28):
+        - 3.1 -- Markdown: tutorials/3.1-markdown
+        - 3.2 -- git branching: tutorials/3.2-git-branching
+        - 3.3 -- GitHub pages: tutorials/3.3-github-pages
+
+  - Resources:
+    - Textbook\- Algorithms (Sedgwick \& Wayne): https://algs4.cs.princeton.edu/home/
+    - Supplementary Reading\- TAOCP (Knuth): https://www-cs-faculty.stanford.edu/~knuth/taocp.html
+
+  - External Links: 
+    - discord server: https://discord.gg/c3PSEk3HU9

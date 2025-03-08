@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="author" content="Deren Eaton" />
+
+        <!-- core, theme, and additional CSS styling -->
+        <link rel="stylesheet" href="../revealjs/dist/reset.css" />
+        <link rel="stylesheet" href="../revealjs/dist/reveal.css" />
+        <link rel="stylesheet" href="../../stylesheets/slides.css" />
+        <!-- <link rel="stylesheet" href="../revealjs/dist/theme/black.css"> -->
+        <link
+            rel="stylesheet"
+            href="../revealjs/plugin/highlight/monokai.css"
+        />
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <div style="margin-left: auto; margin-top: 15%">
+                        <h2
+                            class="title"
+                            style="color: #5ab4ac; line-height: 1.25"
+                        >
+                            Programming and Data Science for Biology<br />(EEEB
+                            G4050)
+                        </h2>
+                        <h4
+                            style="
+                                color: grey;
+                                font-weight: 400;
+                                line-height: 1.5;
+                            "
+                        >
+                            <i
+                                >Lecture 6: Python dictionaries, if/else, and
+                                functions</i
+                            >
+                        </h4>
+                    </div>
+                </section>
+
+                <!-- Standard library section -->
+                <section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                Expanding your toolkit: python built-in
+                                functions
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    We've already learned several built-in
+                                    functions like `range()` and `print()` and
+                                    `len()`, but there are a whole suite of
+                                    other useful
+                                    <a
+                                        href="https://docs.python.org/3/library/functions.html"
+                                        >Python built-in functions</a
+                                    ><br />
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# Other example built-in functions
+# Mathematical operations on lists: sum()/min()/max()
+max([1,3,6,7,19])
+# Truth-value operations on lists: all()/any()
+all([1,1,1,True,True])
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">Expanding your toolkit: The Python Standard Library</h3>
+                            <div class="textbox">
+                                <p><a href=https://docs.python.org/3/library/index.html>Python standard library reference</a>
+                                </p>
+                                <p>
+                                    A collection of libraries that are part of
+                                    base Python, but not imported by default. Call import at the top of your
+                                    script/nbotebook to load the library into
+                                    the namespace.
+
+                                    For example, the <a href="https://docs.python.org/3/library/random.html">'Random' module</a>
+                                    is a very useful way to sample random values from various distributions.
+                                </p><br>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+import random
+# random() samples a value Uniform[0,1)
+random.random()
+# choices() takes 'k' items from a collection with replacement
+random.choices([0, 1, 2, 3, 4, 5], k=5)
+            </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+0.4044054358860246
+[5, 5, 1, 1, 1]
+            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                More Standard Library: itertools module
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    Another example is the <a href="https://docs.python.org/3/library/itertools.html">'Itertools' module</a>
+                                    which provides tools for fast and efficient iteration of collections. My favorite itertools
+                                    function is 'combinations'
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+import itertools
+combs = itertools.combinations(range(4), 2)
+for pair in combs:
+    print(pair)
+              </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+(0, 1)
+(0, 2)
+(0, 3)
+(1, 2)
+(1, 3)
+(2, 3)
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Dictionaries section -->
+                <section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                Dictionaries: Unordered, mutable, key/value pair collections
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                Dictionaries are collections of items that are organized into key/value
+                                pairs. Unlike lists, which you can index or slice, dictionaries are accessed
+                                by 'key' values.
+
+                                </p>
+                                <pre
+                                    style="width: 70%"
+                                ><code class="bash" style="max-height: 550px; font-size: 17px; line-height:1.35;">
+# Dictionary with data values
+my_dict = {'key1':'value1', 'key2':'value2',
+            'key3':'value3', 'key4':'value4'}
+
+# Adding a new key/value pair
+my_dict['key5'] = 'value5'
+
+# Modifying a value for a key
+my_dict['key1'] = 33
+
+# Dictionary values can store anything, even lists or other dictionaries!
+my_dict['key2'] = ['list', 'of', 'items']
+
+print(my_dict)
+                                </code></pre>
+                                <pre
+                                    style="width: 90%"
+                                ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+{'key1': 33, 'key2': ['list', 'of', 'items'], 'key3': 'value3', 'key4': 'value4', 'key5': 'value5'}
+                                </code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                Dictionary use case: Mapping species IDs to lists of samples
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                Lets say we have a metadata file with sample IDs
+                                in one column and species IDs in the second column. Often,
+                                something we normally want to know is "What are all the samples from
+                                a given population?". In this tabular format it is somewhat tedious, but
+                                if we transform to a dictionary it becomes trivial.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# Contents of the pops.txt file
+1A_0    pop1
+1B_0    pop1
+1C_0    pop1
+2E_0    pop2
+2F_0    pop2
+2G_0    pop2
+3I_0    pop3
+3J_0    pop3
+3K_0    pop3
+        </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                Dictionary use case: Mapping species IDs to lists of samples
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                In this example I am showing a function that takes a file with sample IDs
+                                in one column and species IDs in the second column and returns a dictionary
+                                mapping species IDs to samples.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+def get_populations(pops_file):
+    with open(pops_file, 'r') as popsfile:
+        pops = {}
+
+        ## Ignore blank lines
+        lines = [line for line in popsfile.readlines() if line.strip()]
+        ## Get all the populations
+        for line in lines:
+            pops.setdefault(line.split()[1], [])
+
+            for line in lines:
+                ind = line.split()[0]
+                pop = line.split()[1]
+                pops[pop].append(ind)
+        return pops
+        </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title">
+                                Dictionary use case: Mapping species IDs to lists of samples
+                            </h3>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# Contents of the pops.txt file
+1A_0    pop1
+1B_0    pop1
+1C_0    pop1
+2E_0    pop2
+2F_0    pop2
+2G_0    pop2
+3I_0    pop3
+3J_0    pop3
+3K_0    pop3
+        </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# Calling our new function and passing in this file we now get a nice dictionary
+get_populations(pops_file)
+                            </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+{'pop1': ['1A_0', '1B_0', '1C_0'],
+'pop2': ['2E_0', '2F_0', '2G_0'],
+'pop3': ['3I_0', '3J_0', '3K_0']}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Conditional branching (if/else) section -->
+
+                <section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 6%">
+                                if/else: Conditional branching for control flow
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    Normally, python code is executed sequentially from top to bottom. Python (and all
+                                    other programming languages) allow for Conditional execution, where a block of one
+                                    or more statements will be executed if a certain expression is true, and something
+                                    else happens if the expression is false.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+count = 0
+seq = "ACTGGCGAGAA"
+for base in seq:
+    if base == "A":
+        count += 1
+print(count)
+                            </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+4
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 5%">
+                                else statements: explicit alternatives to failed 'if' condition
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    In the above, we only add 1 to the counter if the base in question is A,
+                                    otherwise we do nothing. We can do more than nothing in the case
+                                    of a failed 'if' condition by defining an 'else' block. If an 'else' is defined
+                                    then it captures all conditions that do not explicitly pass the `if` test.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+count = 0
+seq = "ACTGGCGAGAA"
+for base in seq:
+    if base == "A" or base == "T":
+        count += 1
+    else:
+        print("Not A or T")
+print(f"AT count: {count}")
+            </code></pre>
+
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+Not A or T
+Not A or T
+Not A or T
+Not A or T
+Not A or T
+Not A or T
+AT count: 5
+
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 5%">
+                                elif statements: Multiple conditional branching
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    If we have a multi-outcome condition we can use `elif` to introduce an
+                                    additional explicit condition. With if/elif statements one can optionally
+                                    include or exclude the final 'else', in which case if it is excluded then nothing
+                                    happens if the `if` test fails.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+gc_count = 0
+seq = "ACTGGCGAGAA"
+for base in seq:
+    if base == "G":
+        gc_count += 1
+    elif base == "C":
+        gc_count += 1
+    else:
+        print("Not GC")
+print(f"GC content: {gc_count/len(seq)}")
+            </code></pre>
+
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+Not GC
+Not GC
+Not GC
+Not GC
+Not GC
+GC content: 0.545454
+
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Defining functions section -->
+                <section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 6%">
+                                Expanding your toolkit: Defining your own functions
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    A function is a reusable block of code or programming statements
+                                    designed to perform a certain task. Python provides the `def` keyword for
+                                    defining functions.
+                                    <br><br>
+                                    Functions can take arguments, they can execute code, and they can return
+                                    values to the code that called them. Here is a simple function that takes
+                                    no arguments, prints a string, and returns `33`.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# Declaring a function
+def my_function():
+    print("Inside my function")
+    return 33
+# Calling a function
+my_function()
+          </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+33
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 5%">
+                                Function arguments w/ & w/o defualt values
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    Functions can take zero or more parameters and these can have default
+                                    values (in the case that sensible defaults can be defined) or they
+                                    can not have default values (in which case they must be specified or an exception
+                                    is raised).
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 17px; line-height:1.35;">
+def my_function(name="wat")
+    return f"Hello {name}"
+def my_function2(name)
+    return f"Hello {name}"
+
+my_function()
+my_function(name="Isaac")
+my_function2(name="Isaac")
+my_function2()
+                            </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 17px; line-height:1.35;">
+Hello wat
+Hello Isaac
+Hello Isaac
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[154], line 10
+---> 10 print(my_function2())
+TypeError: my_function2() missing 1 required positional argument: 'name'
+
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="standard">
+                            <h3 class="title" style="margin-top: 5%">
+                                prototyping functions with jupyter notebooks
+                            </h3>
+                            <div class="textbox">
+                                <p>
+                                    The interactivity and simple, fast feedback of working in jupyter notebooks
+                                    makes it a great environment for 'prototyping' when developing your own functions.
+                                    For me, I will begin by writing code to do a task using small values for parameters
+                                    so I can easily see what's happening. I will get this working, and then
+                                    abstract the parts I want to change by introducing a variable. Then I will continue
+                                    developing and testing, and once the code works well I will copy/paste it into a new
+                                    function definition.
+                                </p>
+                            </div>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+# prototype using small values to get it working
+dat = np.random.lognormal(10, size=10)
+dat = np.concatenate([dat, np.zeros(10)])
+print(dat)
+                            </code></pre>
+                            <pre
+                                style="width: 60%"
+                            ><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+# Function definition which accepts 2 arguments which I can now specify
+# as I choose when calling the function
+def samp(size=10, nzeros=10):
+    dat = np.random.lognormal(10, size=size)
+    dat = np.concatenate([dat, np.zeros(nzeros)])
+    return dat
+result = samp(size=500, nzeros=100)
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="../revealjs/dist/reveal.js"></script>
+        <script src="../revealjs/plugin/notes/notes.js"></script>
+        <script src="../revealjs/plugin/highlight/highlight.js"></script>
+        <script src="../revealjs/plugin/markdown/markdown.js"></script>
+        <script>
+            Reveal.initialize({
+                transition: "none",
+                hash: true,
+                plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+                width: 1600,
+                height: 900,
+                minScale: 0.1,
+                maxScale: 5,
+                controls: true,
+                progress: true,
+                loop: false,
+                center: false,
+            });
+        </script>
+    </body>
+</html>
