@@ -1,5 +1,5 @@
 ---
-title: "Hack the planet!"
+title: "CSCI 232 - Data Structures and Algorithms"
 ---
 
 # Hack the Planet
