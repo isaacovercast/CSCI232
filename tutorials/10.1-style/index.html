@@ -1,0 +1,1592 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://isaacovercast.github.io/CSCI232/tutorials/10.1-style/">
+      
+      
+      
+      
+      <link rel="icon" href="/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>black style - CSCI 232 - Data Structures and Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/pages.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16-unikitty-light.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-linters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-header__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSCI 232 - Data Structures and Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              black style
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to lightmode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to lightmode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-nav__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    CSCI 232 - Data Structures and Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sessions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sessions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sessions/session-1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Session 1 - (3/24)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.0-github" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.0 -- GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-shell" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 -- Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2-bash" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 -- Shell challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://algs4.cs.princeton.edu/home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textbook - Algorithms (Sedgwick & Wayne)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.coursera.org/learn/algorithms-part1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coursera - Algorithms (S&W)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supplementary Reading - TAOCP (Knuth)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External Links
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            External Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/c3PSEk3HU9" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSCI 232 Discord Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch CSCI 232 Binder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-linters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python linters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python linters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-some-linters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install some linters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing black
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pylint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pylint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>black style</h1>
+
+<h2 id="python-linters">Python linters<a class="headerlink" href="#python-linters" title="Permanent link">&para;</a></h2>
+<h3 id="learning-objectives">Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
+<p>By the end of this tutorial you should:
+- Understand why using a style guide is a good idea
+- Be familiar with the 'black' style guide for Python.
+- Be able to implement 'black' on your code from a shell.</p>
+<h3 id="install-some-linters">Install some linters<a class="headerlink" href="#install-some-linters" title="Permanent link">&para;</a></h3>
+<p>Let's start with installing the <code>pycodestyle</code>, <code>pylint</code> and <code>black</code> linters.</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pycodestyle<span class="w"> </span>pylint<span class="w"> </span>black<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</code></pre></div>
+<h3 id="reading">Reading<a class="headerlink" href="#reading" title="Permanent link">&para;</a></h3>
+<p>Please read the following short article about <em>why</em> using a style guide is a good idea.
+- <a href="https://prettier.io/docs/en/why-prettier.html">Why use a style guide (JS)</a></p>
+<p>Then read the following articles which introduce <b>black</b>, and why you should use
+it as your preferred style. (I do not necessary promote this as the best style guide, 
+personally I use pylint, but I think black is good to know about.)
+- <a href="https://github.com/psf/black/blob/master/docs/the_black_code_style.md">Black code style</a></p>
+<!-- - [Black's dogma](http://www.locallyoptimal.com/blog/2019/08/23/why-you-should-use-black-for-your-python-style-linting/) -->
+
+<h3 id="implementing-black">Implementing black<a class="headerlink" href="#implementing-black" title="Permanent link">&para;</a></h3>
+<p>Unlike other linters that we will learn about, black is intended <em>not to be modified</em>, 
+in other words, if you use black you are expected to accept all of its recommendations.
+For this reason, it doesn't really function as a <em>recommender</em>, but moreso as an 
+<em>implementer</em>. It can make changes directly to your Python files to fix the style
+errors that it finds. Personally, I find this a little obtrusive, so I always first 
+run it with the argument <code>--diff</code>, which will show you the changes it intends to make 
+without actually making them. It's sort of a dry run. </p>
+<p>Let's try this on a few example files from a public repository. Use the commands below
+to clone two repos into your <code>~/hacks</code> directory. We will not bother forking the repos
+this time, since we do not intend to push the changes we will make to these files back
+to the origin repos.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/hacks/
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rajanil/fastStructure
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/eaton-lab/toytree/
+</code></pre></div>
+<p>Let's start by running black on one of the main scripts in the fastStructure package.
+This is a tool that was published about 6 years ago, so its a bit outdated now, but 
+still in common use. It is written in Python2.7, and impressively black is able to 
+recognize this and propose changes to the code style. Here I run it using the 
+<code>--diff</code> option. </p>
+<p>The format of this output is called a <code>diff</code>, it is showing the differences 
+between the original file and the file that black
+<em>would have made</em> if it had been allowed to overwrite the original file (i.e., if we
+hadn't used the --diff arg). On the left side of each line it shows a minus or plus
+sign. The minus lines are from the old file, and the plus lines are showing what
+would replace the old lines. In some cases it may look like no change was made, 
+this usually means that the difference has to do with the whitespace, for example, 
+by removing extra spaces at the ends of lines.</p>
+<p><div class="highlight"><pre><span></span><code>black<span class="w"> </span>--diff<span class="w"> </span>fastStructure/structure.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>--- fastStructure/structure.py  2021-02-03 17:02:15.106875 +0000
++++ fastStructure/structure.py  2021-02-03 21:20:31.833481 +0000
+@@ -1,137 +1,157 @@
+-
+ import numpy as np
+-import fastStructure 
++import fastStructure
+ import parse_bed
+ import parse_str
+ import random
+ import getopt
+ import sys
+ import pdb
+ import warnings
+
+ # ignore warnings with these expressions
+-warnings.filterwarnings(&amp;apos;ignore&amp;apos;, &amp;apos;.*divide by zero.*&amp;apos;,)
+-warnings.filterwarnings(&amp;apos;ignore&amp;apos;, &amp;apos;.*invalid value.*&amp;apos;,)
++warnings.filterwarnings(
++    &amp;quot;ignore&amp;quot;,
++    &amp;quot;.*divide by zero.*&amp;quot;,
++)
++warnings.filterwarnings(
++    &amp;quot;ignore&amp;quot;,
++    &amp;quot;.*invalid value.*&amp;quot;,
++)
++
+
+ def parseopts(opts):
+
+     &amp;quot;&amp;quot;&amp;quot;
+     parses the command-line flags and options passed to the script
+     &amp;quot;&amp;quot;&amp;quot;
+
+-    params = {&amp;apos;mintol&amp;apos;: 1e-6,
+-            &amp;apos;prior&amp;apos;: &amp;quot;simple&amp;quot;,
+-            &amp;apos;cv&amp;apos;: 0,
+-            &amp;apos;full&amp;apos;: False,
+-            &amp;apos;format&amp;apos;: &amp;apos;bed&amp;apos;
+-            }
++    params = {
++        &amp;quot;mintol&amp;quot;: 1e-6,
++        &amp;quot;prior&amp;quot;: &amp;quot;simple&amp;quot;,
++        &amp;quot;cv&amp;quot;: 0,
++        &amp;quot;full&amp;quot;: False,
++        &amp;quot;format&amp;quot;: &amp;quot;bed&amp;quot;,
++    }
+
+     for opt, arg in opts:
+
+         if opt in [&amp;quot;-K&amp;quot;]:
+-            params[&amp;apos;K&amp;apos;] = int(arg)
++            params[&amp;quot;K&amp;quot;] = int(arg)
+
+         elif opt in [&amp;quot;--input&amp;quot;]:
+-            params[&amp;apos;inputfile&amp;apos;] = arg
++            params[&amp;quot;inputfile&amp;quot;] = arg
+
+         elif opt in [&amp;quot;--output&amp;quot;]:
+-            params[&amp;apos;outputfile&amp;apos;] = arg
++            params[&amp;quot;outputfile&amp;quot;] = arg
+
+         elif opt in [&amp;quot;--prior&amp;quot;]:
+-            params[&amp;apos;prior&amp;apos;] = arg
+-
+-            if params[&amp;apos;prior&amp;apos;] not in [&amp;apos;simple&amp;apos;,&amp;apos;logistic&amp;apos;]:
++            params[&amp;quot;prior&amp;quot;] = arg
++
++            if params[&amp;quot;prior&amp;quot;] not in [&amp;quot;simple&amp;quot;, &amp;quot;logistic&amp;quot;]:
+                 print &amp;quot;%s prior is not currently implemented, defaulting to the simple prior&amp;quot;
+-                params[&amp;apos;prior&amp;apos;] = &amp;apos;simple&amp;apos;
++                params[&amp;quot;prior&amp;quot;] = &amp;quot;simple&amp;quot;
+
+         elif opt in [&amp;quot;--format&amp;quot;]:
+-            params[&amp;apos;format&amp;apos;] = arg
++            params[&amp;quot;format&amp;quot;] = arg
+
+         elif opt in [&amp;quot;--cv&amp;quot;]:
+-            params[&amp;apos;cv&amp;apos;] = int(arg)
+-        
++            params[&amp;quot;cv&amp;quot;] = int(arg)
++
+         elif opt in [&amp;quot;--tol&amp;quot;]:
+-            params[&amp;apos;mintol&amp;apos;] = float(arg)
++            params[&amp;quot;mintol&amp;quot;] = float(arg)
+
+         elif opt in [&amp;quot;--full&amp;quot;]:
+-            params[&amp;apos;full&amp;apos;] = True
++            params[&amp;quot;full&amp;quot;] = True
+
+         elif opt in [&amp;quot;--seed&amp;quot;]:
+             np.random.seed(int(arg))
+             random.seed(int(arg))
+
+     return params
+
++
+ def checkopts(params):
+
+     &amp;quot;&amp;quot;&amp;quot;
+     checks if some of the command-line options passed are valid.
+     In the case of invalid options, an exception is always thrown.
+     &amp;quot;&amp;quot;&amp;quot;
+
+-    if params[&amp;apos;mintol&amp;apos;]&amp;lt;=0:
++    if params[&amp;quot;mintol&amp;quot;] &amp;lt;= 0:
+         print &amp;quot;a non-positive value was provided as convergence criterion&amp;quot;
+         raise ValueError
+-    
+-    if params[&amp;apos;cv&amp;apos;]&amp;lt;0:
++
++    if params[&amp;quot;cv&amp;quot;] &amp;lt; 0:
+         print &amp;quot;a negative value was provided for the number of cross-validations folds&amp;quot;
+         raise ValueError
+
+-    if not params.has_key(&amp;apos;K&amp;apos;):
++    if not params.has_key(&amp;quot;K&amp;quot;):
+         print &amp;quot;a positive integer should be provided for number of populations&amp;quot;
+         raise KeyError
+
+-    if params[&amp;apos;format&amp;apos;] not in [&amp;apos;bed&amp;apos;,&amp;apos;str&amp;apos;]:
++    if params[&amp;quot;format&amp;quot;] not in [&amp;quot;bed&amp;quot;, &amp;quot;str&amp;quot;]:
+         print &amp;quot;%s data format is not currently implemented&amp;quot;
+         raise ValueError
+
+-    if params[&amp;apos;K&amp;apos;]&amp;lt;=0:
++    if params[&amp;quot;K&amp;quot;] &amp;lt;= 0:
+         print &amp;quot;a negative value was provided for the number of populations&amp;quot;
+         raise ValueError
+-    
+-    if not params.has_key(&amp;apos;inputfile&amp;apos;):
++
++    if not params.has_key(&amp;quot;inputfile&amp;quot;):
+         print &amp;quot;an input file needs to be provided&amp;quot;
+-        raise KeyError 
+-
+-    if not params.has_key(&amp;apos;outputfile&amp;apos;):
++        raise KeyError
++
++    if not params.has_key(&amp;quot;outputfile&amp;quot;):
+         print &amp;quot;an output file needs to be provided&amp;quot;
+         raise KeyError
+-    
++
++
+ def write_output(Q, P, other, params):
+
+     &amp;quot;&amp;quot;&amp;quot;
+     write the posterior means and variational parameters
+     to separate output files.
+     &amp;quot;&amp;quot;&amp;quot;
+
+-    handle = open(&amp;apos;%s.%d.meanQ&amp;apos;%(params[&amp;apos;outputfile&amp;apos;],params[&amp;apos;K&amp;apos;]),&amp;apos;w&amp;apos;)
+-    handle.write(&amp;apos;\n&amp;apos;.join([&amp;apos;  &amp;apos;.join([&amp;apos;%.6f&amp;apos;%i for i in q]) for q in Q])+&amp;apos;\n&amp;apos;)
++    handle = open(&amp;quot;%s.%d.meanQ&amp;quot; % (params[&amp;quot;outputfile&amp;quot;], params[&amp;quot;K&amp;quot;]), &amp;quot;w&amp;quot;)
++    handle.write(&amp;quot;\n&amp;quot;.join([&amp;quot;  &amp;quot;.join([&amp;quot;%.6f&amp;quot; % i for i in q]) for q in Q]) + &amp;quot;\n&amp;quot;)
+     handle.close()
+
+-    handle = open(&amp;apos;%s.%d.meanP&amp;apos;%(params[&amp;apos;outputfile&amp;apos;],params[&amp;apos;K&amp;apos;]),&amp;apos;w&amp;apos;)
+-    handle.write(&amp;apos;\n&amp;apos;.join([&amp;apos;  &amp;apos;.join([&amp;apos;%.6f&amp;apos;%i for i in p]) for p in P])+&amp;apos;\n&amp;apos;)
++    handle = open(&amp;quot;%s.%d.meanP&amp;quot; % (params[&amp;quot;outputfile&amp;quot;], params[&amp;quot;K&amp;quot;]), &amp;quot;w&amp;quot;)
++    handle.write(&amp;quot;\n&amp;quot;.join([&amp;quot;  &amp;quot;.join([&amp;quot;%.6f&amp;quot; % i for i in p]) for p in P]) + &amp;quot;\n&amp;quot;)
+     handle.close()
+
+-    if params[&amp;apos;full&amp;apos;]:
+-        handle = open(&amp;apos;%s.%d.varQ&amp;apos;%(params[&amp;apos;outputfile&amp;apos;],params[&amp;apos;K&amp;apos;]),&amp;apos;w&amp;apos;)
+-        handle.write(&amp;apos;\n&amp;apos;.join([&amp;apos;  &amp;apos;.join([&amp;apos;%.6f&amp;apos;%i for i in q]) for q in other[&amp;apos;varQ&amp;apos;]])+&amp;apos;\n&amp;apos;)
++    if params[&amp;quot;full&amp;quot;]:
++        handle = open(&amp;quot;%s.%d.varQ&amp;quot; % (params[&amp;quot;outputfile&amp;quot;], params[&amp;quot;K&amp;quot;]), &amp;quot;w&amp;quot;)
++        handle.write(
++            &amp;quot;\n&amp;quot;.join([&amp;quot;  &amp;quot;.join([&amp;quot;%.6f&amp;quot; % i for i in q]) for q in other[&amp;quot;varQ&amp;quot;]])
++            + &amp;quot;\n&amp;quot;
++        )
+         handle.close()
+
+-        handle = open(&amp;apos;%s.%d.varP&amp;apos;%(params[&amp;apos;outputfile&amp;apos;],params[&amp;apos;K&amp;apos;]),&amp;apos;w&amp;apos;)
+-        handle.write(&amp;apos;\n&amp;apos;.join([&amp;apos;  &amp;apos;.join([&amp;apos;%.6f&amp;apos;%i for i in np.hstack((pb,pg))]) \
+-            for pb,pg in zip(other[&amp;apos;varPb&amp;apos;],other[&amp;apos;varPg&amp;apos;])])+&amp;apos;\n&amp;apos;)
++        handle = open(&amp;quot;%s.%d.varP&amp;quot; % (params[&amp;quot;outputfile&amp;quot;], params[&amp;quot;K&amp;quot;]), &amp;quot;w&amp;quot;)
++        handle.write(
++            &amp;quot;\n&amp;quot;.join(
++                [
++                    &amp;quot;  &amp;quot;.join([&amp;quot;%.6f&amp;quot; % i for i in np.hstack((pb, pg))])
++                    for pb, pg in zip(other[&amp;quot;varPb&amp;quot;], other[&amp;quot;varPg&amp;quot;])
++                ]
++            )
++            + &amp;quot;\n&amp;quot;
++        )
+         handle.close()
+
++
+ def usage():
+-    
++
+     &amp;quot;&amp;quot;&amp;quot;
+     brief description of various flags and options for this script
+     &amp;quot;&amp;quot;&amp;quot;
+
+     print &amp;quot;\nHere is how you can use this script\n&amp;quot;
+-    print &amp;quot;Usage: python %s&amp;quot;%sys.argv[0]
++    print &amp;quot;Usage: python %s&amp;quot; % sys.argv[0]
+     print &amp;quot;\t -K &amp;lt;int&amp;gt; (number of populations)&amp;quot;
+     print &amp;quot;\t --input=&amp;lt;file&amp;gt; (/path/to/input/file)&amp;quot;
+     print &amp;quot;\t --output=&amp;lt;file&amp;gt; (/path/to/output/file)&amp;quot;
+     print &amp;quot;\t --tol=&amp;lt;float&amp;gt; (convergence criterion; default: 10e-6)&amp;quot;
+     print &amp;quot;\t --prior={simple,logistic} (choice of prior; default: simple)&amp;quot;
+@@ -139,16 +159,25 @@
+     print &amp;quot;\t --format={bed,str} (format of input file; default: bed)&amp;quot;
+     print &amp;quot;\t --full (to output all variational parameters; optional)&amp;quot;
+     print &amp;quot;\t --seed=&amp;lt;int&amp;gt; (manually specify seed for random number generator; optional)&amp;quot;
+
+
+-if __name__==&amp;quot;__main__&amp;quot;:
++if __name__ == &amp;quot;__main__&amp;quot;:
+
+     # parse command-line options
+     argv = sys.argv[1:]
+     smallflags = &amp;quot;K:&amp;quot;
+-    bigflags = [&amp;quot;prior=&amp;quot;, &amp;quot;tol=&amp;quot;, &amp;quot;input=&amp;quot;, &amp;quot;output=&amp;quot;, &amp;quot;cv=&amp;quot;, &amp;quot;seed=&amp;quot;, &amp;quot;format=&amp;quot;, &amp;quot;full&amp;quot;] 
++    bigflags = [
++        &amp;quot;prior=&amp;quot;,
++        &amp;quot;tol=&amp;quot;,
++        &amp;quot;input=&amp;quot;,
++        &amp;quot;output=&amp;quot;,
++        &amp;quot;cv=&amp;quot;,
++        &amp;quot;seed=&amp;quot;,
++        &amp;quot;format=&amp;quot;,
++        &amp;quot;full&amp;quot;,
++    ]
+     try:
+         opts, args = getopt.getopt(argv, smallflags, bigflags)
+         if not opts:
+             usage()
+             sys.exit(2)
+@@ -160,22 +189,27 @@
+     params = parseopts(opts)
+
+     # check if command-line options are valid
+     try:
+         checkopts(params)
+-    except (ValueError,KeyError):
++    except (ValueError, KeyError):
+         sys.exit(2)
+
+     # load data
+-    if params[&amp;apos;format&amp;apos;]==&amp;apos;bed&amp;apos;:
+-        G = parse_bed.load(params[&amp;apos;inputfile&amp;apos;])
+-    elif params[&amp;apos;format&amp;apos;]==&amp;apos;str&amp;apos;:
+-        G = parse_str.load(params[&amp;apos;inputfile&amp;apos;])
+-    G = np.require(G, dtype=np.uint8, requirements=&amp;apos;C&amp;apos;)
++    if params[&amp;quot;format&amp;quot;] == &amp;quot;bed&amp;quot;:
++        G = parse_bed.load(params[&amp;quot;inputfile&amp;quot;])
++    elif params[&amp;quot;format&amp;quot;] == &amp;quot;str&amp;quot;:
++        G = parse_str.load(params[&amp;quot;inputfile&amp;quot;])
++    G = np.require(G, dtype=np.uint8, requirements=&amp;quot;C&amp;quot;)
+
+     # run the variational algorithm
+-    Q, P, other = fastStructure.infer_variational_parameters(G, params[&amp;apos;K&amp;apos;], \
+-                    params[&amp;apos;outputfile&amp;apos;], params[&amp;apos;mintol&amp;apos;], \
+-                    params[&amp;apos;prior&amp;apos;], params[&amp;apos;cv&amp;apos;])
++    Q, P, other = fastStructure.infer_variational_parameters(
++        G,
++        params[&amp;quot;K&amp;quot;],
++        params[&amp;quot;outputfile&amp;quot;],
++        params[&amp;quot;mintol&amp;quot;],
++        params[&amp;quot;prior&amp;quot;],
++        params[&amp;quot;cv&amp;quot;],
++    )
+
+     # write out inferred parameters
+     write_output(Q, P, other, params)
+&lt;b&gt;would reformat fastStructure/structure.py&lt;/b&gt;
+&lt;b&gt;All done! ✨ 🍰 ✨&lt;/b&gt;
+&lt;b&gt;1 file would be reformatted&lt;/b&gt;.
+</code></pre></div></p>
+<h3 id="pylint">Pylint<a class="headerlink" href="#pylint" title="Permanent link">&para;</a></h3>
+<p>Running this first example below will encounter an error and STOP 
+when run on the structure.py script, since the script cannot successfully execute
+in its current mode. The terminal error in this case is caused by the fact 
+that pylint uses your <em>current Python</em> version to test for errors, and this
+script is written in Python2, whereas we are testing in Python3. 
+It raises an error saying that the print function is being called 
+incorrectly. This is a common error-producing difference between py2/3. 
+This is fine, good to know, we'll continue to the next example.
+<div class="highlight"><pre><span></span><code>pylint<span class="w"> </span>fastStructure/structure.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>************* Module structure
+fastStructure/structure.py:44:23: E0001: Missing parentheses in call to &amp;apos;print&amp;apos;. Did you mean print(&amp;quot;%s prior is not currently implemented, defaulting to the simple prior&amp;quot;)? (&amp;lt;unknown&amp;gt;, line 44) (syntax-error)
+</code></pre></div></p>
+<p>Now let's run pylint on some code that is written to work in either Python
+2 or Python 3. Writing code in this way is kind of a pain, but is worth it 
+for big general use packages. The Python package Toytree is an example. 
+You can see in this example that pylint finishes running and reports a score
+of 7.26/10. Not bad. It has several recommendations having to do with 
+mundane style (extra whitespace), but also some useful suggestions for cleaner
+code, like "unnecessary else after break". If we were to edit the files 
+at the suggested lines to implement these suggestions, and rerun pylint, 
+it should return improved scores until it reaches 10/10.
+<div class="highlight"><pre><span></span><code>pylint<span class="w"> </span>toytree/toytree/Rooter.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>************* Module toytree.Rooter
+toytree/toytree/Rooter.py:52:26: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:90:42: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:106:27: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:114:65: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:138:31: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:139:33: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:158:60: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:182:73: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:183:66: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:196:69: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:197:70: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:216:88: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:244:70: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:247:23: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:248:32: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:250:9: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:262:73: C0303: Trailing whitespace (trailing-whitespace)
+toytree/toytree/Rooter.py:1:0: C0103: Module name &amp;quot;Rooter&amp;quot; doesn&amp;apos;t conform to snake_case naming style (invalid-name)
+toytree/toytree/Rooter.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+toytree/toytree/Rooter.py:11:0: R0902: Too many instance attributes (11/7) (too-many-instance-attributes)
+toytree/toytree/Rooter.py:50:8: C0103: Variable name &amp;quot;x0&amp;quot; doesn&amp;apos;t conform to snake_case naming style (invalid-name)
+toytree/toytree/Rooter.py:51:8: C0103: Variable name &amp;quot;x1&amp;quot; doesn&amp;apos;t conform to snake_case naming style (invalid-name)
+toytree/toytree/Rooter.py:70:4: C0116: Missing function or method docstring (missing-function-docstring)
+toytree/toytree/Rooter.py:79:4: C0116: Missing function or method docstring (missing-function-docstring)
+toytree/toytree/Rooter.py:83:8: W0212: Access to a protected member _coords of a client class (protected-access)
+toytree/toytree/Rooter.py:131:12: R1723: Unnecessary &amp;quot;else&amp;quot; after &amp;quot;break&amp;quot; (no-else-break)
+toytree/toytree/Rooter.py:104:4: R0912: Too many branches (13/12) (too-many-branches)
+toytree/toytree/Rooter.py:228:4: C0112: Empty method docstring (empty-docstring)
+toytree/toytree/Rooter.py:261:4: C0116: Missing function or method docstring (missing-function-docstring)
+toytree/toytree/Rooter.py:281:8: C0103: Variable name &amp;quot;x0&amp;quot; doesn&amp;apos;t conform to snake_case naming style (invalid-name)
+toytree/toytree/Rooter.py:282:8: C0103: Variable name &amp;quot;x1&amp;quot; doesn&amp;apos;t conform to snake_case naming style (invalid-name)
+
+------------------------------------------------------------------
+Your code has been rated at 7.26/10 (previous run: 7.26/10, +0.00)
+</code></pre></div></p>
+<p>You can see that pycodestyle makes similar recommendations as pylint, but fewer,
+mostly having to do with things of little consequence (extra whitespace or variable names).
+It does run quite a bit faster though, which is convenient for when the linter is 
+running automatically in the background of your code editor (as we'll see later).
+<div class="highlight"><pre><span></span><code>pycodestyle<span class="w"> </span>toytree/toytree/Rooter.py
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>toytree/toytree/Rooter.py:30:80: E501 line too long (82 &amp;gt; 79 characters)
+toytree/toytree/Rooter.py:52:27: W291 trailing whitespace
+toytree/toytree/Rooter.py:70:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:79:5: E303 too many blank lines (2)
+toytree/toytree/Rooter.py:87:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:90:43: W291 trailing whitespace
+toytree/toytree/Rooter.py:104:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:106:28: W291 trailing whitespace
+toytree/toytree/Rooter.py:114:66: W291 trailing whitespace
+toytree/toytree/Rooter.py:138:32: W291 trailing whitespace
+toytree/toytree/Rooter.py:139:34: W291 trailing whitespace
+toytree/toytree/Rooter.py:145:80: E501 line too long (80 &amp;gt; 79 characters)
+toytree/toytree/Rooter.py:158:61: W291 trailing whitespace
+toytree/toytree/Rooter.py:182:74: W291 trailing whitespace
+toytree/toytree/Rooter.py:183:67: W291 trailing whitespace
+toytree/toytree/Rooter.py:194:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:196:70: W291 trailing whitespace
+toytree/toytree/Rooter.py:197:71: W291 trailing whitespace
+toytree/toytree/Rooter.py:216:80: E501 line too long (88 &amp;gt; 79 characters)
+toytree/toytree/Rooter.py:216:89: W291 trailing whitespace
+toytree/toytree/Rooter.py:220:17: E128 continuation line under-indented for visual indent
+toytree/toytree/Rooter.py:220:80: E501 line too long (81 &amp;gt; 79 characters)
+toytree/toytree/Rooter.py:221:17: E128 continuation line under-indented for visual indent
+toytree/toytree/Rooter.py:221:80: E501 line too long (81 &amp;gt; 79 characters)
+toytree/toytree/Rooter.py:222:17: E128 continuation line under-indented for visual indent
+toytree/toytree/Rooter.py:223:17: E128 continuation line under-indented for visual indent
+toytree/toytree/Rooter.py:228:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:244:71: W291 trailing whitespace
+toytree/toytree/Rooter.py:247:24: W291 trailing whitespace
+toytree/toytree/Rooter.py:248:33: W291 trailing whitespace
+toytree/toytree/Rooter.py:250:10: W291 trailing whitespace
+toytree/toytree/Rooter.py:261:5: E303 too many blank lines (3)
+toytree/toytree/Rooter.py:262:74: W291 trailing whitespace
+toytree/toytree/Rooter.py:270:5: E303 too many blank lines (3)
+</code></pre></div>
+<p>Finally, let's run black. Studying the output of the --diff command to black can be 
+really insightful about what the actual solutions are to the many recommendations
+that were provided by pylint above. 
+<div class="highlight"><pre><span></span><code>black<span class="w"> </span>--diff<span class="w"> </span>toytree/toytree/Rooter.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>--- toytree/toytree/Rooter.py   2021-02-03 17:22:53.767184 +0000
++++ toytree/toytree/Rooter.py   2021-02-03 21:30:12.332704 +0000
+@@ -26,11 +26,11 @@
+         # the new node that will be inserted
+         self.nnode = None
+
+         # make a copy and ensure supports are either all int or float
+         self.maxsup = max([int(i.support) for i in self.tree.treenode.traverse()])
+-        self.maxsup = (1.0 if self.maxsup &amp;lt;= 1.0 else 100)
++        self.maxsup = 1.0 if self.maxsup &amp;lt;= 1.0 else 100
+         self.get_features()
+
+         # parse node selecting arguments (nastuple) with NodeAssist
+         self.get_match(*nastuple)
+
+@@ -45,13 +45,13 @@
+             if len(self.node2.children) == 1:
+                 self.node2 = self.node2.up
+                 self.node1 = self.node1.up
+
+         # if rooting where root already exists then return current tree
+-        x0 = (self.node1.is_root())
+-        x1 = (self.node2.is_root() and self.tree.is_rooted())
+-        if not (x0 or x1):           
++        x0 = self.node1.is_root()
++        x1 = self.node2.is_root() and self.tree.is_rooted()
++        if not (x0 or x1):
+
+             # create new root node on an existing edge to split it.
+             self.insert_new_node()
+
+             # update edge lengths given new node insertion
+@@ -62,58 +62,51 @@
+             self.restructure_tree()
+
+             # update coodrds on tree
+             self.update_tree_from_tdict()
+             self.update()
+-
+-
+
+     def update_tree_from_tdict(self):
+         # update tree structure and node labels
+         for node in self.tdict:
+             node.up = self.tdict[node][0]
+             node.children = self.tdict[node][1]
+             for key, val in self.tdict[node][2].items():
+                 setattr(node, key, val)
+
+-
+     def update(self):
+         # update coordinates which updates idx and adds it to any new nodes.
+         self.tree.treenode = self.nnode
+         self.tree.treenode.ladderize()
+         self.tree._coords.update()
+
+-
+-
+     def redirect_edge_features(self):
+         &amp;quot;&amp;quot;&amp;quot;
+         Set support values to maximum for new node since the user forced
+-        rooting, i.e, it is not uncertain. 
++        rooting, i.e, it is not uncertain.
+         &amp;quot;&amp;quot;&amp;quot;
+         # mark new split with zero...
+         for feature in set(self.edge_features) - set([&amp;quot;support&amp;quot;, &amp;quot;dist&amp;quot;]):
+             self.tdict[self.node2][2][feature] = 0.0
+
+         # unless support value, then mark with full.
+         if &amp;quot;support&amp;quot; in self.edge_features:
+-            self.tdict[self.node2][2][&amp;apos;support&amp;apos;] = self.maxsup
++            self.tdict[self.node2][2][&amp;quot;support&amp;quot;] = self.maxsup
+         else:
+-            self.tdict[self.node2][2][&amp;apos;support&amp;apos;] = self.node2.support
+-
+-
++            self.tdict[self.node2][2][&amp;quot;support&amp;quot;] = self.node2.support
+
+     def restructure_tree(self):
+         &amp;quot;&amp;quot;&amp;quot;
+-        At this point tdict 
++        At this point tdict
+            (node): (parent) (children), features
+         {
+             nnode: [None, [node1, node2], {}]
+             node1: [nnode, node1.children, {&amp;apos;dist&amp;apos;}]
+             node2: [nnode, node2.children, {&amp;apos;dist&amp;apos;: 0.0}]
+         }
+         &amp;quot;&amp;quot;&amp;quot;
+-        # start with the node leading from new root child2 to the 
++        # start with the node leading from new root child2 to the
+         # rest of the tree structure and move up until old root.
+         tnode = self.node2.up
+
+         # label all remaining nodes by moving up from tnode to old root.
+         while 1:
+@@ -133,12 +126,12 @@
+                 # need a root add feature here if unrooted...
+                 if len(children) &amp;gt; 1:
+
+                     # update dist from new parent
+                     self.tdict[tnode] = [
+-                        parent, 
+-                        children, 
++                        parent,
++                        children,
+                         {&amp;quot;dist&amp;quot;: parent.dist},
+                     ]
+
+                     # update edge features from new parent
+                     for feature in self.edge_features:
+@@ -153,11 +146,11 @@
+
+                 # get children that are not in tdict yet
+                 else:
+                     for child in children:
+
+-                        # record whose children they are now 
++                        # record whose children they are now
+                         # (node2 already did this)
+                         if parent is self.node2:
+                             self.tdict[self.node2][1].append(child)
+                         else:
+                             self.tdict[parent][1].append(child)
+@@ -170,33 +163,31 @@
+                 break
+
+             # normal nodes
+             else:
+                 # update tnode.features [dist will be inherited from child]
+-                features = {&amp;apos;dist&amp;apos;: tnode.dist, &amp;apos;support&amp;apos;: tnode.support}
++                features = {&amp;quot;dist&amp;quot;: tnode.dist, &amp;quot;support&amp;quot;: tnode.support}
+
+                 # keep connecting swap parent-child up to root
+                 if not tnode.up.is_root():
+                     children += [tnode.up]
+
+                 # pass support values down (up in new tree struct)
+-                child = [i for i in tnode.children if i in self.tdict][0]                
+-                for feature in {&amp;apos;dist&amp;apos;}.union(self.edge_features):                   
++                child = [i for i in tnode.children if i in self.tdict][0]
++                for feature in {&amp;quot;dist&amp;quot;}.union(self.edge_features):
+                     features[feature] = getattr(child, feature)
+
+                 # store node update vals
+                 self.tdict[tnode] = [parent, children, features]
+
+             # move towards root
+             tnode = tnode.up
+
+-
+-
+     def config_root_dist(self):
+         &amp;quot;&amp;quot;&amp;quot;
+-        Now that the new root node is inserted .dist features must be 
+-        set for the two descendant nodes. Midpoint rooting is a common 
++        Now that the new root node is inserted .dist features must be
++        set for the two descendant nodes. Midpoint rooting is a common
+         option, but users can toggle &amp;apos;resolve_root_dist&amp;apos; to change this.
+         &amp;quot;&amp;quot;&amp;quot;
+         # if not already at root polytomy, then connect node2 to parent
+         if self.node2.up:
+             if not self.node2.up.is_root():
+@@ -206,31 +197,29 @@
+         if self.resolve_root_dist is False:
+             self.resolve_root_dist = 0.0
+
+         # if True then use midpoint rooting
+         elif self.resolve_root_dist is True:
+-            self.tdict[self.node1][2][&amp;quot;dist&amp;quot;] = self.node1.dist / 2.
+-            self.tdict[self.node2][2][&amp;quot;dist&amp;quot;] = self.node1.dist / 2.
++            self.tdict[self.node1][2][&amp;quot;dist&amp;quot;] = self.node1.dist / 2.0
++            self.tdict[self.node2][2][&amp;quot;dist&amp;quot;] = self.node1.dist / 2.0
+
+         # split the edge on 0 or a float
+         if isinstance(self.resolve_root_dist, float):
+-            self.tdict[self.node1][2][&amp;quot;dist&amp;quot;] = self.node1.dist - self.resolve_root_dist            
++            self.tdict[self.node1][2][&amp;quot;dist&amp;quot;] = self.node1.dist - self.resolve_root_dist
+             self.tdict[self.node2][2][&amp;quot;dist&amp;quot;] = self.resolve_root_dist
+             if self.resolve_root_dist &amp;gt; self.node1.dist:
+-                raise ToytreeError(&amp;quot;\n&amp;quot;
+-                &amp;quot;To preserve existing edge lengths the &amp;apos;resolve_root_dist&amp;apos; arg\n&amp;quot;
+-                &amp;quot;must be smaller than the edge being split (it is selecting a \n&amp;quot;
+-                &amp;quot;a point along the edge.) The edge above node idx {} is {}.&amp;quot;
+-                .format(self.node1.idx, self.node1.dist)
++                raise ToytreeError(
++                    &amp;quot;\n&amp;quot;
++                    &amp;quot;To preserve existing edge lengths the &amp;apos;resolve_root_dist&amp;apos; arg\n&amp;quot;
++                    &amp;quot;must be smaller than the edge being split (it is selecting a \n&amp;quot;
++                    &amp;quot;a point along the edge.) The edge above node idx {} is {}.&amp;quot;.format(
++                        self.node1.idx, self.node1.dist
++                    )
+                 )
+
+-
+-
+     def insert_new_node(self):
+-        &amp;quot;&amp;quot;&amp;quot;
+-
+-        &amp;quot;&amp;quot;&amp;quot;
++        &amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;
+         # the new root node to be placed on the split
+         self.nnode = self.tree.treenode.__class__()
+         self.nnode.name = &amp;quot;root&amp;quot;
+         self.nnode.add_feature(&amp;quot;idx&amp;quot;, self.tree.treenode.idx)
+         self.nnode.support = self.maxsup
+@@ -239,36 +228,32 @@
+         self.node2.children.remove(self.node1)
+
+         # new node has no parent and 1,2 as children and default features
+         self.tdict[self.nnode] = [None, [self.node1, self.node2], {}]
+
+-        # node1 has new root parent, same children, and dist preserved 
++        # node1 has new root parent, same children, and dist preserved
+         # (or split?), or should: node1.dist / 2.
+         self.tdict[self.node1] = [
+-            self.nnode, 
+-            self.node1.children, 
+-            {&amp;quot;dist&amp;quot;: self.node1.dist}
+-        ]  
++            self.nnode,
++            self.node1.children,
++            {&amp;quot;dist&amp;quot;: self.node1.dist},
++        ]
+
+         # node2 has new root parent, same children + mods, and dist/supp mods
+         self.tdict[self.node2] = [
+             self.nnode,
+             self.node2.children,
+             {&amp;quot;dist&amp;quot;: 0.0},
+         ]
+
+-
+-
+     def get_features(self):
+-        # define which features to use/keep on nodes and which are &amp;quot;edge&amp;quot; 
++        # define which features to use/keep on nodes and which are &amp;quot;edge&amp;quot;
+         # features which must be redirected on rooting.
+         testnode = self.tree.treenode.get_leaves()[0]
+         extrafeat = {i for i in testnode.features if i not in self.features}
+         self.features.update(extrafeat)
+
+-
+-
+     def get_match(self, names, wildcard, regex):
+         &amp;quot;&amp;quot;&amp;quot;
+         tries to get monophyletic clade from selection, then tests
+         the reciprocal set, then reports error.
+         &amp;quot;&amp;quot;&amp;quot;
+@@ -276,20 +261,18 @@
+         self.nas = NodeAssist(self.tree, names, wildcard, regex)
+         # self.nas.match_query()
+         self.tipnames = self.nas.get_tipnames()
+
+         # check for reciprocal match
+-        x0 = (not self.nas.is_query_monophyletic())
+-        x1 = (self.nas.get_mrca().is_root())
++        x0 = not self.nas.is_query_monophyletic()
++        x1 = self.nas.get_mrca().is_root()
+         if x0 or x1:
+             clade1 = self.nas.tipnames
+             self.nas.match_reciprocal()
+
+             # check reciprocal match
+             if not self.nas.is_query_monophyletic():
+                 # clade2 = self.nas.tipnames
+
+                 # reports the smaller sized clade
+-                raise ToytreeError(
+-                    &amp;quot;Matched query is paraphyletic: {}&amp;quot;.format(clade1)
+-                )
++                raise ToytreeError(&amp;quot;Matched query is paraphyletic: {}&amp;quot;.format(clade1))
+                 # .format(sorted([clade1, clade2], key=len)[0]))
+&lt;b&gt;would reformat toytree/toytree/Rooter.py&lt;/b&gt;
+&lt;b&gt;All done! ✨ 🍰 ✨&lt;/b&gt;
+&lt;b&gt;1 file would be reformatted&lt;/b&gt;.
+</code></pre></div></p>
+<h3 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h3>
+<p>None. Continue to the next tutorials where we will continue to learn about style.</p>
+<h3 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h3>
+<p>Now that you've finished the exercise you can cleanup by removing the repos
+that we had cloned only for this example. Remember, to remove a git repo you
+will need to use the arguments <code>-rf</code>; this is because the .git/ subfolder 
+in the repo wants you to be sure you really want to remove it before you do 
+so. Here we are quite sure, so go ahead and run the commands below to remove
+both folders.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># move into your hacks directory</span>
+<span class="nb">cd</span><span class="w"> </span>~/hacks
+
+<span class="c1"># rm the two repos</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>./toytree
+rm<span class="w"> </span>-rf<span class="w"> </span>./fastStructure
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      
+    
+  </body>
+</html>

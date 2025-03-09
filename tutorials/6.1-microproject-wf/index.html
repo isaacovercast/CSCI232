@@ -1,0 +1,986 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://isaacovercast.github.io/CSCI232/tutorials/6.1-microproject-wf/">
+      
+      
+      
+      
+      <link rel="icon" href="/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Microproject - The Wright-Fisher Model of genetic drift - CSCI 232 - Data Structures and Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/pages.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16-unikitty-light.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-simple-wright-fisher-simulator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-header__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSCI 232 - Data Structures and Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Microproject - The Wright-Fisher Model of genetic drift
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to lightmode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to lightmode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-nav__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    CSCI 232 - Data Structures and Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sessions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sessions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sessions/session-1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Session 1 - (3/24)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.0-github" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.0 -- GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-shell" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 -- Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2-bash" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 -- Shell challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://algs4.cs.princeton.edu/home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textbook - Algorithms (Sedgwick & Wayne)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.coursera.org/learn/algorithms-part1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coursera - Algorithms (S&W)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supplementary Reading - TAOCP (Knuth)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External Links
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            External Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/c3PSEk3HU9" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSCI 232 Discord Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch CSCI 232 Binder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-wright-fisher-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      A simple Wright-Fisher simulator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A simple Wright-Fisher simulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assignment-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment instructions:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-a-function-to-initialize-the-population" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define a function to initialize the population
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-a-function-to-perform-one-wf-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define a function to perform one WF generation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-a-wf-function-to-bring-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define a wf() function to bring it all together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-challenges-if-time-remains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further challenges if time remains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wrap-up
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Microproject - The Wright-Fisher Model of genetic drift</h1>
+
+<h2 id="a-simple-wright-fisher-simulator">A simple Wright-Fisher simulator<a class="headerlink" href="#a-simple-wright-fisher-simulator" title="Permanent link">&para;</a></h2>
+<p>The Wright-Fisher (WF) model is a simple model that describes the change in allele frequencies
+in populations through time. WF is a cornerstone of population genetics, yet it is simple enough
+that we can already implement a version of it in python using the tools that we know. First,
+to see an example of the behavior of genetic drift under the WF model, open this link in a new window:</p>
+<p><a href="https://phytools.shinyapps.io/drift-selection/">An online WF simulator from phytools.org</a></p>
+<p>In our model we will observe the following contstraints:</p>
+<ul>
+<li>The population size (N) is fixed and unchanging for the duration of the simulation</li>
+<li>Generations are non-overlapping (all individuals die and are replaced once per generation)</li>
+<li>All individuals have an equal probability of producing offspring</li>
+<li>Within this population we model a single bi-allelic locus</li>
+<li>There is no selection, e.g. ancestral (A) and derived (a) alleles have equal fitness</li>
+</ul>
+<h3 id="assignment-instructions">Assignment instructions:<a class="headerlink" href="#assignment-instructions" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Launch a jupyter server on your local computer</li>
+<li>Navigate to <code>~/hack-5-python/notebooks</code> directory and create a new jupyter notebook called <code>wf-sim.ipynb</code></li>
+<li>For each section of this tutorial you may create several code blocks for testing, but the goal
+will be to have one code block that contains both a function definition and a represetative function call, e.g.:
+<div class="highlight"><pre><span></span><code>def my_cool_function(arg1, arg2):
+    arg1 += &#39;bar&#39;
+    arg2 += &#39;buzz&#39;
+    return arg1 + arg2
+
+my_cool_function(&#39;foo&#39;, &#39;fizz&#39;)
+</code></pre></div></li>
+</ol>
+<h2 id="define-a-function-to-initialize-the-population">Define a function to initialize the population<a class="headerlink" href="#define-a-function-to-initialize-the-population" title="Permanent link">&para;</a></h2>
+<p>In a new code cell define a function called <code>init</code> which takes 2 arguments. The first argument
+should be the size of the population in number of haploid individuals (N), and the second argument
+should be the frequency of derived alleles (f).</p>
+<p>We will model our population as a list of 0s and 1s, with 0 representing (A) and 1 representing (a).
+Therefore, the <code>init</code> function should return a list of length N composed of 0s and 1s (in any order),
+with the proportion of 1s approximately equal to f</p>
+<p><div class="highlight"><pre><span></span><code># Example call and desired result
+init(N=10, f=0.5)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+</code></pre></div></p>
+<details>
+<summary>Hint for init</summary>
+
+You might use the fact that lists can be 'multiplied' to compose your population,
+and then use list concatenation (`+`) to join ancestral and derived groups.
+
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[0, 0, 0, 0, 0]
+</code></pre></div>
+
+You will also almost certainly need to use the `round` function from the standard library,
+to convert fractional numbers to integers.
+
+<div class="highlight"><pre><span></span><code><span class="kc">f</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">10</span><span class="err">/</span><span class="mi">3</span>
+<span class="err">pri</span><span class="kc">nt</span><span class="err">(</span><span class="kc">f</span><span class="err">)</span>
+<span class="err">rou</span><span class="kc">n</span><span class="err">d(</span><span class="kc">f</span><span class="err">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>3.333333333
+3
+</code></pre></div>
+
+</details>
+
+<h2 id="define-a-function-to-perform-one-wf-generation">Define a function to perform one WF generation<a class="headerlink" href="#define-a-function-to-perform-one-wf-generation" title="Permanent link">&para;</a></h2>
+<p>In a new code cell define a function called <code>step</code>, which takes 1 argument. This argument
+(which we will call the ancestral population) should be a 'WF population' as we
+have defined it above (a list of length N of 0s and 1s).</p>
+<p>This function should return a new population of N individuals (the descendant population) with
+frequencies of 0s and 1s determined probabailisticly by the frequency of 0s and 1s in the ancestral pop.</p>
+<ul>
+<li>The order of individuals in the population doesn't matter (i.e. this model is 'spatially implicit'),
+so don't worry at all about preserving order.</li>
+<li>This is a stochastic process so you should use at least one fuction from the <code>random</code> module in the standard library.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code># Example call and desired result
+pop = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+step(pop=pop)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1, 0, 0, 1, 0, 1, 0, 0, 0, 0]
+</code></pre></div></p>
+<details>
+<summary>Hint for step()</summary>
+
+A very simple way to do this is using `random.choices` from the standard library. Look at the 
+[random.choices() documentation](https://docs.python.org/3/library/random.html#random.choices).
+
+</details>
+
+<h2 id="define-a-wf-function-to-bring-it-all-together">Define a wf() function to bring it all together<a class="headerlink" href="#define-a-wf-function-to-bring-it-all-together" title="Permanent link">&para;</a></h2>
+<p>Now we will create a full WF simulation by combining the init() and step()
+functions from above. In a new code cell define a function called <code>wf</code> which
+takes 3 arguments. The first argument is N (population size), the second argument is f
+(derived allele frequency), and the third argument is # of generations to run.</p>
+<p>The result should print to the screen the number of generations run and the final frequency
+of the drived allele.
+<div class="highlight"><pre><span></span><code># Example call and desired result
+wf(N=100, f=0.2, ngens=10)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>generations: 10; freq(a): 0.4565
+</code></pre></div></p>
+<details>
+<summary>Hint for wf()</summary>
+
+Inside your function call `init` with the N and f arguments and save the result to a new variable called 'pop'.
+Create a new for loop using `range()` to determine the number of iterations (number of wf generations),
+and inside the for loop call the `step` function.
+<br>
+* To calculate the frequency of the derived allele you will need to count the number of derived alleles.
+Consider using the `sum()` function from the standard library.<br>
+* After the for loop use the print function and a format string to return the results (e.g. `print(f"steps{nsteps}")`)
+</details>
+
+<h2 id="further-challenges-if-time-remains">Further challenges if time remains<a class="headerlink" href="#further-challenges-if-time-remains" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Modify your <code>wf()</code> function to test for fixation or loss of allele 1. If allele 1 is fixed or lost,
+<code>break</code> the for loop early and modify the print statement to indicate this result in some way.</li>
+<li>Track allele frequency through time. Create a new list inside the wf() function and use this
+list to accumulate allele frequency after each call to <code>step()</code> inside the for loop.</li>
+<li>Advanced: Wrap the <code>wf()</code> call inside an <code>iterate_wf()</code> function that calls <code>wf</code> many times. The goal
+is to test the expectation that the probability of fixation of the derived allele in WF equals the
+initial allele frequency (e.g. run <code>wf(N=100, f=0.2, gens=1000)</code> 100 times and record how many times 
+allele 1 is fixed, then divide by 100. It should be ~0.2 in this example).</li>
+</ol>
+<h2 id="wrap-up">Wrap-up<a class="headerlink" href="#wrap-up" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add, commit, and push changes back to your <code>origin main</code> copy of the repo.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      
+    
+  </body>
+</html>

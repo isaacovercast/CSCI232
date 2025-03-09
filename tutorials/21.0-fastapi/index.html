@@ -1,0 +1,1357 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://isaacovercast.github.io/CSCI232/tutorials/21.0-fastapi/">
+      
+      
+      
+      
+      <link rel="icon" href="/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>data science - CSCI 232 - Data Structures and Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/pages.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16-unikitty-light.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-web-servers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-header__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSCI 232 - Data Structures and Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              data science
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to lightmode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to lightmode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-nav__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    CSCI 232 - Data Structures and Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sessions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sessions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sessions/session-1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Session 1 - (3/24)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.0-github" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.0 -- GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-shell" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 -- Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2-bash" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 -- Shell challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://algs4.cs.princeton.edu/home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textbook - Algorithms (Sedgwick & Wayne)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.coursera.org/learn/algorithms-part1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coursera - Algorithms (S&W)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supplementary Reading - TAOCP (Knuth)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External Links
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            External Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/c3PSEk3HU9" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSCI 232 Discord Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch CSCI 232 Binder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-web-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python web servers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python web servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-the-records-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extending the records package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-web-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your first web app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your first web app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      So what?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restful-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESTful API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RESTful API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serving-json-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serving JSON data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      API documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-web-app-for-any-package-or-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      A web app for any package or module
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-for-heroku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup for heroku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-your-app-to-a-public-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy your app to a public URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-route-for-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      A route for your code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>data science</h1>
+
+<style>
+h2 {
+    margin-top: 30px;
+}
+h3 {
+    margin-top: 30px;
+}
+pre {
+    line-height: 1.15em;
+}
+pre code {
+    font-size: 0.9em;
+}
+</style>
+
+<h2 id="python-web-servers">Python web servers<a class="headerlink" href="#python-web-servers" title="Permanent link">&para;</a></h2>
+<p toc="toc"><strong>Table of Contents:</strong>
+* Table of contents</p>
+<h3 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
+<p>By the end of this tutorial you will:</p>
+<ul class="hash-table">
+    <li>Have an improved understanding of what a web server is.</li>
+    <li>Be introduced to the concept of <i>decorators</i> in Python.</li>
+    <li>Be able to write and run a web server for an arbirary Python module.</li>
+    <li>Be familiar with the fastAPI Python package.</li>
+    <li>Be introduced to the heroku web app service.</li>    
+</ul>
+
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
+<p>Install the <a href="https://fastapi.tiangolo.com/">fastAPI</a> and 
+<a href="https://www.uvicorn.org/">uvicorn</a> Python packages using conda. 
+The first is used to create a webserver and/or API and the second is used
+to run a webserver, to communicate information between your Python code 
+and a network (e.g., localhost:8888).</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>fastapi<span class="w"> </span>uvicorn<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</code></pre></div>
+<h3 id="extending-the-records-package">Extending the records package<a class="headerlink" href="#extending-the-records-package" title="Permanent link">&para;</a></h3>
+<div class="alert alert-info">
+This tutorial builds upon completion of the instructions in notebook 12.0, 
+so you should first complete that assignment which will instruct you to 
+create a Python package called 'records'.
+</div>
+
+<p>In the last tutorial you created a Python package called <code>records</code>. Here 
+we are going to create a new entry-point to this package. Whereas previously
+we have created entry points as command line interfaces (CLIs) -- where you can 
+call a function from your terminal -- here we will instead be creating a
+web server entry point, where functions can be executed through your 
+web browser. Technically, this is called a web server gateway interface (WSGI;
+pronounced like whiskey).</p>
+<p>Our web server will be written in a module called <code>app.py</code>. Create a new 
+empty file at <code>records/records/app.py</code> so that your package looks like the
+file tree below.</p>
+<div class="highlight"><pre><span></span><code>records/
+├──<span class="w"> </span>setup.py
+└──<span class="w"> </span>records/
+<span class="w">    </span>├──<span class="w"> </span>__init__.py
+<span class="w">    </span>├──<span class="w"> </span>app.py<span class="w">    </span>
+<span class="w">    </span>└──<span class="w"> </span>records.py
+</code></pre></div>
+<h2 id="your-first-web-app">Your first web app<a class="headerlink" href="#your-first-web-app" title="Permanent link">&para;</a></h2>
+<p>In the <code>app.py</code> file enter the following code, which is copied from the 
+introductory tutorial from <a href="https://fastapi.tiangolo.com/">fastAPI</a>. If at
+any point you get stuck in this tutorial, try reading the fastapi docs for 
+more information. This is a really well written library with really nice
+documentation.</p>
+<p>In this tutorial we will incrementally build up our web app, starting with 
+a very simple example and becoming more complex. Let's start with the 
+typical simple exercise of a function that says "hello world". </p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>This code is similar to Python scripts we have seen before, but it includes
+a new feature you haven't seen before, called a <i>decorator</i>. Decorators
+are a feature in Python that start with the @ character, and are written on
+the line directly above a function definition. Decorators <em>modify</em> the way 
+a function runs. That is all you really need to know about it for now.</p>
+<p>In this case the decorator is <code>@app.get('/')</code>, meaning it is calling the 
+function <code>get()</code> from the the FastAPI class instance <code>app</code>, with the argument
+<code>'/'</code>. Since this script is pretty short, let's walk through it line-by-line.</p>
+<ol>
+<li>
+<p>First we imported the FastAPI Class object from the fastapi package.</p>
+</li>
+<li>
+<p>Next we created an instance of this class and named in <code>app</code>. </p>
+</li>
+<li>
+<p>In the final step we created a function called <code>root()</code> that simply returns
+a dictionary with the key "message" and value "Hello World". The only tricky 
+thing here is the decorator. The decorator is designating the <i>path</i> 
+where the returned result of the <code>root()</code> function should be sent. It will be
+sent to the root location of the server address (<code>/</code>). As an example, we will
+be running a local server (just like we do when running a jupyter notebook 
+server) and it will serve to <code>localhost:8000</code>, which you will view in your 
+web browser. When I say this result will be routed to <code>/</code>, what I really 
+mean is it will be routed to localhost:8000<code>/</code>.</p>
+</li>
+</ol>
+<h3 id="running-the-app">Running the app<a class="headerlink" href="#running-the-app" title="Permanent link">&para;</a></h3>
+<p>To run the app we now just need to call a server tool and point it to the
+corrent entry point in the code where the app exists. This is a similar 
+syntax to when we pointed to a specific function in the setup.py file to 
+define a CLI entry point.</p>
+<p>Here we will be using the <code>uvicorn</code> server, and <em>call it from the terminal</em> as
+a command line tool. Like other servers we've run before, you can just leave
+this running in the corner of your screen until you want to stop it. As long
+as it is running your server will be accessible. Here we give it the option
+<code>--reload</code> which means that as we make changes to our code it will automatically
+reload to update the server.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># called from within records/ repo directory.</span>
+<span class="c1"># argument points to records folder, app.py file, app instance</span>
+uvicorn<span class="w"> </span>records.app:app<span class="w"> </span>--reload
+</code></pre></div>
+<pre style="background-color: lightgrey; padding:10px">
+<font color="#4E9A06">INFO</font>:     Uvicorn running on <b>http://127.0.0.1:8000</b> (Press CTRL+C to quit)
+<font color="#4E9A06">INFO</font>:     Started reloader process [<font color="#34E2E2"><b>488393</b></font>] using <font color="#34E2E2"><b>watchgod</b></font>
+<font color="#4E9A06">INFO</font>:     Started server process [<font color="#06989A">488395</font>]
+<font color="#4E9A06">INFO</font>:     Waiting for application startup.
+<font color="#4E9A06">INFO</font>:     Application startup complete.
+</pre>
+
+<p>Now open your browser to the address shown by the server, likely 
+<a href="localhost:8000">localhost:8000</a>. You should see a single JSON result
+showing "message", "Hello World". Success. Your Python function is 
+writing its results to this web address. </p>
+<h3 id="so-what">So what?<a class="headerlink" href="#so-what" title="Permanent link">&para;</a></h3>
+<p>In this simple example we can see that the <i>returned value</i> of the 
+function <code>root()</code> is printed to the local network address on port 8000
+at the <code>/</code> (root) path. Very simple, right? But why is this useful? </p>
+<p>Well, following 
+from this example, we could imagine writing any arbitrary Python code to 
+return any kind of results to a webpage. This becomes especially powerful 
+when we begin to use the web browser to <i>receive inputs</i> as well. 
+This can now replace the need for a command-line interface. Furthermore,
+if the web server is made public, then <em>any user</em> could interact with your
+program <em>from any browser</em>.</p>
+<h2 id="restful-api">RESTful API<a class="headerlink" href="#restful-api" title="Permanent link">&para;</a></h2>
+<p>Let's go to the next step: adding arguments to our functions. 
+To do this you just add need to add arguments to the function being served 
+as the endpoint. For example, our root function can now take an optional 
+<code>name</code> argument with a default value of 'person'. Modify your code to 
+include the following updates:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;person&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Hello World to you, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Save the app.py file after making this change and you should see your 
+browser update automatically. Now try modifying the URL to enter a
+params argument to the root path like in ths example: 
+<a href="localhost:8000/?name=Phylo">localhost:8000/?name=Phylo</a>.</p>
+<h3 id="serving-json-data">Serving JSON data<a class="headerlink" href="#serving-json-data" title="Permanent link">&para;</a></h3>
+<p>Great. Let's extend our script with even further. In this case we will return 
+JSON formatted data from a database, just like the GBIF API. For simplicity
+we will just use a pandas dataframe to represent the database, but more 
+commonly web sites/servers will use a different kind of database, like SQL,
+which is faster for getting individual results from a very large database. 
+But that is beyond the scope of our current interest, and pandas will work fine
+for now. Add code to your script so it looks like the example below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="c1"># create the app as an instance of the fastAPI class</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="c1"># load the database once when the server starts</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://eaton-lab.org/data/iris-data-dirty.csv&quot;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;trait1&quot;</span><span class="p">,</span> <span class="s2">&quot;trait2&quot;</span><span class="p">,</span> <span class="s2">&quot;trait3&quot;</span><span class="p">,</span> <span class="s2">&quot;trait4&quot;</span><span class="p">,</span> <span class="s2">&quot;species&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># create a root endpoint that say&#39;s hello</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;person&quot;</span><span class="p">):</span>
+    <span class="s2">&quot;returns a hello world message in JSON&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Hello World to you, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+<span class="c1"># create another endpoint for returning iris data</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/iris&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">iris</span><span class="p">(</span><span class="n">species</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    returns iris data in JSON with option to subselect a species</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get subset or full data</span>
+    <span class="k">if</span> <span class="n">species</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">DATA</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="n">species</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">DATA</span>
+
+    <span class="c1"># convert to JSON and return to endpoint</span>
+    <span class="n">sdata</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+    <span class="n">jdata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">sdata</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jdata</span>
+</code></pre></div>
+<p>We have now added a function called <code>iris()</code> that takes a species argument
+and uses it to optionally select a subset of the pandas dataframe containing
+the iris data set. The results are then converted to JSON format and returned.</p>
+<p>After making these changes and saving the app.py file, visit 
+<a href="localhost:8000/iris">localhost:8000/iris</a> to see all of the data records,
+ and also try entering params arguments such as 
+<a href="localhost:8000/iris?species=Iris-setosa">localhost:8000/iris?species=Iris-setosa</a>
+to see only a subset of records returned that match your query. 
+You just created a REST API!</p>
+<h3 id="api-documentation">API documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h3>
+<p>One of the coolest features of fastAPI is that it automatically generates
+documentation for your API as you write it. Simply visit the address
+<a href="localhost:8000/docs">localhost:8000/docs</a> and you can see all of the endpoints
+for your API, including the parameters that they support, and you can even 
+click on <kbd>Try it out</kbd> to enter the parameters and see the results.
+Such a cool feature, I wish the GBIF API supported this!</p>
+<h3 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h3>
+<div class="alert alert-success">
+    Commit and push the new app.py file to your GitHub records repo after
+    you have tested it and are able to successfully run the api requests
+    in the examples above. 
+</div>
+
+<h3 id="a-web-app-for-any-package-or-module">A web app for any package or module<a class="headerlink" href="#a-web-app-for-any-package-or-module" title="Permanent link">&para;</a></h3>
+<p>Let's now create a web app that will make this code publicly accessible 
+instead of only being available on localhost. </p>
+<div class="alert alert-info">
+This part of the tutorial is optional, and a bit complicated, so you do not 
+need to run it yourself -- but you are welcome to. 
+</div>
+
+<p>I think this final step is worth walking through, even if it is complex, 
+just so you have an idea of the steps involved with making your API 
+globally accessible from a public URL. There are several ways
+to deploy your Python code to run on a public server, but a great option is 
+to use the <em>free</em> service <a href="https://heroku.com/">heroku</a>.</p>
+<p>You can find instructions to install heroku for either Linux 
+(WSL2) or OSX at the <a href="https://devcenter.heroku.com/articles/getting-started-with-python#set-up">following link</a>.
+Unfortunately this tool cannot be installed using conda. My instructions 
+for using heroku below are quite similar to those from the example in their 
+getting-started docs. So if you get stuck be sure to take a look there as well.
+You will need to create a heroku login on their website. It is all free. 
+(Again, this is optional for now.)</p>
+<h3 id="setup-for-heroku">Setup for heroku<a class="headerlink" href="#setup-for-heroku" title="Permanent link">&para;</a></h3>
+<p>We will need to add three additional files so that your repo looks like 
+the following file tree:</p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>Procfile
+├──<span class="w"> </span>records
+│<span class="w">   </span>├──<span class="w"> </span>app.py
+│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+│<span class="w">   </span>└──<span class="w"> </span>records.py
+├──<span class="w"> </span>requirements.txt
+└──<span class="w"> </span>runtime.txt
+</code></pre></div>
+<p>We first need to create a file called <code>Procfile</code> that will tell heroku how 
+to run the server. This simply contains the command we called to run uvicorn; 
+here I tell it some additional details that I found online by googling 
+'uvicorn on heroku':
+<div class="highlight"><pre><span></span><code><span class="c1"># Procfile</span>
+web:<span class="w"> </span>uvicorn<span class="w"> </span>records.app:app<span class="w"> </span>--host<span class="o">=</span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="o">=</span><span class="si">${</span><span class="nv">PORT</span><span class="k">:-</span><span class="nv">5000</span><span class="si">}</span>
+</code></pre></div></p>
+<p>Then create a file called requirements.txt, which tells the server how to
+install all of the Python dependencies using <code>pip</code>. This simply lists the 
+required packages one per line. List everything in the app that is not 
+from the Python standard library:
+<div class="highlight"><pre><span></span><code><span class="c1"># requirements.txt</span>
+requests
+pandas
+fastAPI
+uvicorn
+</code></pre></div></p>
+<p>Then we need to create a runtime.txt file that says which version of 
+Python to use:
+<div class="highlight"><pre><span></span><code><span class="c1"># runtime.txt</span>
+python-3.7.10
+</code></pre></div></p>
+<h3 id="deploy-your-app-to-a-public-url">Deploy your app to a public URL<a class="headerlink" href="#deploy-your-app-to-a-public-url" title="Permanent link">&para;</a></h3>
+<p>Now you can call the <code>heroku</code> command line tool from within your package
+to create a new git <em>remote</em> that will host your heroku app. Remember, a 
+remote is a location where a copy of your repo is stored. We usually use 
+GitHub as a remote (and refer to it as origin), but here we will be using 
+heroku as a remote. To create this new remote, call the heroku create 
+command from within your package, which will assign your app a 
+random name unless you provide one.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># login to heroku (opens your browser)</span>
+heroku<span class="w"> </span>login
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a heroku app named &#39;hack-records&#39; (if name is available)</span>
+heroku<span class="w"> </span>apps:create<span class="w"> </span>hack-records
+</code></pre></div>
+<p>Great, now use <code>git add</code> and <code>git commit</code> to commit all changes to your repo
+<em>on the heroku remote</em>, including the addition of your new Procfile and 
+requirements.txt, and runtime.txt. You can <em>also</em> push these changes to your
+GitHub remote (origin) if you want. No harm.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># push updates to your heroku remote main branch</span>
+git<span class="w"> </span>add<span class="w"> </span>records/records.py<span class="w"> </span>records/app.py<span class="w">      </span><span class="c1"># stage changed file</span>
+git<span class="w"> </span>add<span class="w"> </span>requirements.txt<span class="w"> </span>runtime.txt<span class="w"> </span>Procfile<span class="w">  </span><span class="c1"># stage new files</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;heroku app created&quot;</span><span class="w">             </span><span class="c1"># commit changes</span>
+git<span class="w"> </span>push<span class="w"> </span>heroku<span class="w"> </span>main<span class="w">                           </span><span class="c1"># push to heroku remote</span>
+</code></pre></div>
+When you push heroku will begin to install the app on the remote and will 
+print some information like the following:</p>
+<pre style="background-color: lightgrey; padding:10px; max-height: 400px; font-size:0.8rem">
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (10/10), 2.04 KiB | 1.02 MiB/s, done.
+Total 10 (delta 0), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----&gt; Building on the Heroku-20 stack
+remote: -----&gt; Python app detected
+remote: -----&gt; Installing python-3.6.13
+remote: -----&gt; Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+remote: -----&gt; Installing SQLite3
+remote: -----&gt; Installing requirements with pip
+remote:        Collecting requests
+remote:          Downloading requests-2.25.1-py2.py3-none-any.whl (61 kB)
+remote:        Collecting pandas
+remote:          Downloading pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl (9.5 MB)
+remote:        Collecting fastAPI
+remote:          Downloading fastapi-0.63.0-py3-none-any.whl (50 kB)
+remote:        Collecting uvicorn
+remote:          Downloading uvicorn-0.13.3-py3-none-any.whl (45 kB)
+remote:        Collecting urllib3&lt;1.27,&gt;=1.21.1
+remote:          Downloading urllib3-1.26.3-py2.py3-none-any.whl (137 kB)
+remote:        Collecting certifi&gt;=2017.4.17
+remote:          Downloading certifi-2020.12.5-py2.py3-none-any.whl (147 kB)
+remote:        Collecting idna&lt;3,&gt;=2.5
+remote:          Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+remote:        Collecting chardet&lt;5,&gt;=3.0.2
+remote:          Downloading chardet-4.0.0-py2.py3-none-any.whl (178 kB)
+remote:        Collecting python-dateutil&gt;=2.7.3
+remote:          Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+remote:        Collecting numpy&gt;=1.15.4
+remote:          Downloading numpy-1.19.5-cp36-cp36m-manylinux2010_x86_64.whl (14.8 MB)
+remote:        Collecting pytz&gt;=2017.2
+remote:          Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+remote:        Collecting starlette==0.13.6
+remote:          Downloading starlette-0.13.6-py3-none-any.whl (59 kB)
+remote:        Collecting pydantic&lt;2.0.0,&gt;=1.0.0
+remote:          Downloading pydantic-1.7.3-cp36-cp36m-manylinux2014_x86_64.whl (9.2 MB)
+remote:        Collecting h11&gt;=0.8
+remote:          Downloading h11-0.12.0-py3-none-any.whl (54 kB)
+remote:        Collecting typing-extensions; python_version &lt; &quot;3.8&quot;
+remote:          Downloading typing_extensions-3.7.4.3-py3-none-any.whl (22 kB)
+remote:        Collecting click==7.*
+remote:          Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+remote:        Collecting six&gt;=1.5
+remote:          Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+remote:        Collecting dataclasses&gt;=0.6; python_version &lt; &quot;3.7&quot;
+remote:          Downloading dataclasses-0.8-py3-none-any.whl (19 kB)
+remote:        Installing collected packages: urllib3, certifi, idna, chardet, requests, six, python-dateutil, numpy, pytz, pandas, starlette, dataclasses, pydantic, fastAPI, h11, typing-extensions, click, uvicorn
+remote:        Successfully installed certifi-2020.12.5 chardet-4.0.0 click-7.1.2 dataclasses-0.8 fastAPI-0.63.0 h11-0.12.0 idna-2.10 numpy-1.19.5 pandas-1.1.5 pydantic-1.7.3 python-dateutil-2.8.1 pytz-2021.1 requests-2.25.1 six-1.15.0 starlette-0.13.6 typing-extensions-3.7.4.3 urllib3-1.26.3 uvicorn-0.13.3
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web
+remote: 
+remote: -----&gt; Compressing...
+remote:        Done: 86.9M
+remote: -----&gt; Launching...
+remote:        Released v3
+remote:        https://hack-records.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/hack-records.git
+ * [new branch]      main -&gt; main
+</pre>
+
+<p>The app is now live! Following from instructions in the heroku documentation,
+we can tell it to use one "worker" to run our server (I think on the free 
+tier you are limited only a few workers total).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># scale how many concurrent requests your server can handle</span>
+heroku<span class="w"> </span>ps:scale<span class="w"> </span><span class="nv">web</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>Now you should be able to visit your app at https://{app-name}.herokuapp.com.
+Check out my working example for this tutorial. We can see that there are 
+working endpoints to run each of our defined functions, and even an automated
+documentation endpoint.</p>
+<ul>
+<li>root: <a href="https://hack-records.herokuapp.com/">https://hack-records.herokuapp.com/</a></li>
+<li>docs: <a href="https://hack-records.herokuapp.com/docs">https://hack-records.herokuapp.com/docs</a></li>
+<li>iris: <a href="https://hack-records.herokuapp.com/iris">https://hack-records.herokuapp.com/iris</a></li>
+<li>iris query "species=Iris-setosa": <a href="https://hack-records.herokuapp.com/iris?species=Iris-setosa">https://hack-records.herokuapp.com/iris?species=Iris-setosa</a></li>
+</ul>
+<h3 id="a-route-for-your-code">A route for your code<a class="headerlink" href="#a-route-for-your-code" title="Permanent link">&para;</a></h3>
+<p>If you were able to get all of that to work then congratulations, amazing!
+Here's one more challenge for you... you could add another function to your
+app.py script that will return results of a request to your Records class
+object. </p>
+<p>How would you go about this? I would start by importing your class from 
+the records module, and then creating a function that returns its json result 
+to a specific endpoint. Here I use the <code>get_single_record()</code> function for now
+since it is much faster than querying all records.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># example code to add an endpoint to run the records.Records function</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">records.records</span><span class="w"> </span><span class="kn">import</span> <span class="n">Records</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/gbif&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gbif</span><span class="p">(</span><span class="n">genusKey</span><span class="o">=</span><span class="mi">3171670</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="s2">&quot;2000,2020&quot;</span><span class="p">):</span>
+    <span class="s2">&quot;returns a specific gbif query as JSON&quot;</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">Records</span><span class="p">(</span><span class="n">genusKey</span><span class="o">=</span><span class="n">genusKey</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rec</span><span class="o">.</span><span class="n">get_single_record</span><span class="p">()</span>
+</code></pre></div>
+<p>As you can see from this example, we could create a public endpoint to 
+run <em>any arbitrary Python code</em>. This is the reason that Python is used
+so widely for web development <em>as a backend server</em>. The only thing left
+to do to create fancy looking web or mobile app is to design the front-end
+which includes things like buttons or forms to accept user input which 
+could be sent to your API to get a response. Pretty cool!</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      
+    
+  </body>
+</html>

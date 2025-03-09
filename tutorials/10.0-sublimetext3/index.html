@@ -1,0 +1,1411 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://isaacovercast.github.io/CSCI232/tutorials/10.0-sublimetext3/">
+      
+      
+      
+      
+      <link rel="icon" href="/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>sublimetext3 - CSCI 232 - Data Structures and Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/pages.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16-unikitty-light.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sublimetext3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-header__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSCI 232 - Data Structures and Algorithms
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              sublimetext3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to lightmode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to lightmode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSCI 232 - Data Structures and Algorithms" class="md-nav__button md-logo" aria-label="CSCI 232 - Data Structures and Algorithms" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.37 4 1.41 2.5L9.37 9H6.63l-1.4-2.5L6.63 4zm.88-2h-4.5c-.19 0-.36.11-.44.26L3.09 6.22 3 6.5l.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26m8.37 7.5L20 12l-1.38 2.5h-2.74L14.5 12l1.38-2.5zm.88-2H15c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26M9.37 15l1.41 2.5L9.37 20H6.63l-1.4-2.5 1.4-2.5zm.88-2h-4.5c-.19 0-.36.11-.44.26l-2.22 3.96-.09.28.09.28 2.22 3.96c.08.15.25.26.44.26h4.5c.19 0 .36-.11.44-.26l2.22-3.96.09-.28-.09-.28-2.22-3.96a.5.5 0 0 0-.44-.26"/></svg>
+
+    </a>
+    CSCI 232 - Data Structures and Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://isaacovercast.github.io/CSCI232" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Isaacovercast
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sessions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sessions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sessions/session-1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Session 1 - (3/24)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Session 1 - (3/24)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.0-github" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.0 -- GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-shell" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 -- Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2-bash" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 -- Shell challenge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://algs4.cs.princeton.edu/home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textbook - Algorithms (Sedgwick & Wayne)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.coursera.org/learn/algorithms-part1" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coursera - Algorithms (S&W)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supplementary Reading - TAOCP (Knuth)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External Links
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            External Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://discord.gg/c3PSEk3HU9" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSCI 232 Discord Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Launch CSCI 232 Binder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popular-text-editors-for-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Popular text editors for coding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-sublimetext" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why sublimetext?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-sublimetext3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install SublimeText3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-command-palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      The command palette
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotkeys-and-keybindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hotkeys and keybindings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hotkeys and keybindings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-or-enable-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable or Enable packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keybindings-revisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keybindings revisited
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-using-emacs-style-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice using emacs-style keys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-for-your-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring for your Python environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring for your Python environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-build-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring a build system
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-your-linters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring your linters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-setup-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative setup options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-start-subl-from-the-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      [Optional] Start subl from the terminal
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="sublimetext3">Sublimetext3<a class="headerlink" href="#sublimetext3" title="Permanent link">&para;</a></h1>
+<p>Most biologists first learn to code by typing directly into a shell, 
+for example by starting an R or Python session in the terminal.
+Interactive coding environments are also hugely popular, such 
+as RStudio or Jupyter, which provide a code-editor-like 
+experience, where you can view or embed figures, see your variables, 
+and even access useful features like tab-completion. </p>
+<p>Code editors provide a different set of features from interactive coding 
+environments, and/or make them available in a faster and/or prettier way. 
+This includes <strong>syntax highlighting</strong> 
+(colorizing different components of code); <strong>linting</strong> (checking code
+for style or syntax errors before you run it); <strong>tab-completion</strong> (and 
+related documentation searching); <strong>building/executing</strong> 
+(allows you to test the code with single command);
+<strong>filetree organization</strong> (easier to see all files in folders); 
+and perhaps most important of all, <strong>keybindings</strong>. </p>
+<h3 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
+<p>In this tutorial you will learn to setup <code>sublimetext</code> for Python development.</p>
+<h3 id="popular-text-editors-for-coding">Popular text editors for coding<a class="headerlink" href="#popular-text-editors-for-coding" title="Permanent link">&para;</a></h3>
+<p>There are many coding text editors available, ranging from complex
+to simple, and many have a devoted cult following. Despite the many options,
+one modern editor has gained broad popularity recently: <code>vscode</code>. This has
+mostly replaced many editors that came before it, including <code>sublime</code>, <code>atom</code>,
+<code>emacs</code>, and <code>vim</code>. However, in my opinion there are some downsides to vscode 
+compared to other simpler options. 
+In particular, it tends to be <em>slow</em> and use a ton of memory, and it contains
+many distractions. I prefer a more sleek and minimal code editor. You are 
+free to explore code editors on your own time, but for this exercise, we 
+will focus on my personal favorite, sublimetext.</p>
+<p><strong>History:</strong>
+Emacs and Vim have been around the longest and have historically been pitted 
+against each other as a sort of zero-sum battle to the death. Everyone learns 
+one or the other, completely falls in love with their choice, and abhors 
+the competing editor. This is partly because they are so different in style, 
+and when you get comfortable with one it feels unnatural to change. Regardless
+of <em>which</em> coding editor you prefer, I would implore you to become very 
+familiar with <em>at least one</em> coding editor, as the more you learn about how
+to use it, the more it will superpower your efficiency.</p>
+<h3 id="why-sublimetext">Why sublimetext?<a class="headerlink" href="#why-sublimetext" title="Permanent link">&para;</a></h3>
+<p>I personally recommend sublimetext. It is lightweight while also being 
+super extensible. Compared to vscode it lacks a few features (like a
+built-in terminal) that set vscode apart, but I am fine with keeping a shell 
+open to the side of my editor, if needed. Sublime starts up faster, and by 
+default, it <em>tries to do less</em> than vscode -- it is more minimal.
+The default setup for vscode examines your entire operating system and tries 
+to recommend many extensions to you: "I see you are on wsl2, do you want me to 
+install the wsl2 extension?"; "I see that you don't have a linter installed,
+do you want me to install one?" I find this very intrusive. 
+It leaves you with less knowledge of your setup, since the program 
+tries to do it all for you. Instead, this tutorial will walk you through 
+a step-by-step approach to setting up your editor, and in the end 
+I think you will have a better idea on how to toggle or edit these options. 
+Another cool feature of sublimetext is that the program itself is written 
+in Python!</p>
+<h2 id="install-sublimetext3">Install SublimeText3<a class="headerlink" href="#install-sublimetext3" title="Permanent link">&para;</a></h2>
+<p>To install sublimetext go to <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>
+and download the appropriate installer for your operating system. If you are on a mac 
+then after downloading the DMG file click to open it and run the installer.
+When finished it should show you a folder with Applications/ and a SublimeText
+icon in it. Just drag the icon into your Applications folder and you are done.
+You can then remove the DMG installer file (e.g., drag it to Trash). If you are
+on Windows the SublimeText application should be accessible in your applications 
+after installation.</p>
+<h2 id="test-scripts">Test scripts<a class="headerlink" href="#test-scripts" title="Permanent link">&para;</a></h2>
+<p>To test that your code editor is properly configured we will use it 
+to examine and edit Python scripts organized into a modular directory 
+structure. Here we are not planning to push our changes back to GitHub,
+so you do not need to fork this repo, you can just clone the version from
+the URL below. I recommend you first cd into your hacks directory and then
+clone the repo there.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/hacks
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hackers-test/hack-9-python
+</code></pre></div>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>Next, open sublimetext. You should see two panels, a skinny one on the left and 
+a wider one on the right. If you don't see this, go to the <kbd>View</kbd>
+tab at the top, and then "Side bar" and select show sidebar. 
+The left panel (side bar) is the file tree that will show you files and 
+directories accessible from your path. That's right, just like when using
+a terminal, sublime is aware of the location in which you are accessing files.
+We can change our location in a number of ways. Let's start by going to the 
+<kbd>File</kbd> tab at the top of sublime, select "Open Folder", and then select
+the <code>hack-9-python</code> folder that we just cloned from where it is located in your filesystem.
+This should populate the side bar with files and folders from this
+path location.</p>
+<p>Another way you can quickly open a editor view to a path if you are using
+Linux of MacOSX is to use the <code>subl</code> command from a terminal, like below.
+[Update: it turns out this option is not available by default for Mac users,
+see the section at the end of this tutorial for how to set it up. Sorry 
+Windows users I have not had an opportunity to test this for you yet. I expect
+it will require a similar solution as in OSX, but implemented in WSL. This
+is totally optional.]</p>
+<div>
+    <video width="100%" controls>
+        <source src="../../assets/videos/subl.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h2 id="the-command-palette">The command palette<a class="headerlink" href="#the-command-palette" title="Permanent link">&para;</a></h2>
+<p>All of Sublimetext is centered around a feature called the command palette.
+This is a place where you can access all of the options from the dropdown
+menus, as well as hundreds of additional options for performing operations
+in the editor. Many of these have keyboard shortcuts, as we will discuss
+further below, but many others do not, and can only be accessed by finding
+them in the command palette. To open the command palette on a Mac press
+<kbd>cmd+shift+p</kbd> (hold down command and shift then press 'p').
+You can press this key combination again to close the command palette. 
+The command palette serves as a search bar, so you can begin to type any
+keywords associated with a command and it will filter the list of possible
+solutions to match your entry.</p>
+<div>
+    <video width="100%" controls>
+        <source src="../../assets/videos/subl-command-palette.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h2 id="hotkeys-and-keybindings">Hotkeys and keybindings<a class="headerlink" href="#hotkeys-and-keybindings" title="Permanent link">&para;</a></h2>
+<p>When describing the benefits of learning a text editor I emphasize that 
+<strong>keybindings</strong> are one of the most important features. These are learned
+key-strokes that can be used to accomplish repetitive tasks more efficiently.
+This includes mundane things like moving your cursor up one line, or to the 
+end of a line, or highlighting and replacing all instances of the word
+'foo' with 'bar'. Such common tasks are the bread and butter of 
+programming. By learning to enter a set of keystrokes to perform these 
+activities, rather than using the mouse to select items on the 
+screen, your efficiency will improve 10X. In fact, once your learn a set
+of keybindings well, you will become so comfortable and dependent on them
+that you will likely find it exhausting to type text into any other programs,
+such as MS Word, that does not support the same richness of key strokes.</p>
+<p>How do you learn keybindings? Well, you just learned your first one above, 
+the key-stroke <kbd>cmd+shift+p</kbd> to open the command palette. Learning
+others will take time and practice, but it is worth it. My best tips for
+learning are to: (1) pick a text editor and stick with it; use the text-editor
+frequently (take notes with it, write documents and code in it); (3) 
+when you find yourself reaching for the mouse, stop yourself, and instead
+search for the appropriate keystroke and try to infuse it to your muscle 
+memory.</p>
+<p>How to look up keybindings? It depends which keybindings you are trying to 
+learn. SublimeText has a default set of keybindings, and those may be the
+easiest for you to learn, but you also have the choice of installing 
+alternatives. <em>We'll return to this subject in a minute after learning 
+about how to install packages.</em></p>
+<h3 id="package-control">Package Control<a class="headerlink" href="#package-control" title="Permanent link">&para;</a></h3>
+<p>One of the best features of sublimetext is the rich community of developers
+that create open source packages to extend its capabilities. We will install
+a few of these now to demonstrate their utility. First, you will need to 
+install the feature that allows you to search for other packages, called
+"Package Control". To do this, open the command palette and type 
+<i>Install Package Control</i> and select it. After about one second it 
+should finish and you are now ready to install packages.</p>
+<p>You can now use the following steps to install any package:
+- open the command palette (<kbd>cmd+shift+p</kbd>)
+- type <i>install package</i> and select "package control: install package"
+- enter the name of the program you wish to install and select the match from
+ the dropdown list.
+- hit enter and wait for it to finish (usually a new tab will pop-up to provide 
+info on the installed package, but sometimes not).</p>
+<p>Let's try it first with a simple package called <i>bracket highlighter</i>.
+This does exactly what it says, it highlights the brackets on either side of
+your selection when writing code, making it easier to see which bracket closes
+a given context. Simply follow the 4-step instructions above to install it.
+If that worked, then continue to install all of the following packages. Don't
+worry, these are all very small and lightweight, and can be easily 
+toggled on or off.</p>
+<ul>
+<li>BracketHighlighter: highlights the matching bracket in code.</li>
+<li>GitGutter: highlights in the gutter which lines have changed.</li>
+<li>Sublimelinter: enables linters.</li>
+<li>SublimeLinter-contrib-ruff: a specific linter.</li>
+<li>Emacs Pro Essentials: enables emacs keybindings.</li>
+</ul>
+<h3 id="disable-or-enable-packages">Disable or Enable packages<a class="headerlink" href="#disable-or-enable-packages" title="Permanent link">&para;</a></h3>
+<p>If you download a package and decide that you no longer like what it does, 
+you can simply turn it off by typing "disable package" into the command 
+palette and selecting the name of the package you want to disable. (Note:
+for some packages that affect the look/style of subl you will need to 
+restart it for them to take effect.) Try this now by disabling the package 
+'Emacs Pro Essentials'. Then open the command palette and type "enable" to
+find and execute the command to Enable it again.</p>
+<div>
+    <video width="100%" controls>
+        <source src="../../assets/videos/subl-disable-enable.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<h3 id="keybindings-revisited">Keybindings revisited<a class="headerlink" href="#keybindings-revisited" title="Permanent link">&para;</a></h3>
+<p>You now have two options for key-bindings, either the default sublime keys,
+or the set in your disabled package 'emacs pro essentials'. There are other
+options as well, such as a package that emulates the keybindings in 'vim'. 
+In addition to these, you can actually define any keybindings you want by 
+editing your settings in sublime; simply type keybindings into the command
+palette it will open up a new window showing you the default system keys
+on the left, and with a space to write commands to override those on the right.
+You can mix and match any keys you like. Close this window for now.</p>
+<p>The default keybindings in sublime is built especially for this editor, 
+and thus works the most seamlessly, but is highly specific to sublime. 
+The emacs keyset on the other hand uses many of the same keybindings
+that also work in your terminal (e.g., ctrl-a and ctrl-e to move the cursor
+to the beginning versus end of a line, as we learned previously), 
+and so learning these provides utility that is more broadly transferrable. 
+Personally, I'm hooked on emacs keybindings and I'll never change. 
+But if you're learning for the first time you may consider one of the
+alternatives. Even if you implement the emacs or vim keys in sublime all
+of its other features are still available to you either through different 
+keystrokes, or through the command palette. </p>
+<h2 id="practice-using-emacs-style-keys">Practice using emacs-style keys<a class="headerlink" href="#practice-using-emacs-style-keys" title="Permanent link">&para;</a></h2>
+<p>Basic Keybindings: Readline vs. Emacs
+Movement and Navigation:</p>
+<pre><code>Ctrl + a: Move cursor to the beginning of the line 
+Ctrl + e: Move cursor to the end of the line 
+Ctrl + f: Move cursor forward by one character 
+Ctrl + b: Move cursor backward by one character 
+Ctrl + n: Move cursor down by one character
+Ctrl + p: Move cursor up by one character
+Alt + f: Move cursor forward by one word 
+Alt + b: Move cursor backward by one word
+</code></pre>
+<p>Editing and Deleting:</p>
+<pre><code>Ctrl + d: Delete the character under the cursor
+Ctrl + k: Kill (cut) the text from the cursor to the end of the line
+Ctrl + y: Yank (paste) the last killed text
+Ctrl + /: Comment this line
+</code></pre>
+<p>Undo and Redo:</p>
+<pre><code>Ctrl + _ (ctrl + shift + -): Undo the last action.
+Ctrl + g: Cancel the current command or editing.
+</code></pre>
+<p>Search and History:</p>
+<pre><code>Ctrl + r: search up through script from cursor location
+Ctrl + h: open search and replace box for one script (local)
+Ctrl + shift + f: open search and replace for whole directory (global)
+</code></pre>
+<p>Save changes to a file:</p>
+<pre><code>Ctrl + x + s (Ctrl+x then Ctrl+s): Save file.
+</code></pre>
+<h2 id="configuring-for-your-python-environment">Configuring for your Python environment<a class="headerlink" href="#configuring-for-your-python-environment" title="Permanent link">&para;</a></h2>
+<p>For some extensions to work properly they must be able to find the 
+specific Python installation that you want them to use. In this case we 
+of course will want sublime to find our conda installed version of Python
+and its packages. This can be specified globally, but I prefer to set this
+option separately for each project, since you may have different conda environments
+associated with different projects. To do this we need to create a Project file for
+our current project.</p>
+<p>Go the <code>Project</code> tab at the top of your SublimeText editor and select "Save Project as".
+(Follow these instructions carefully). This will open a view to your filesystem with 
+a default name for the Project file labeled "untitled.sublime-project". Rename this
+file to "darwinday.sublime-project" then select in the file browser to make sure it
+is saving it to your <code>hack-9-python</code> directory, then click save. You should now see
+the darwinday.sublime-project file in your left side bar. Click on it in sublime to
+open it in the edit panel. You should see something like below, which is a mostly
+empty JSON format file where we can entere preferences for this project:</p>
+<div class="highlight"><pre><span></span><code>{
+    &quot;folders&quot;:
+    [
+        {
+            &quot;path&quot;: &quot;.&quot;
+        }
+    ]
+}
+</code></pre></div>
+<p>The only variable defined in here so far is "path", which is telling it the path
+location of files to show in the left side bar. Follow the instructions below
+to add additional variables to this that will specify which version of Python
+we want to use to execute code (i.e., the build system), and some other things.</p>
+<h3 id="configuring-a-build-system">Configuring a build system<a class="headerlink" href="#configuring-a-build-system" title="Permanent link">&para;</a></h3>
+<p>Navigate to the file called <code>darwinday.py</code> in the sidebar file browser. Once
+the file is opened, use the dropdown menu to select Tools, Build System, and
+then Automatic. Now press <kbd>CMD+B</kbd> to <i>build</i> the script (or a 
+similar keystroke, depending on your system; look in the dropdown menu), 
+meaning that it will execute the script as if it had been called from the 
+terminal. The 'automatic' mode should provide a dropdown asking you which 
+build system to use. Select Python (or something similar that it shows), 
+which tells it to execute the current file using the default Python build
+settings. This is equivalent to calling <code>python darwinday.py</code> from a 
+terminal to execute the script. Because this python module 
+has a <code>__main__</code> dunder at the end designating which part of the
+code is meant to be run as an executable, it should run that part of the 
+code and print the output in a build-results window that will pop up from
+the bottom of sublime. It should print a few strings of text into the 
+stdout palette that will open at the bottom of your sublimetext editor.</p>
+<p>Hopefully this worked. But this is actually NOT what we will be using going forward.
+In general, we do not want to use the <em>system-wide version of Python</em>, we want
+to use a specific version that is installed in a conda environment. To do this
+we will set a specific "build system" for this project.</p>
+<p>For this we'll follow instructions below. Go to your Project file in the left
+side bar and enter <strong>your file path</strong> to your conda versin of Python. 
+To check this is absolutely correct look for this path in your terminal 
+first by using tab auto-completion. Your path will be similar to my example below,
+but different for your OS and username. 
+Note that you cannot use relative path names here (no .. or ~ characters in
+the path). Once your project
+script looks similar to the one below, save the file by typing <code>ctrl+x ctrl+s</code>
+(or look at the File tab, then save, for the similar keystroke for your OS)
+Then save the file and it should ask you to save it in </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux / Mac</label><label for="__tabbed_1_2">Windows (WSL)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;folders&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;build_systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python-conda-base&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/home/deren/miniconda3/bin/python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;file_regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^\\s*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span><span class="p">,</span><span class="w">                </span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;folders&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;build_systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python-conda-base&quot;</span><span class="p">,</span><span class="w">                </span>
+<span class="w">            </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;wsl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/home/deren/miniconda3/bin/python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;file_regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Note that if you are on Windows WSL you should click on the tab in the code block above to
+view the slightly different instructions. Please message me if this doesn't work for you,
+I was not able to test it yet at the time of writing.</p>
+<p>Now when you try to build a Python file by pressing <kbd>CMD+B</kbd> it will
+ask you to select either python or python-conda-base as the build option, and you can 
+choose the latter to build with your latest version of Python. To set this as
+the default choice go to the tool bar and select Tools, Build System, and select
+python-conda-base instead of Automatic. This will be remembered for this project.</p>
+<h3 id="configuring-your-linters">Configuring your linters<a class="headerlink" href="#configuring-your-linters" title="Permanent link">&para;</a></h3>
+<p>Next we will install a linter. This is a tool that will highlight errors in your
+code for you. First we need to install the linter into our conda environment. We
+will use the Python linter <code>ruff</code>. Run the following in a terminal for your default
+conda environment.</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>ruff<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>
+</code></pre></div>
+<p>Next, to configure sublime to be able to find this specific linter let's add
+the path to the linter to our Project file like below. This goes in a section 
+called settings.
+As long as we are adding settings I also added a few additional ones that are nice.
+Once again, set the path to the ruff executable using <em>your filepath</em>, not mine.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux / Mac</label><label for="__tabbed_2_2">Windows (WSL)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;folders&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;tab_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;trim_automatic_white_space&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SublimeLinter.linters.ruff.executable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/deren/miniconda3/bin/ruff&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;build_systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python-conda-base&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/home/deren/miniconda3/bin/python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;file_regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^\\s*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span><span class="p">,</span><span class="w">                </span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;folders&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;tab_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;trim_automatic_white_space&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SublimeLinter.linters.ruff.executable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/deren/miniconda3/bin/ruff&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span><span class="w">        </span>
+<span class="w">    </span><span class="nt">&quot;build_systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python-conda-base&quot;</span><span class="p">,</span><span class="w">                </span>
+<span class="w">            </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;wsl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/home/USERNAME/miniconda3/bin/python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;file_regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="alternative-setup-options">Alternative setup options<a class="headerlink" href="#alternative-setup-options" title="Permanent link">&para;</a></h3>
+<p>Note: There are other ways to setup sublimetext to try to automate this process, similar
+to in vscode. If you go searching you might find instructions to install a sublimetext
+text package called <code>anaconda</code> for interacting with a conda environment. I don't 
+recommend this.</p>
+<h2 id="optional-start-subl-from-the-terminal">[Optional] Start <code>subl</code> from the terminal<a class="headerlink" href="#optional-start-subl-from-the-terminal" title="Permanent link">&para;</a></h2>
+<p>For some reason the default installation method on OSX does not install 
+the <code>subl</code> binary into your PATH. This means that initially you can only 
+start sublimetext by clicking on the icon in your Applications bar, and then 
+finding the file or folder that you want to open from within sublimetext. 
+That's fine, but it feels a bit slow to me. More often, you will
+find yourself working in your terminal, <code>cd</code>'d into a directory that you are working
+on, and you will then decide you want to open sublimetext <em>from within that location</em>.
+It's convenient to be able to open your editor to a view of your current directory.
+So, the first customized setup option we are going to configure is to setup 
+the <code>subl</code> binary (if you are on Linux you'll already have it).</p>
+<p>Here is a demonstration of what we will enable:</p>
+<div>
+    <video width="100%" controls>
+        <source src="../../assets/videos/subl.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+</div>
+
+<p>To enable this we will create a new symlink, called <code>subl</code>, that will be 
+located in your PATH and point to the installed sublimetext binary in Applications.
+Up to this point in class we have only installed local software using <code>conda</code>. 
+Here we are instead installing a tool that we want to be available system-wide. 
+To make this work we will add the symlink to a location where other binaries 
+are located globally, in <code>/usr/local/bin/</code>.
+You will need permissions to write the symlink into this location, so the 
+following will ask for your password. <strong>Be sure to use tab-completion</strong>
+(seriously, always) when writing the filepaths below to make sure you do
+not enter a typo.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&quot;</span><span class="w"> </span>/usr/local/bin/subl
+</code></pre></div>
+<p>Perfect. Now that <code>subl</code> is in your PATH you can call it from any location from 
+your terminal. Try it out for youself now. In your terminal use <code>cd</code> to 
+navigate to the <code>~/hacks</code> directory and start sublimetext to see all of your
+repos for this class in one place in your text editor. Or, you can just enter
+the filepath of your hacks folder as the target to <code>subl</code> like in the example
+below:</p>
+<div class="highlight"><pre><span></span><code>subl<span class="w"> </span>~/hacks/
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      
+    
+  </body>
+</html>

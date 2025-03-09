@@ -1,0 +1,321 @@
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Deren Eaton">
+
+  <!-- core, theme, and additional CSS styling -->
+  <link rel="stylesheet" href="../revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../stylesheets/slides.css">
+  <!-- <link rel="stylesheet" href="../revealjs/dist/theme/black.css"> -->
+  <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+      <section>
+        <div style="margin-left: auto; margin-top: 15%">
+          <h2 class="title" style="color:#5ab4ac;line-height: 1.25">
+            Programming and Data Science for Biology<br>(EEEB G4050)</h2>
+          <h4 style="color:grey; font-weight: 400; line-height: 1.5">
+            <i>Lecture 4: conda package management & intro to python</i></h4>
+        </div>
+      </section>
+
+      <section>
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:10%; line-height:1.2">
+              Lecture 4.0 Outline:</h3>
+              <div class="textbox"><p style='ext-align:center; color:white'>
+              <ul style="color:white; line-height: 1.5; font-size: 1.25em">
+                  <li>Troubleshooting git</li>
+                  <li>Conda for package management</li>
+                  <li>Introduction to python for data science</li>
+              </ul>
+              </div>
+      </section>
+
+<!-- Troubleshooting git -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Troubleshooting git</h3>
+          <div class="textbox"><p>
+            Version control systems (particularly git) are useful for managing
+            development of a codebase that is shared across multiple local repositories.
+            Examples of when this could be useful are if you are working on a large
+            project with multiple co-developers, each with your own copy of the code,
+            and each responsible for updating specific parts of it.
+            </br>
+            It's simplest to think of the remote copy of the repository on GitHub as the
+            'authoritative' copy (but this isn't true in a strict sense).
+            </p>
+            </div>
+
+          <img src="GitWorkflow.png" style="width:30%">
+        </div>
+        </section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Troubleshooting git</h3>
+          <div class="textbox"><p>
+            If you and a partner are working on a repository that shares a 'remote'
+            the git workflow ensures that there are not conflicts introduced in the
+            codebase. If you change something and 'push', your partner needs to 'pull'
+            and merge any changes (fixing any conflicts) before they can push their own changes.
+
+            </p>
+            </div>
+          <img src="MergeConflict.png" style="width:30%">
+        </div>
+        </section>
+
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Troubleshooting git</h3>
+          <div class="textbox"><p>
+            In practice, if you have a local repository and you are also modifying files
+            on Github.com through the UI, then you are essentially 'collaborating with yourself',
+            modifying two different copies of the code (local and remote), with the potential
+            to introduce merge conflicts.
+          <pre style="width:70%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+To https://github.com/iao2122/hack-2-shell.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/iao2122/hack-2-shell.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+          </code></pre>
+              <div class="textbox"><p color:white>
+                The simplest thing to do here is to just do what the `hint` says and 
+                `git pull` before doing the push from local. You can also 'stash' local changes,
+                but this is a topic for another time.
+              </div>
+        </div>
+        </div>
+        </section>
+
+      </section>
+
+<!-- Conda package management -->
+    <section>
+        <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              conda software manager</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  In your assignment this week you will learn to install and use the
+                  conda software package manager. This is a popular and powerful tool
+                  for scientific programming. It allows you to automate the process of
+                  finding and installing software, and dealing with dependencies.
+              </p></div>
+
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# install a Python package with conda
+conda install numpy
+
+# install a binary program with conda from a specific channel
+conda install samtools -c bioconda
+          </code></pre>
+
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  Later we will also learn how to write conda recipes so that you can make
+                  the software tools that you develop available on conda.
+              </p></div>
+          </div>
+      </section>
+
+      <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              Why do we need conda? What is the problem it's solving?</h3>
+              <div class="textbox"><p style='color:white'>
+                Prior to conda there were many alternative ways to install software
+                packages (and dependencies), which installed files and programs in different
+                places. This would usually result in a "hairball" of conflicts among installed
+                software, leading to things breaking and being a huge mess to clean up.
+              </p></div>
+
+          <img src="PythonPathMayhem.png" style="width:30%">
+
+        </div>
+        </section>
+
+      <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              Conda uses 'environments' to tame this hairball</h3>
+              <div class="textbox"><p style='color:white'>
+                Conda solves this problem by allowing you to create and manage 'environments'
+                for installing software and dependencies. Environments are isolated from one
+                another, so if something breaks in one environment it doesn't break your
+                whole system, and it can be easily cleaned up by simply removing the broken
+                environment.
+              </p></div>
+
+          <img src="CondaEnvs.png" style="width:50%">
+
+        </div>
+        </section>
+
+      <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              How does the conda magic work?</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  In your assignment this week we will see in more detail how conda works
+                  We'll learn where it installs software, why it uses this location, and 
+                  how it manipulates your PATH to make the magic of environments seamless.
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# show the PATH variable
+echo $PATH
+          </code></pre>
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+/home/deren/gems/bin:/home/deren/miniconda3/bin:/home/deren/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+          </code></pre>
+
+          </div>
+          </section>
+      </section>
+
+
+      <!-- Intro to python -->
+
+      <section>
+      <section data-background-color="#262626" data-transition="none" class="future">
+      <div class="standard">
+          <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+          Learning Python: Why Python?</h3>
+          <div class="textbox"><p style='text-align:center; color:white'>
+              <ul style="color:white; line-height: 1.5; font-size: 1.0em">
+                  <li>Python is easy to read and easy to learn</li>
+                  <li>Python has very active open source development community</li>
+                  <li>Python has the most rapidly growing Data Science community</li>
+                  <li>Python is a general purpose language (not domain specific)</li>
+                  <li>Python is object-oriented with well developed style guides</li>
+                  <li>But, Python is relatively slow (compared to C, C++, Fortran, etc)</li>
+              </ul>
+          </p></div>
+          <img src="rocket.jpg" style="width:35%">
+      </div>
+      </section>
+
+      <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              Python introduction (objects)</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  Everything in Python is an *object*. This is inherent in the design
+                  of the language, and something that we will learn to explore
+                  further as we become more advanced. An integer is an object, a function
+                  is an object, and a Class is an object.
+
+                  <br><br>
+                  At its base, Python includes a small number of basic *object types*.
+                  Once these basic types were defined, it turns out that you can create
+                  almost anything by using them in creative ways. In this way, most
+                  of the Python programming language is actually written in Python.
+                  These basic types include integers, floats, strings, dictionaries, lists, etc.
+                  You will learn about these types this week.
+              </p></div>
+          </div>
+      </section>
+
+
+      <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              Python introduction (string types)</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  String type objects are used to represent one or more characters.
+                  Strings are created by using either single or double quotes.
+                  You can perform operations on strings, such as combining them or
+                  reformatting them to accomplish very complex tasks.
+                  <br><br>
+                  To start, we need to create a string type object. We do this by
+                  storing the value of a string to a variable name. String objects
+                  have more than just their value attached to them. In addition, we
+                  can access other attributes and functions from
+                  the string object by using a dot after the object.
+              </p></div>
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# create a string variable called x
+x = "a string of text"
+
+# call the .upper() function of the string object
+print(x.upper())
+          </code></pre>
+
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+A STRING OF TEXT
+          </code></pre>
+          </div>
+      </section>
+
+     <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              Object oriented programming</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  Object oriented programming is a style of programming design
+                  where that functions that are meant to be called on a given type
+                  of object are *attached* to that object. This makes it easy to find
+                  all of the available options given some object, and ensures you call
+                  the right type of function on the right type of object.
+                  <br>
+                  Coding development tools like jupyter or a good coding editor like vscode
+                  makes it easier to write Python code by taking advantage of this design.
+                  When writing Python code you can use tab-completion to see all options
+                  from your current object.
+              </p></div>
+          <img src="TabCompletion.png" style="width:30%">
+          </div>
+      </section>
+
+     <section data-background-color="#262626" data-transition="none" class="future">
+          <div class="standard">
+              <h3 class="title" style="color:#5ab4ac; margin-top:5%; line-height:1.2">
+              This week's types</h3>
+              <div class="textbox"><p style='text-align:center; color:white'>
+                  This week you will learn about strings, numbers, and lists.
+                  These are some of the basic type object types in Python. You also
+                  have a short reading to introduce these topics. By the end of next
+                  week we will learn all of the additional basic types, including
+                  dictionaries, sets, and tuples.
+              </p></div>
+          </div>
+      </section>
+      </section>
+		</div>
+	</div>
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/notes/notes.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/markdown/markdown.js"></script>
+	<script>
+		Reveal.initialize({
+			transition: 'none',
+			hash: true,
+			plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+			width: 1600,
+			height: 900,
+			minScale: 0.1,
+			maxScale: 5,
+			controls: true,
+			progress: true,
+			loop: false,
+			center: false,
+		});
+	</script>
+</body>
+</html>
