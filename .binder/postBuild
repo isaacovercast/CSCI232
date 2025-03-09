@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "alias javac='javac -cp .:./algs4/lib/*'" >> /home/jovyan/.bashrc
+echo "alias java='java -cp .:./algs4/lib/*'" >> /home/jovyan/.bashrc
+
