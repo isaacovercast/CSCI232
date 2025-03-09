@@ -28,6 +28,7 @@ By the end of this session you will be more familiar with the following topics:
 - Connect, login, and complete notebook 1 on the course server: [https://pinky.eaton-lab.org](https://pinky.eaton-lab.org)
 - Link to [Lecture 1 slides](../../lectures/1.0/): Introduction to bash
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
 ## :material-list-box-outline: Assignments
 - Complete the online poll: [https://forms.gle/gYuxM2UCQirrEbX77](https://forms.gle/gYuxM2UCQirrEbX77)

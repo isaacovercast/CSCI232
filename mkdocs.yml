@@ -89,8 +89,10 @@ nav:
         - 3.3 -- GitHub pages: tutorials/3.3-github-pages
 
   - Resources:
-    - Textbook\- Algorithms (Sedgwick \& Wayne): https://algs4.cs.princeton.edu/home/
-    - Supplementary Reading\- TAOCP (Knuth): https://www-cs-faculty.stanford.edu/~knuth/taocp.html
+    - Textbook - Algorithms (Sedgwick & Wayne): https://algs4.cs.princeton.edu/home/
+    - Coursera - Algorithms (S&W): https://www.coursera.org/learn/algorithms-part1
+    - Supplementary Reading - TAOCP (Knuth): https://www-cs-faculty.stanford.edu/~knuth/taocp.html
 
   - External Links: 
-    - discord server: https://discord.gg/c3PSEk3HU9
+    - CSCI232 Discord Server: https://discord.gg/c3PSEk3HU9
+    - Launch CSCI232 Binder: https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD

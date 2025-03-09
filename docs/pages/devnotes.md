@@ -1,21 +1,8 @@
----
----
-
 
 # Course website dev notes
 
 
 ## Building this website
-
-Clone the repo with recursive option to ensure cloning of the revealjs submodule within,
-or if the repo is already cloned, then just init the submodules
-```bash
-# clone w/ submodules
-git clone --recurse-submodules git@github.com:eaton-lab/hack-the-planet.git
-
-# or, init the submodules
-#git submodule update --init --recursive
-```
 
 Install mkdocs-material into your current environment.
 ```bash
@@ -29,15 +16,26 @@ to localhost:8000.
 mkdocs serve
 ```
 
+## Getting Java working with Jupyter notebooks
+It turns out there are not too many options for running java kernels in jupyter.
+Ultimately I ended up using 
 
-## Editing the site
+- [IJava](https://github.com/SpencerPark/IJava): I ended up using this because it was simple
+to install (`conda install -c conda-forge ijava`) and it seemed to 'work', but it has few
+features and is not actively maintained.
+- [awesome-jupyter-java](https://github.com/jupyter-java/awesome-jupyter-java) maintains
+a list of kernels (both active and inactive)
+- [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter?tab=readme-ov-file#readme) seems
+promising, as kotlin is designed to be backwards compatible with java, so the algs4 code should
+work, and also it could give access to more plotting functionality.
+- [ganymede](https://github.com/allen-ball/ganymede) & [rapaio](https://github.com/padreati/rapaio-jupyter-kernel/tree/main)
+also both seemed promising, but supported by individuals so maybe not robust in the long term.
+- The JetBrains team maintains a [lets-plot](https://github.com/JetBrains/lets-plot?tab=readme-ov-file)
+implementation which works with Kotlin, and theoretically could work in jupyter notebooks
+but I never got that far.
 
-Currently the old class structure is still present in the `old-docs` directory. Parts of this
-can be updated and moved to the new `docs/` directory to be integrated into the new site. 
-
-## Other useful programming for biologists courses
-- [Computing Skills for Biologists (Allesina & Wilmes; the most up-to-date and nice)](https://computingskillsforbiologists.com/downloads/exercises/#scientific)
-- [Python for Biologists](https://www.pythonforbiologists.org/)
-- [Programming for Biologists (Ethan White)](https://www.programmingforbiologists.org/)
-- [Data Science for Biologists (UW)](https://github.com/eleanorlutz/Data_science_for_biologists_2019/tree/main)
+## Materials from past courses
+- [CSCI 232 Spring 2024 - Syllabus](https://www.cs.montana.edu/pearsall/classes/spring2024/232/syllabus.html)
+- [CSCI 232 Spring 2024 - Class Schedule](https://www.cs.montana.edu/pearsall/classes/spring2024/232/main.html)
+- [CSCI 232 Fall 2021](https://scholarworks.umt.edu/cgi/viewcontent.cgi?article=13106&context=syllabi)
 
