@@ -14,12 +14,11 @@ If you could magically change one annoying thing about coding forever, what woul
 
 ## :material-book-variant: Learning objectives
 
-In this first session of class we will review the syllabus, discuss the course 
-objectives, and begin the first interactive lesson introducing programming in 
-a command line terminal. 
-By the end of this session you will be more familiar with the following topics:
+In this session of class we will learn about hash tables, an efficient
+data structure for mapping key/value pairs. By the end of this session 
+you will be more familiar with the following topics:
 
-- The structure and goals of this class.
+- Hash tables
 - A unix shell/terminal.
 - Command line programs, including core system utilities.
 - File system paths.
