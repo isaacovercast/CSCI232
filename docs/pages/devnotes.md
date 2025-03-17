@@ -16,6 +16,39 @@ to localhost:8000.
 mkdocs serve
 ```
 
+## Other good online DS&A materials
+
+- [Crafting Interpreters - Hash Tables](https://craftinginterpreters.com/hash-tables.html): 
+This is actually quite a nice and thorough but still accessible textbook-like approach to
+the subject (uses C for the example code). This is actually a really nice and modern treatment.
+It's part of a book about programming language design, so too bad it is not from a DS&A book.
+Could be a good opportunity to follow this lead and do a whole DS&A book in this style.
+- [Visu**algo** Hash table](https://visualgo.net/en/hashtable/print): A direct link to all the
+text contained in the E-Learning interactive part of this page, very concise, good details but
+terse. 
+
+## DS&A in python
+- [Data Structures and Algorithms in Python (Wiley 2013)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf):
+Seems like a pretty solid and standard DS&A book. Hash table description starts on page 410.
+- [Data Structures and Algorithms with Python (Springer 2014)](https://kentdlee.github.io/CS2Plus/build/html/index.html):
+Pretty old fashioned.
+- [Data Structures and Algorithms (github)](https://github.com/shushrutsharma/Data-Structures-and-Algorithms-Python?tab=readme-ov-file):
+A textbook-like collection of python code implementing several different data structures. Not comprehensive.
+
+## Hash table visualizations
+
+- [Visu**algo** Hashtable](https://visualgo.net/en/hashtable?slide=1): Very fancy. Has a built in lesson
+that is quite extensive. Exploration mode is excellent. Developed by National Univ. Singapore. A huge
+amount of other data structures are covered with similarly cool visualization. Worth looking at.
+- [Open Hashing (SF State)](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html): Implements
+mod 13 hashing, it's cool but you have to add one element at a time by hand, maybe useful.
+- [Hasing Visualization (ACM)](https://iswsa.acm.org/mphf/openDSAPerfectHashAnimation/perfectHashAV.html):
+Can choose your hash function and collision resolution policy, maybe good for illustrating linear
+probing. Has a bunch of other stuff not covered in the book.
+- [Virtual Labs - Hash Tables](https://virtual-labs.github.io/exp-hashtables-iiith/index.html): Less
+a visualization platform and more of a self-guided learning platform (developed by the Ministry of Education
+of the Government of India, wow!). It actually does have some interactive parts under the 'Practice' left-navs.
+
 ## Getting Java working with Jupyter notebooks
 It turns out there are not too many options for running java kernels in jupyter.
 Ultimately I ended up using 

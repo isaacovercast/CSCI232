@@ -1,14 +1,16 @@
 ---
-title: Session 1
-topic: Introduction to the class and bash
-date: 2025-01-21
-day: Tu
+title: Session 1 - Hash Tables
+topic: Hash Tables
+date: 2025-03-24
+day: Mo
 ---
-
 
 <figure markdown="span">
   ![hackers-1](../assets/images/hackers-panel.png)
 </figure>
+
+## Icebreaker question  
+If you could magically change one annoying thing about coding forever, what would it be?
 
 ## :material-book-variant: Learning objectives
 
@@ -24,6 +26,7 @@ By the end of this session you will be more familiar with the following topics:
 - Markdown.
 
 ## :material-human-male-board-poll: In class exercises
+- [Interactive Hash Table Exercis](https://visualgo.net/en/hashtable) - Perhaps build this into a tutorial page
 - Introduce the course website (**bookmark this!**): [https://eaton-lab.org/hack-the-planet](https://eaton-lab.org/hack-the-planet)
 - Connect, login, and complete notebook 1 on the course server: [https://pinky.eaton-lab.org](https://pinky.eaton-lab.org)
 - Link to [Lecture 1 slides](../../lectures/1.0/): Introduction to bash
