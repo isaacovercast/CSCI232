@@ -3,3 +3,5 @@
 echo "alias javac='javac -cp .:/home/jovyan/algs4/lib/*'" >> /home/jovyan/.bashrc
 echo "alias java='java -cp .:/home/jovyan/algs4/lib/*'" >> /home/jovyan/.bashrc
 
+pip install lorem_text
+
