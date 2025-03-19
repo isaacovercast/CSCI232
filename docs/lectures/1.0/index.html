@@ -7,9 +7,9 @@
   <meta name="author" content="Deren Eaton">
 
   <!-- core, theme, and additional CSS styling -->
-  <link rel="stylesheet" href="../revealjs/dist/reset.css">    
-  <link rel="stylesheet" href="../revealjs/dist/reveal.css">  
-  <link rel="stylesheet" href="../../stylesheets/slides.css">  
+  <link rel="stylesheet" href="../revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../stylesheets/slides.css">
   <!-- <link rel="stylesheet" href="../revealjs/dist/theme/black.css"> -->
   <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
@@ -19,250 +19,280 @@
 	<div class="reveal">
 		<div class="slides">
 
-      <section>
+      <!-- Title slide -->
+      <section data-background-image="./img/UM_logo.png" data-background-size="25%" data-background-position="5% 95%">
         <div style="margin-left: auto; margin-top: 15%">
           <h2 class="title" style="color:#5ab4ac;line-height: 1.25">
-            Programming and Data Science for Biology<br>(EEEB G4050)</h2>
-          <h4 style="color:grey; font-weight: 400; line-height: 1.5"> 
-            <i>Lecture 1: Introduction</i></h4>
+            Data Structures and Algorithms (CSCI 232)</h2>
+          <h3 style="color:grey; font-weight: 400; line-height: 1.5">
+            <i>Lecture 1: Hash tables</i></h3>
         </div>
       </section>
 
 
       <section>
         <div class="standard">
-          <h3 class="title">What is scientific programming?</h3>
+          <h3 class="title">Learning Python: Why Python?</h3>
           <div class="textbox"><p>
-            In the strict sense, it is writing a logical sequence of instructions
-            that can be interpreted by a computer to perform a desired task. 
-            <br><br>
-            More broadly, however, successful scientific programming involves a 
-            larger set of tasks, including:
-            (1) envisioning a useful end product; 
-            (2) designing a user-friendly interface;
-            (3) writing the source code;
-            (4) annotating code for readability and comprehension;
-            (5) making the tool installable across platforms;
-            (6) writing documentation;
-            (7) collaborating with a closed or open source community;
-            (8) publishing.
+              <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                  <li>Python is easy to read and easy to learn</li>
+                  <li>Python has very active open source development community</li>
+                  <li>Python has the most rapidly growing Data Science community</li>
+                  <li>Python is a general purpose language (not domain specific)</li>
+                  <li>Python is object-oriented with well developed style guides</li>
+                  <li>But, Python is relatively slow (compared to C, C++, Fortran, etc)</li>
+              </ul>
           </p></div>
+          <img src="rocket.jpg" style="width:35%">
         </div>
       </section>
 
-
+<!-- Computer programs are algorithms -->
       <section>
+          <section>
 	      <div class="standard">
-	        <h3 class="title">What are programming languages?</h3>
+	        <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
           <div class="textbox"><p>
-            A dialect we can use to provide instructions to the computer.
-            Programming languages change over time, diverge from each other, or adopt from each other, 
-            just like spoken languages. The popularity of different languages has varied through time 
-            and among different communities of users.
-            <br><br>
-            In this class you will be introduced to several languages, including: <span style="color: orange">
-            bash, HTML, Markdown, SVG, JavaScript, and Python; with greatest emphasis on bash and Python.</span>
-          </p></div>
-        </div>
-      </section>
+              Everyone uses programming concepts in daily life. Think about the 'instructions'
+              you need to follow to do simple, everyday things. If you need to do something
+              over and over again you might be using a 'while loop', you just don't know it!
+   	      <pre style="width:50%"><code class="language-python" style="margin-top: 0%;">
+#here's some pseudocode
+with open(book):
+    while not done:
+        read(page)
+        try:
+            turn(page)
+        except:
+            print("no more pages!")
+            done == True
+            </code></pre>
+              </p></div>
+            </div>
+          </section>
 
-
-      <section>
-  	    <div class="standard">
-          <h3 class="title">Our goals in this class</h3>
+          <section>
+	      <div class="standard">
+	        <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
           <div class="textbox"><p>
-            (1) To learn to design, code, and publish a software tool that can accomplish a useful task in biology; and 
-            (2) To learn technical and social skills to contribute 
-            to the biological data science community.
-					</p></div>
+              If you need to decide between doing one thing or the other, like if it's sunny out you'll
+              go to the park, and if it's rainy you'll stay in and read a book, you are using 'if statements'
+              (or more formally 'conditional branching'). Here's another conditional branch that you might
+              consider adopting for yourself ;)
+   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-3|4-5|">
+            # More python flavored pseudocode
+            if i want to do good in class:
+                do my homework
+            else:
+                don't do my homework
+            </code></pre>
+              </p></div>
+            </div>
+          </section>
+
+          <section>
+            <div class="standard">
+          <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
+          <div class="textbox"><p>
+              Computer programs are composed of 'algorithms', which means they contain sets of instructions
+              for taking inputs and doing operations on them to generate desired outputs.
+              If that sounds quite a lot like following a recipe when baking that is because recipes
+              are great examples of algorithms.<br>
+            </p></div>
+              <img src="MacronRecipe.png" style="width:35%">
 			  </div>
-      </section>            
+          </section>
+      </section>
 
-
+<!-- Variables section -->
       <section>
+        <section>
         <div class="standard">
-          <h3 class="title">How is this class geared towards biology?</h3>
+          <h3 class="title">Variables and datatypes: The ingredients of a computer program</h3>
           <div class="textbox"><p>
-            <i>Primarily through our interactions and discussions.</i>
-	          <br><br>
-            When biological information is encoded as data, it becomes no different from any other type of data
-            -- it is just text. The skills that we will focus on here will generally
-            apply to any type of data. But, through our discussions in this class, 
-            among a community of people developing software projects to solve 
-		        biological problems, you will be exposed to numerous computational approaches for solving biological problems.
-	          <br><br>
-            However, we will spend some time to learn about particular biological
-            data types and structures, including from genomic and geospatial data.
+			The most basic elements of a programming language are variables which are
+			containers for references to values (just like in algebra class 2xy + 3x = 0;
+			x and y are 'variables').
+			<br><br>
+			Variables contain information of different 'types' such as integers, strings
+			of text, floating point numbers
+
           </p></div>
         </div>
+        </section>
+
+          <section>
+          <div class="standard">
+            <h3 class="title">Variables and datatypes: strings</h3>
+            <div class="textbox"><p>
+                String type objects are used to represent one or more characters.
+                Strings are created by using either single or double quotes.
+                You can perform operations on strings, such as combining them or
+                reformatting them to accomplish very complex tasks.
+                <br><br>
+                To start, we need to create a string type object. We do this by
+                storing the value of a string to a variable name. String objects
+                have more than just their value attached to them. In addition, we
+                can access other attributes and functions from
+                the string object by using a dot after the object.
+            </p></div>
+        <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+# create a string variable called x
+x = "a string of text"
+
+# call the .upper() function of the string object
+print(x.upper())
+        </code></pre>
+        <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+A STRING OF TEXT
+        </code></pre>
+
+            </div>
+          </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Variables and datatypes: The ingredients of a computer program</h3>
+          <div class="textbox"><p>
+              The type of a variable determines what you can do with it. Integer
+              variables can be added and subtracted and multiplied. String
+              variables can be indexed and concatenated.
+          </p></div>
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+x = 4
+y = 6
+print(x + y)
+
+string_a = "wat"
+string_b = "do"
+print(string_a + string_b)
+          </code></pre>
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+10
+watdo
+          </code></pre>
+        </div>
+        </section>
       </section>
-      <!-- TODO: add down slides with examples here... -->
 
+<!-- Lists section -->
 
-	    <section>
+	  <section>
   	    <section>
           <div class="standard">
             <h3 class="title" style="margin-top:6%">
-	            Is my laptop appropriate for this class?</h3>
+                Lists: A fundamental python container class</h3>
             <div class="textbox"><p>
-              <b>Short answer: yes</b>.<br>
-              Scientific computing is overwhelmingly performed on operating systems
-              based on the Unix architecture (e.g., Linux, MacOSX), 
-              sometimes termed *nix systems. As research computing continues to 
-              move into the cloud, these systems which are more scalable for multi-user and multi-tasking
-              are likely to remain and even grow in popularity. Because of this, Windows has historically been 
-              very difficult to use in research computing.<br><br>
-
-              Fortunately, this has recently changed. As Microsoft has gained interest in cloud
-              computing they have embraced Linux -- which for decades they had previously attacked 
-              as a competitor -- and Linux can now be installed and run on Windows as a completely 
-              contained additional operating system (Windows Subsystem for Linux).
+              Lists are the simplest data structure in python, they are used
+              everywhere and they are very efficient. Lists are collections of
+              items that are ordered, and lists can be modified (they are mutable).
             </p></div>
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+lucky_numbers = [3, 7, 33, 42, 101, 314159]
+print(len(lucky_numbers))
+
+# You can use 'indexing' to select items from a list
+print("I have this many lucky numbers:", lucky_numbers[0])
+
+# And 'slicing' to select multiple elements in a range
+print(lucky_numbers[1:3])
+            </code></pre>
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+I have this many lucky numbers: 6
+3
+[7, 33]
+            </code></pre>
           </div>
         </section>
 
         <section>
           <div class="standard">
             <h3 class="title" style="margin-top:5%">
-            So, you will all be learning a bit of Linux</h3>
-            <img src="../../assets/images/xkcd-linux.png" style="width:60%">
-          </div>
-        </section>            
+                Lists objects have many useful built-in functions</h3>
+            <div class="textbox"><p>
+                Lists are one of the fundamental data structures in python, so there are
+                several useful ways to manipulate them. You can add and remove items,
+                sort the list in different ways, and reverse the order of items.
+            </p></div>
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+# Add new items to a list
+lucky_numbers.append(32)
+print(lucky_numbers)
 
-				<!-- <section>
+# We have a new lucky number but the list is out of order!
+lucky_numbers.sort()
+print(lucky_numbers)
+
+# Reverse the order
+lucky_numbers.reverse()
+print(lucky_numbers)
+
+# 7 isn't lucky anymore, so remove it from our list
+lucky_numbers.remove(7)
+print(lucky_numbers)
+            </code></pre>
+
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
+[3, 7, 33, 42, 101, 314159, 32]
+[3, 7, 32, 33, 42, 101, 314159]
+[314159, 101, 42, 33, 32, 7, 3]
+[314159, 101, 42, 33, 32, 3]
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+
+<!-- For loops section -->
+      <section>
+        <section>
           <div class="standard">
-            <h3 class="title" style="margin-top:5%">          	
-              No shame, though, Linux has many of its own drawbacks.</h3>
-            <img src="../../assets/images/xkcd-linux-2.png" style="width:30%">
-          </div>
-        </section> -->
-      </section>
-
-
-
-      <section>
-	      <div class="standard">
-          <h3 class="title" style="margin-top:5%">Our inspiration</h3>
+            <h3 class="title" style="margin-top:6%">
+            For loops: Iteration over lists of items</h3>
           <div class="textbox"><p>
-          	Course website: 
-            <a href=https://eaton-lab.org/hack-the-planet style="color:#5ab4ac">https://eaton-lab.org/hack-the-planet</a>
+              One of the most common things to do with a list of items is 'iterate' through the list
+              and perform some operation on each element. For instance, if we have a list of DNA
+              sequences, we might want to know how long each sequence is:
           </p></div>
-          <div class="textbox" style="margin-top: 2%"><p>
-	          <img src="../../assets/images/hackers-panel.png" style="width:100%; margin-bottom: 2%">
-            The 1995 hit movie 
-            <a href=https://en.wikipedia.org/wiki/Hackers_(film) style="color:#5ab4ac">
-            Hackers.</a> about a group of rough-around-the-edges youth that apply their hacking skills
-		        to take down a global financial conspiracy that was being blamed on one them
-            after a harmless hacking prank. Although we will not learn "hacking" in the strict
-            sense in this class, the ethos behind hackers -- in the sense of a community of
-            coders working together to solve problems -- stands as the inspiration for this
-            class.
-          </p></div>
-        </div>
-      </section>
-
-
-      <section>
-        <div class="standard">
-          <h2><i>The shell or terminal (e.g., bash, zsh)</i></h2>
-          <div class="textbox"><p>
-					A terminal (also known as a shell) is a command-line interface (CLI) that allows
-          users to interact with their computer’s operating system by typing text commands.
-          It serves as a gateway for executing programs, managing files, and controlling system
-          processes without the need for a graphical user interface (GUI). The terminal interprets
-          commands entered by the user and communicates with the operating system to carry out tasks. 
-					</p></div>
-				</div>
-
-	      <pre style="width:60%"><code class="language-bash" style="margin-top: 5%;"> 
-deren@linux ~ $
-
-
-
-
-
-
-
-	      </code></pre>
-	    </section>
-
-
-      <section>
-        <div class="standard">
-          <h2><i>Command-line tools (programs) called from terminal</i></h2>
-        	<div class="textbox"><p style="text-align: center">
-        	A common syntax to call shell programs</p></div>
-        </div>          
-          <pre style="width:60%"><code class="language-bash" style="max-height: 550px; font-size: 22px; line-height:1.35;"> 
-# the full syntax, but some arguments can be left empty
-$ [program-name] -[options...] [target]
-
-# no options or targets: shows files in the current dir
-$ ls
-
-# option -l means to format the output with one file per line
-$ ls -l
-
-# target is a filepath (show that dir instead of current dir)
-$ ls /home/
-
-# options and target can be provided together
-$ ls -la /home/deren
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+sequences = ["ATCGCTTGCGGA", "ATCGCTGGCC", "ATCGCTGCC"]
+for seq in sequences:
+    print(seq, end="\t")
+    print(len(seq))
           </code></pre>
+          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+ATCGCTTGCGGA    12
+ATCGCTGGCC      10
+ATCGCTGCC       9
+          </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="standard">
+            <h3 class="title" style="margin-top:5%">
+            List comprehension: Compact iteration over lists</h3>
+            <div class="textbox"><p>
+                Because 'for' looping over lists is such a common and useful function, python
+                provides a compact syntax for iterating and manipulating list items called 'list comprehension'.
+            </p></div>
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+print([len(x) for x in sequences])
+            </code></pre>
+            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
+[12, 10, 9]
+            </code></pre>
+          </div>
+        </section>
       </section>
-
-
-      <section>
-        <div class=standard>
-        	<h2><i>Filesystem paths</i></h2>
-	        <div class="textbox"><p style="text-align: center;">
-        	In a terminal you should always know: where am I? where are my files?<br>
-          There are unix programs to tell you these answers.
-	        </p></div>
-	        <pre style="width:60%"><code class="language-bash" style="max-height: 550px; font-size: 22px; line-height:1.35;">
-# print working directory (current location)
-$ pwd
-
-# change directory (move yourself to another target location)
-$ cd /home/deren
-
-# list the files in this directory
-$ ls 
-
-# show the filepath to the program `ls`
-$ which ls
-	        </code></pre>
-				</div>
-      </section>
-
-
-      <section>
-        <div class="standard">
-          <h2>The Unix filesystem</h2>
-          <div class="textbox"><p>
-            It is <i>essential</i> to understand the hierarchical structure
-            of the filesystem on your computer. Directories (folders) are 
-            nested within directories, starting from the <i>root</i> (/).
-            <br><br>
-            Your first assignment will focus on learning the file hierarchy. Many of the errors
-            you will encounter while learning to code will involve errors in writing filepaths. 
-            Learning to traverse the filesystem efficiently, in a terminal, will superpower your
-            efficiency in coding.
-        </p></div>
-        <img src="../../assets/images/unix-filesystem.png" style="width:40%; margin-top:3%">
-        </div>
-      </section>
-
-
-
 
 		</div>
 	</div>
-	
+
 	<script src="../revealjs/dist/reveal.js"></script>
 	<script src="../revealjs/plugin/notes/notes.js"></script>
 	<script src="../revealjs/plugin/highlight/highlight.js"></script>
-	<script src="../revealjs/plugin/markdown/markdown.js"></script>	
+	<script src="../revealjs/plugin/markdown/markdown.js"></script>
 	<script>
 		Reveal.initialize({
 			transition: 'none',

@@ -21,7 +21,8 @@ including assignments, reading, and watching video tutorials. An example session
 would include a lecture to introduce a general concept with examples, followed 
 by a group active-learning exercise in which students implement code with pair-programming.
 
-**Equipment:** All software and materials for the course are open access (available online for free) including assigned readings and videos. Students will learn to code on their own computers, no matter if they are running Linux, Mac, Windows, or Chrome OS. This will require student to install free software on their computers.
+**Equipment:** All software and materials for the course are open access (available online for free) including assigned readings and videos. Students will develop 
+code on their own computers, no matter if they are running Linux, Mac, Windows, or Chrome OS. This will require student to install free software on their computers.
 
 **Assessment/Grades:** Grades will not be curved. However, your grade will be assigned relative to the performance of your peers. The maximum grade will earn an A, and grades that are less than one-half of that maximum grade will be assigned an F. Between these values (max and ½ max) intervals equating to letter grades are divided equally. Grades are based on participation (attendance and discussions), assignments, projects proposals, and project presentations, and the final project.  
 - 25% Participation  
@@ -57,10 +58,10 @@ evaluate the reliability of data and tools, which is a vital skill in data
 science. This statement on the use of generative AI was generated with the
 assistance of ChatGPT.
 
-**Statement of academic integrity:** Academic dishonesty is a serious offense and will not
-be tolerated in the class. Students are expected to reference sources appropriately in
-any work. Students are allowed to discuss homework assignments but should respond to
-questions and tasks on their own, not using a group answer. Violation of the rules of
-academic integrity (e.g., plagiarizing materials) will result in automatic failure
-of the course. Rules and consequences are outlined in the [MSU Student Code of 
-Conduct](https://www.umt.edu/campus-life/community-standards/um_student_code_of_conduct.pdf).
+**Statement of academic integrity:** Academic dishonesty is a serious offense 
+and will not be tolerated in the class. Students are expected to reference 
+sources appropriately in any work. Students are allowed to discuss homework
+assignments but should respond to questions and tasks on their own, not using a
+group answer. Violation of the rules of academic integrity (e.g., plagiarizing
+materials) will result in automatic failure of the course. Rules and 
+consequences are outlined in the [MSU Student Code of Conduct](https://www.umt.edu/campus-life/community-standards/um_student_code_of_conduct.pdf).

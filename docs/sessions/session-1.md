@@ -25,17 +25,18 @@ you will be more familiar with the following topics:
 - Markdown.
 
 ## :material-human-male-board-poll: In class exercises
-- [Interactive Hash Table Exercise](../../tutorials/1.0-interactive-hash-tables)
-
-- Connect, login, and complete notebook 1 on the course server: [https://pinky.eaton-lab.org](https://pinky.eaton-lab.org)
-- Link to [Lecture 1 slides](../../lectures/1.0/): Introduction to bash
+- [Lecture 1: Introduction to hash tables](../../lectures/1.0/)
+- [Interactive Hash Table Exploration](../../tutorials/1.0-interactive-hash-tables)
+- [Hash Table Excercises (jupyter notebook)](../../tutorials/1.1-hash-table-experiments)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
 ## :material-list-box-outline: Assignments
 - Implement a hash table class that uses linear probing for collision resolution
-- Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [pdf](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
+- Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [(pdf)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
 - Watch the video: [15 sorting Algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg)
+    - <sup><sub>Most visually satisfying: [Merge sort](https://youtu.be/kPRA0W1kECg?feature=shared&t=65)</sub></sup>
+    - <sup><sub>Most intellectually satisfying: [Bogosort](https://youtu.be/kPRA0W1kECg?feature=shared&t=316)</sub></sup>
 
 
 -----------------------------------------------------
