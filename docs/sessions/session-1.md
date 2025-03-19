@@ -25,7 +25,8 @@ you will be more familiar with the following topics:
 - Markdown.
 
 ## :material-human-male-board-poll: In class exercises
-- [Interactive Hash Table Exercise](https://visualgo.net/en/hashtable) - Perhaps build this into a tutorial page
+- [Interactive Hash Table Exercise](../../tutorials/1.0-interactive-hash-tables)
+
 - Connect, login, and complete notebook 1 on the course server: [https://pinky.eaton-lab.org](https://pinky.eaton-lab.org)
 - Link to [Lecture 1 slides](../../lectures/1.0/): Introduction to bash
 
