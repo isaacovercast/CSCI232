@@ -80,14 +80,15 @@ nav:
         - 2.0 -- GitHub: tutorials/2.0-github
         - 2.1 -- Shell: tutorials/2.1-shell
         - 2.2 -- Shell challenge: tutorials/2.2-bash
-
   - Resources:
-    - Textbook - Algorithms (Sedgwick & Wayne): https://algs4.cs.princeton.edu/home/
-    - Coursera - Algorithms (S&W): https://www.coursera.org/learn/algorithms-part1
-    - Supplementary Reading - TAOCP (Knuth): https://www-cs-faculty.stanford.edu/~knuth/taocp.html
-    - Course Dev Notes:
-        - Dev Notes: pages/devnotes
-
+    - Textbook - Data Structures and Algorithms in Python (Goodrich, Tamassia, & Goldwasser): https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279
+    - Additional Reading - Grokking Algorithms (Bhargava): https://livebook.manning.com/book/grokking-algorithms-second-edition
+    - Supplementary Materials:
+      - TAOCP (Knuth): https://www-cs-faculty.stanford.edu/~knuth/taocp.html
+      - Algorithms (Sedgwick & Wayne): https://algs4.cs.princeton.edu/home/
+      - Algorithms (S&W) Online content: https://www.coursera.org/learn/algorithms-part1
   - External Links: 
     - CSCI 232 Discord Server: https://discord.gg/c3PSEk3HU9
     - Launch CSCI 232 Binder: https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD
+  - Course Dev Notes: pages/devnotes
+  

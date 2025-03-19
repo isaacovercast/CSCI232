@@ -25,17 +25,16 @@ you will be more familiar with the following topics:
 - Markdown.
 
 ## :material-human-male-board-poll: In class exercises
-- [Interactive Hash Table Exercis](https://visualgo.net/en/hashtable) - Perhaps build this into a tutorial page
-- Introduce the course website (**bookmark this!**): [https://eaton-lab.org/hack-the-planet](https://eaton-lab.org/hack-the-planet)
+- [Interactive Hash Table Exercise](https://visualgo.net/en/hashtable) - Perhaps build this into a tutorial page
 - Connect, login, and complete notebook 1 on the course server: [https://pinky.eaton-lab.org](https://pinky.eaton-lab.org)
 - Link to [Lecture 1 slides](../../lectures/1.0/): Introduction to bash
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
 ## :material-list-box-outline: Assignments
-- Complete the online poll: [https://forms.gle/gYuxM2UCQirrEbX77](https://forms.gle/gYuxM2UCQirrEbX77)
-- Watch this [YouTube video](https://www.youtube.com/watch?v=tc4ROCJYbm0&t=1290s) on the history of Unix programming.
-- Complete the *terminal tutor tutorial*: [https://www.terminaltutor.com/](https://www.terminaltutor.com/)
+- Implement a hash table class that uses linear probing for collision resolution
+- Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [pdf](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
+- Watch the video: [15 sorting Algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg)
 
 
 -----------------------------------------------------
