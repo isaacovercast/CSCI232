@@ -18,13 +18,14 @@ In this session of class we will learn about hash tables, an efficient
 data structure for mapping key/value pairs. By the end of this session 
 you will be more familiar with the following topics:
 
-- Hash tables
-- A unix shell/terminal.
-- Command line programs, including core system utilities.
-- File system paths.
-- Markdown.
+- Hash tables: A practical & efficient data structure for storing *key*/*value* pairs
+- Hash functions for mapping *keys* to integer values
+- Useful hash function properties: Determinism, efficiency, & uniformity of hashes
+- Collision-handling schemes: Separate chaining & Linear probing
+- Load factor & hash table resizing
 
 ## :material-human-male-board-poll: In class exercises
+- Why don't we just ask [ChatGPT](https://chatgpt.com/) to explain hash tables to us? It seems easier that way, and maybe then you won't need me anymore. :disappointed:
 - [Lecture 1: Introduction to hash tables](../../lectures/1.0/)
 - [Interactive Hash Table Exploration](../../tutorials/1.0-interactive-hash-tables)
 - [Hash Table Excercises (jupyter notebook)](../../tutorials/1.1-hash-table-experiments)
@@ -32,7 +33,11 @@ you will be more familiar with the following topics:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
 ## :material-list-box-outline: Assignments
-- Implement a hash table class that uses linear probing for collision resolution
+- Implement hash table classes for each of the collision resolution
+strategies we discussed today: `HashTableProbing` for linear probing; and
+`HashTableChaining` for separate chaining. Add them to a `hash_tables.py`
+file in the `data_structures` module of your CSCI232 github repo, and 
+commit/push the changes when they are complete. 
 - Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [(pdf)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
 - Watch the video: [15 sorting Algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg)
     - <sup><sub>Most visually satisfying: [Merge sort](https://youtu.be/kPRA0W1kECg?feature=shared&t=65)</sub></sup>
