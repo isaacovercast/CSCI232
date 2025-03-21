@@ -40,9 +40,9 @@ you will be more familiar with the following topics:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
 ## :material-list-box-outline: Assignments
-- Implement hash table classes for each of the collision resolution
-strategies we discussed today: `HashTableProbing` for linear probing; and
-`HashTableChaining` for separate chaining. Add them to a `hash_tables.py`
+- Implement hash table classes in python for each of the collision resolution
+strategies we discussed today: and `HashTableChaining` for separate chaining; 
+and `HashTableProbing` for linear probing. Add them to a `hash_tables.py`
 file in the `data_structures` module of your CSCI232 github repo, and 
 commit/push the changes when they are complete. 
 - Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [(pdf)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
