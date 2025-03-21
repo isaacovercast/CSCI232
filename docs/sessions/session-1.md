@@ -46,7 +46,7 @@ and `HashTableProbing` for linear probing. Add them to a `hash_tables.py`
 file in the `data_structures` module of your CSCI232 github repo, and 
 commit/push the changes when they are complete. 
 - Read Chapter 12 "Sorting and Selection" in [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [(pdf)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf)
-- Watch the video: [15 sorting Algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg)
+- Watch the video [15 sorting Algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg)
     - <sup><sub>Most visually satisfying: [Merge sort](https://youtu.be/kPRA0W1kECg?feature=shared&t=65)</sub></sup>
     - <sup><sub>Most intellectually satisfying: [Bogosort](https://youtu.be/kPRA0W1kECg?feature=shared&t=316)</sub></sup>
 
