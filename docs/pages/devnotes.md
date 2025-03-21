@@ -29,7 +29,7 @@ terse.
 
 ## DS&A in python
 - [A nice list of phython DS&A books](https://pythonbooks.org/topical-books/algorithm-and-data-structure/)
-- [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [pdf)](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf):
+- [Data Structures and Algorithms in Python by Goodrich, Tamassia, & Goldwasser](https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Python%2C+1st+Edition-p-9781118290279) [pdf](https://nibmehub.com/opac-service/pdf/read/Data%20Structures%20and%20Algorithms%20in%20Python.pdf):
 Seems like a pretty solid and standard DS&A book. Hash table description starts on page 410.
 - [Fundamentals of python: Data Structures by Lambert](https://lambertk.academic.wlu.edu/files/publications/python/cs2pythonv2/TOC.pdf)
 - [Data Structures and Algorithms with Python (Springer 2014)](https://kentdlee.github.io/CS2Plus/build/html/index.html):
