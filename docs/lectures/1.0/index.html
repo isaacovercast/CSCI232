@@ -98,19 +98,9 @@
             all of which have _gene IDs_ and information about _genomic coordinates_ 
             (where they live in the genome). If we want to process information about
             these genes how can we store this information efficiently?
-            <br><br>
-            <!--
-            If you want to know if you have a particular coffee gene you can
-            start at the beginning of your genome and just look for it...
-            ... but the human genome is ~3 Gigabases (3 billion As, Cs, Gs, and Ts)
-            so this will take quite a long time.
-            <br><br>-->
-            Our goal is to create a data structure with 100,000 gene IDs and to 
-            be able scan it quickly for coffee associated genes IDs to retrieve 
-            their genomic coordinates. It would also be nice to be able to efficiently
-            update this data structure if/when we identify new coffee genes.
             <br>
             </p></div>
+            <img src="Chromosome.png" style="width:30%">
 			  </div>
           </section>
       </section>
@@ -156,11 +146,15 @@
           It turns out this is _exactly_ what Hash Tables are designed to do! They
           combine the magic of hash functions with the efficiency of array access to
           create a practical and efficient data structure.
+          <br>
+          </p></div>
+          <img src="HashTableOverview.png" style="width:30%">
           <br><br>
+          <div class="textbox"><p>
           The primary components of a hash table are:
           <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
                 <li>The hash function</li>
-                <li>A data storage structure</li>
+                <li>A data storage structure (An array of 'buckets')</li>
                 <li>A Collision Resolution Scheme</li>
           </ul>
         </div>
@@ -186,7 +180,7 @@
         <div class="standard">
           <h3 class="title">Useful hash function properties: Determinism</h3>
           <div class="textbox"><p>
-            Useful hash function properties: Determinism
+            A good hash function must be deterministic, meaning it consistently produces the same hash code for a given input. This ensures that you get the same result every time you hash a particular key, essential for accurate data retrieval.
           </p></div>
           </div>
         </section>
@@ -195,7 +189,9 @@
         <div class="standard">
           <h3 class="title">Useful hash function properties: Efficiency</h3>
           <div class="textbox"><p>
-          Useful hash function properties: Efficiency
+          The hash function should be computationally efficient, meaning it should 
+          quickly compute the hash code for any given key. An efficient hash function 
+          is important for ensuring overall hash table peformance.
           </p></div>
         </section>
 
@@ -203,7 +199,7 @@
         <div class="standard">
           <h3 class="title">Useful hash function properties: Uniformity</h3>
           <div class="textbox"><p>
-            Useful hash function properties: Uniformity
+            Uniform distribution refers to the even spread of hash codes across the entire range of possible values. A good hash function should distribute the keys uniformly to minimize clustering and reduce the likelihood of collisions.
           </p></div>
           </div>
         </section>
@@ -214,7 +210,10 @@
           <div class="textbox"><p>
           </p></div>
             <img src="xkcd-data-quality.png" style="width:75%">
-          </div>
+          <div class="textbox"><p>
+          <br>NB: The joke here is that hash functions are lossy but deterministic, 
+          as we have learned.
+          </p></div></div>
         </section>
       </section>
 <!-- End Hash Functions -->
@@ -228,7 +227,7 @@
             What happens when hashes collide? We want to keep our O(1) average
             insert/lookup/search without throwing away data.
           </p></div>
-          <img src="hashing-crux.png">
+          <img src="hashing-crux.png" style="width:20%">
         </div>
         </section>
 
@@ -236,15 +235,17 @@
         <div class="standard">
           <h3 class="title">Collision Resolution w/ Separate Chaining</h3>
           <div class="textbox"><p>
-            Collision Resolution w/ Separate Chaining
+            A simple way to deal with collisions is to give each
+            bucket a secondary container for storing all keys that map to a given
+            array index. In this way search becomes a two step process:
+            <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>Hash the key to find the correct bucket</li>
+                <li>Search through the secondary list for the key</li>
+            </ul>
             <br><br>
-            The basic idea is to choose M to be sufficiently large that the lists are sufficiently short to enable efficient search through a two-step process: hash to find the list that could contain the key, then sequentially search through that list for the key.
-            <br><br>
-            We want to make sure the average number of keys per list is small, or else
-            we revert to linear-time list-based methods within each bucket.
 
           </p></div>
-              <img src="L1-SC-Overview.png" style="width:35%">
+              <img src="SeparateChaining.png" style="width:35%">
           </div>
         </section>
 
@@ -252,8 +253,18 @@
         <div class="standard">
           <h3 class="title">Collision Resolution w/ Linear Probing</h3>
           <div class="textbox"><p>
-          Collision Resolution w/ Linear Probing
+            An alternative is to store all items directly in the bucket array,
+            without need for a secondary data structure. This is referred to as an
+            'open addressing' scheme, because the location of a given item may not
+            necessarily be determined by its hash value.
+            <br><br>
+            Linear probing is an open addressing method that performs insertions (for 
+            example) by hashing the key and then 'probing' in a linear fashion
+            for an available bucket if the target bucket is occupied. Search and delete
+            operate the same way.
+            <br><br>
           </p></div>
+          <img src="LinearProbing.png" style="width:45%">
         </div>
         </section>
       </section>
@@ -265,27 +276,38 @@
         <div class="standard">
           <h3 class="title">Load Factor</h3>
           <div class="textbox"><p>
-            Load factor
+            Performance of hash table operations scales with how 'full' it is. We can
+            tell how full it is by calculating the _load factor_ (λ):
+            <br><br>
+            </p></div>
+            <p style="color:white;">λ = n/N</p>
+            <div class="textbox"><p>
+            Where <em>n</em> is the total number of items, and N is the size of 
+            the bucket array.
+            <br><br>
+            <p class="fragment">
+            Separate Chaining: The average number of keys per list must be small, 
+            or else we revert to O(n) list-based methods within each bucket. In
+            practice λ <= 1 provides acceptable performance.
+            <br><br>
+            <span class="fragment">
+            Linear Probing: In this case λ must always be < 1. When λ grows
+            beyond ~0.5, clustering of keys in the bucket array begin to reduce
+            efficiency of the probing strategy.
+            </span>
           </p></div>
         </div>
         </section>
 
         <section>
         <div class="standard">
-          <h3 class="title">Separate Chaining Load Factor</h3>
+          <h3 class="title">Load Factor & Hash Table Resizing</h3>
           <div class="textbox"><p>
-            Separate Chaining Load Factor
+          What to do when λ exceeds a tolerable threshold?
+          <br><br>
+
           </p></div>
           </div>
-        </section>
-
-        <section>
-        <div class="standard">
-          <h3 class="title">Linear Probing Load Factor</h3>
-          <div class="textbox"><p>
-          Linear Probing Load Factor
-          </p></div>
-        </div>
         </section>
 
       </section>
