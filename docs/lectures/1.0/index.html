@@ -20,6 +20,7 @@
 		<div class="slides">
 
       <!-- Title slide -->
+
       <section data-background-image="./img/UM_logo.png" data-background-size="25%" data-background-position="5% 95%">
         <div style="margin-left: auto; margin-top: 15%">
           <h2 class="title" style="color:#5ab4ac;line-height: 1.25">
@@ -29,62 +30,59 @@
         </div>
       </section>
 
-
+<!-- Table of Contents -->
       <section>
         <div class="standard">
-          <h3 class="title">Learning Python: Why Python?</h3>
+          <h3 class="title">Introduction to Hash Tables</h3>
           <div class="textbox"><p>
               <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
-                  <li>Python is easy to read and easy to learn</li>
-                  <li>Python has very active open source development community</li>
-                  <li>Python has the most rapidly growing Data Science community</li>
-                  <li>Python is a general purpose language (not domain specific)</li>
-                  <li>Python is object-oriented with well developed style guides</li>
-                  <li>But, Python is relatively slow (compared to C, C++, Fortran, etc)</li>
+                <li>Hash tables: An efficient data structure for storing <em>key</em>/<em>value</em> pairs</li>
+                <li>Hash functions: mapping keys to integer values</li>
+                <li>Useful hash function properties: Determinism, efficiency, & uniformity of hashes</li>
+                <li>Collision-handling schemes: Separate chaining & Linear probing</li>
+                <li>Load factor & hash table resizing</li>
               </ul>
           </p></div>
-          <img src="rocket.jpg" style="width:35%">
         </div>
       </section>
+<!-- End Table of Contents -->
 
-<!-- Computer programs are algorithms -->
+<!-- Motivating example: Coffee SNPs -->
       <section>
           <section>
-	      <div class="standard">
-	        <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
-          <div class="textbox"><p>
-              Everyone uses programming concepts in daily life. Think about the 'instructions'
-              you need to follow to do simple, everyday things. If you need to do something
-              over and over again you might be using a 'while loop', you just don't know it!
-   	      <pre style="width:50%"><code class="language-python" style="margin-top: 0%;">
-#here's some pseudocode
-with open(book):
-    while not done:
-        read(page)
-        try:
-            turn(page)
-        except:
-            print("no more pages!")
-            done == True
-            </code></pre>
-              </p></div>
+	           <div class="standard">
+      	        <h3 class="title">Let's say you drink a lot of coffee</h3>
+                <div class="textbox"><p>
+                  Some people drink a lot of coffee (like me), and some people
+                  drink tea, and some people don't drink any caffienated beverages
+                  at all.
+                </p></div>
+                  <br>
+                  <img src="coffee-code.jpg" style="width:25%">
+                  <br><br>
+                <div class="textbox"><p>
+                  If you've never thought about _why_ this is, you are in for a treat!
+                </p></div>
             </div>
-          </section>
+        </section>
 
-          <section>
+        <section>
 	      <div class="standard">
-	        <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
+	        <h3 class="title">Inside your DNA there are genes that conspire to make you do this!</h3>
           <div class="textbox"><p>
-              If you need to decide between doing one thing or the other, like if it's sunny out you'll
-              go to the park, and if it's rainy you'll stay in and read a book, you are using 'if statements'
-              (or more formally 'conditional branching'). Here's another conditional branch that you might
-              consider adopting for yourself ;)
-   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-3|4-5|">
-            # More python flavored pseudocode
-            if i want to do good in class:
-                do my homework
-            else:
-                don't do my homework
+              Changes in the DNA of your genome can make you taller, give
+              you a rosier disposition, or make you sneeze in bright sunlight. And
+              changes in some parts of your genome influence coffee 
+              consumption propensity.
+              <br><br>
+              There are dozens of <a href="https://www.nature.com/articles/s41598-021-03153-7">Coffee consumption-associated genes</a> and you might have some, none, or all of them!
+   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-2|3-4|5-6|">
+            # Python flavored pseudocode
+            for SNP in my_genome:
+              if SNP is coffee_related:
+                  my.coffee_consumption += 1
+              else:
+                  pass on coffee
             </code></pre>
               </p></div>
             </div>
@@ -92,199 +90,206 @@ with open(book):
 
           <section>
             <div class="standard">
-          <h3 class="title">Computer programs are just ways of telling a computer what to do</h3>
+          <h3 class="title">How do we find coffee consumption genes in our own genomes?</h3>
           <div class="textbox"><p>
-              Computer programs are composed of 'algorithms', which means they contain sets of instructions
-              for taking inputs and doing operations on them to generate desired outputs.
-              If that sounds quite a lot like following a recipe when baking that is because recipes
-              are great examples of algorithms.<br>
+            Beyond the coffee consumption genes, there are more than 100,000 other 
+            genes related to interesting phenotypes in the 
+            <a href="https://www.snpedia.com/index.php/Rs2472297">SNPedia database</a>,
+            all of which have _gene IDs_ and information about _genomic coordinates_ 
+            (where they live in the genome). If we want to process information about
+            these genes how can we store this information efficiently?
+            <br><br>
+            <!--
+            If you want to know if you have a particular coffee gene you can
+            start at the beginning of your genome and just look for it...
+            ... but the human genome is ~3 Gigabases (3 billion As, Cs, Gs, and Ts)
+            so this will take quite a long time.
+            <br><br>-->
+            Our goal is to create a data structure with 100,000 gene IDs and to 
+            be able scan it quickly for coffee associated genes IDs to retrieve 
+            their genomic coordinates. It would also be nice to be able to efficiently
+            update this data structure if/when we identify new coffee genes.
+            <br>
             </p></div>
-              <img src="MacronRecipe.png" style="width:35%">
 			  </div>
           </section>
       </section>
+<!-- End Motivating example: Coffee SNPs -->
 
-<!-- Variables section -->
+<!-- Motivate Hash Tables -->
       <section>
         <section>
         <div class="standard">
-          <h3 class="title">Variables and datatypes: The ingredients of a computer program</h3>
+          <h3 class="title">Data Structures we have already discussed</h3>
           <div class="textbox"><p>
-			The most basic elements of a programming language are variables which are
-			containers for references to values (just like in algebra class 2xy + 3x = 0;
-			x and y are 'variables').
-			<br><br>
-			Variables contain information of different 'types' such as integers, strings
-			of text, floating point numbers
-
+             Linked Lists: Good old linked lists. Of course could use these but 
+             they are slow, with searching, and arbitrary insertion/deletion O(n)<br>
           </p></div>
+             <img src="LinkedList.png" style="width:50%">
+          <div class="textbox"><p><br>
+             Binary Search Trees: Good old BST are better, with insert/delete/search of O(log n).<br>
+          </p></div>
+              <img src="BST.png" style="width:30%">
+
         </div>
         </section>
 
           <section>
           <div class="standard">
-            <h3 class="title">Variables and datatypes: strings</h3>
+            <h3 class="title">The Gold Standard: Constant time operations O(1)</h3>
             <div class="textbox"><p>
-                String type objects are used to represent one or more characters.
-                Strings are created by using either single or double quotes.
-                You can perform operations on strings, such as combining them or
-                reformatting them to accomplish very complex tasks.
-                <br><br>
-                To start, we need to create a string type object. We do this by
-                storing the value of a string to a variable name. String objects
-                have more than just their value attached to them. In addition, we
-                can access other attributes and functions from
-                the string object by using a dot after the object.
+              We know that array indexing is O(1), so we could store values
+              in an array, if only we could figure out how to transform arbitrary
+              keys (like gene IDs) into integer value appropriately scaled to the size of our array.
+              <br><br>
             </p></div>
-        <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-# create a string variable called x
-x = "a string of text"
-
-# call the .upper() function of the string object
-print(x.upper())
-        </code></pre>
-        <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-A STRING OF TEXT
-        </code></pre>
-
+            <img src="array-indexing.png" style="width:30%">
+            <br><br><br>
+            🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
             </div>
           </section>
 
         <section>
         <div class="standard">
-          <h3 class="title">Variables and datatypes: The ingredients of a computer program</h3>
+          <h3 class="title">Hash Tables: Efficiently mapping key/value pairs</h3>
           <div class="textbox"><p>
-              The type of a variable determines what you can do with it. Integer
-              variables can be added and subtracted and multiplied. String
-              variables can be indexed and concatenated.
-          </p></div>
-          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-x = 4
-y = 6
-print(x + y)
-
-string_a = "wat"
-string_b = "do"
-print(string_a + string_b)
-          </code></pre>
-          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-10
-watdo
-          </code></pre>
+          It turns out this is _exactly_ what Hash Tables are designed to do! They
+          combine the magic of hash functions with the efficiency of array access to
+          create a practical and efficient data structure.
+          <br><br>
+          The primary components of a hash table are:
+          <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>The hash function</li>
+                <li>A data storage structure</li>
+                <li>A Collision Resolution Scheme</li>
+          </ul>
         </div>
         </section>
       </section>
+<!-- End Motivate Hash Tables -->
 
-<!-- Lists section -->
-
-	  <section>
-  	    <section>
-          <div class="standard">
-            <h3 class="title" style="margin-top:6%">
-                Lists: A fundamental python container class</h3>
-            <div class="textbox"><p>
-              Lists are the simplest data structure in python, they are used
-              everywhere and they are very efficient. Lists are collections of
-              items that are ordered, and lists can be modified (they are mutable).
-            </p></div>
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-lucky_numbers = [3, 7, 33, 42, 101, 314159]
-print(len(lucky_numbers))
-
-# You can use 'indexing' to select items from a list
-print("I have this many lucky numbers:", lucky_numbers[0])
-
-# And 'slicing' to select multiple elements in a range
-print(lucky_numbers[1:3])
-            </code></pre>
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-I have this many lucky numbers: 6
-3
-[7, 33]
-            </code></pre>
-          </div>
-        </section>
-
-        <section>
-          <div class="standard">
-            <h3 class="title" style="margin-top:5%">
-                Lists objects have many useful built-in functions</h3>
-            <div class="textbox"><p>
-                Lists are one of the fundamental data structures in python, so there are
-                several useful ways to manipulate them. You can add and remove items,
-                sort the list in different ways, and reverse the order of items.
-            </p></div>
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
-# Add new items to a list
-lucky_numbers.append(32)
-print(lucky_numbers)
-
-# We have a new lucky number but the list is out of order!
-lucky_numbers.sort()
-print(lucky_numbers)
-
-# Reverse the order
-lucky_numbers.reverse()
-print(lucky_numbers)
-
-# 7 isn't lucky anymore, so remove it from our list
-lucky_numbers.remove(7)
-print(lucky_numbers)
-            </code></pre>
-
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 15px; line-height:1.35;">
-[3, 7, 33, 42, 101, 314159, 32]
-[3, 7, 32, 33, 42, 101, 314159]
-[314159, 101, 42, 33, 32, 7, 3]
-[314159, 101, 42, 33, 32, 3]
-            </code></pre>
-          </div>
-        </section>
-      </section>
-
-
-<!-- For loops section -->
+<!-- Hash Functions -->
       <section>
         <section>
-          <div class="standard">
-            <h3 class="title" style="margin-top:6%">
-            For loops: Iteration over lists of items</h3>
+        <div class="standard">
+          <h3 class="title">What is a hash function?</h3>
           <div class="textbox"><p>
-              One of the most common things to do with a list of items is 'iterate' through the list
-              and perform some operation on each element. For instance, if we have a list of DNA
-              sequences, we might want to know how long each sequence is:
+            In the simplest terms it is a function that maps arbitrary input data
+            to an integer value.
           </p></div>
-          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-sequences = ["ATCGCTTGCGGA", "ATCGCTGGCC", "ATCGCTGCC"]
-for seq in sequences:
-    print(seq, end="\t")
-    print(len(seq))
-          </code></pre>
-          <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-ATCGCTTGCGGA    12
-ATCGCTGGCC      10
-ATCGCTGCC       9
-          </code></pre>
+          <br>
+            <img src="HashFunction.png" style="width:35%">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Determinism</h3>
+          <div class="textbox"><p>
+            Useful hash function properties: Determinism
+          </p></div>
           </div>
         </section>
 
         <section>
-          <div class="standard">
-            <h3 class="title" style="margin-top:5%">
-            List comprehension: Compact iteration over lists</h3>
-            <div class="textbox"><p>
-                Because 'for' looping over lists is such a common and useful function, python
-                provides a compact syntax for iterating and manipulating list items called 'list comprehension'.
-            </p></div>
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-print([len(x) for x in sequences])
-            </code></pre>
-            <pre style="width:60%"><code class="bash" style="max-height: 650px; font-size: 18px; line-height:1.35;">
-[12, 10, 9]
-            </code></pre>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Efficiency</h3>
+          <div class="textbox"><p>
+          Useful hash function properties: Efficiency
+          </p></div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Uniformity</h3>
+          <div class="textbox"><p>
+            Useful hash function properties: Uniformity
+          </p></div>
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Here is your obligatory xkcd comic</h3>
+          <div class="textbox"><p>
+          </p></div>
+            <img src="xkcd-data-quality.png" style="width:75%">
           </div>
         </section>
       </section>
+<!-- End Hash Functions -->
+
+<!-- Collisions & Collision Resolution -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">No hash function is perfect</h3>
+          <div class="textbox"><p>
+            What happens when hashes collide? We want to keep our O(1) average
+            insert/lookup/search without throwing away data.
+          </p></div>
+          <img src="hashing-crux.png">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Separate Chaining</h3>
+          <div class="textbox"><p>
+            Collision Resolution w/ Separate Chaining
+            <br><br>
+            The basic idea is to choose M to be sufficiently large that the lists are sufficiently short to enable efficient search through a two-step process: hash to find the list that could contain the key, then sequentially search through that list for the key.
+            <br><br>
+            We want to make sure the average number of keys per list is small, or else
+            we revert to linear-time list-based methods within each bucket.
+
+          </p></div>
+              <img src="L1-SC-Overview.png" style="width:35%">
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Linear Probing</h3>
+          <div class="textbox"><p>
+          Collision Resolution w/ Linear Probing
+          </p></div>
+        </div>
+        </section>
+      </section>
+<!-- End Collisions & Collision Resolution -->
+
+<!-- Load Factor & Hash table resizing -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Load Factor</h3>
+          <div class="textbox"><p>
+            Load factor
+          </p></div>
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Separate Chaining Load Factor</h3>
+          <div class="textbox"><p>
+            Separate Chaining Load Factor
+          </p></div>
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Linear Probing Load Factor</h3>
+          <div class="textbox"><p>
+          Linear Probing Load Factor
+          </p></div>
+        </div>
+        </section>
+
+      </section>
+<!-- End Load Factor & Hash table resizing -->
 
 		</div>
 	</div>
