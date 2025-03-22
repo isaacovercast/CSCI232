@@ -1,0 +1,317 @@
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Deren Eaton">
+
+  <!-- core, theme, and additional CSS styling -->
+  <link rel="stylesheet" href="../revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../stylesheets/slides.css">
+  <!-- <link rel="stylesheet" href="../revealjs/dist/theme/black.css"> -->
+  <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+      <!-- Title slide -->
+
+      <section data-background-image="./img/UM_logo.png" data-background-size="25%" data-background-position="5% 95%">
+        <div style="margin-left: auto; margin-top: 15%">
+          <h2 class="title" style="color:#5ab4ac;line-height: 1.25">
+            Data Structures and Algorithms (CSCI 232)</h2>
+          <h3 style="color:grey; font-weight: 400; line-height: 1.5">
+            <i>Lecture 1: Hash tables</i></h3>
+        </div>
+      </section>
+
+<!-- Table of Contents -->
+      <section>
+        <div class="standard">
+          <h3 class="title">Introduction to Hash Tables</h3>
+          <div class="textbox"><p>
+              <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>Hash tables: An efficient data structure for storing <em>key</em>/<em>value</em> pairs</li>
+                <li>Hash functions: mapping keys to integer values</li>
+                <li>Useful hash function properties: Determinism, efficiency, & uniformity of hashes</li>
+                <li>Collision-handling schemes: Separate chaining & Linear probing</li>
+                <li>Load factor & hash table resizing</li>
+              </ul>
+          </p></div>
+        </div>
+      </section>
+<!-- End Table of Contents -->
+
+<!-- Motivating example: Coffee SNPs -->
+      <section>
+          <section>
+	           <div class="standard">
+      	        <h3 class="title">Let's say you drink a lot of coffee</h3>
+                <div class="textbox"><p>
+                  Some people drink a lot of coffee (like me), and some people
+                  drink tea, and some people don't drink any caffienated beverages
+                  at all.
+                </p></div>
+                  <br>
+                  <img src="coffee-code.jpg" style="width:25%">
+                  <br><br>
+                <div class="textbox"><p>
+                  If you've never thought about _why_ this is, you are in for a treat!
+                </p></div>
+            </div>
+        </section>
+
+        <section>
+	      <div class="standard">
+	        <h3 class="title">Inside your DNA there are genes that conspire to make you do this!</h3>
+          <div class="textbox"><p>
+              Changes in the DNA of your genome can make you taller, give
+              you a rosier disposition, or make you sneeze in bright sunlight. And
+              changes in some parts of your genome influence coffee 
+              consumption propensity.
+              <br><br>
+              There are dozens of <a href="https://www.nature.com/articles/s41598-021-03153-7">Coffee consumption-associated genes</a> and you might have some, none, or all of them!
+   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-2|3-4|5-6|">
+            # Python flavored pseudocode
+            for SNP in my_genome:
+              if SNP is coffee_related:
+                  my.coffee_consumption += 1
+              else:
+                  pass on coffee
+            </code></pre>
+              </p></div>
+            </div>
+          </section>
+
+          <section>
+            <div class="standard">
+          <h3 class="title">How do we find coffee consumption genes in our own genomes?</h3>
+          <div class="textbox"><p>
+            Beyond the coffee consumption genes, there are more than 100,000 other 
+            genes related to interesting phenotypes in the 
+            <a href="https://www.snpedia.com/index.php/Rs2472297">SNPedia database</a>,
+            all of which have _gene IDs_ and information about _genomic coordinates_ 
+            (where they live in the genome). If we want to process information about
+            these genes how can we store this information efficiently?
+            <br><br>
+            <!--
+            If you want to know if you have a particular coffee gene you can
+            start at the beginning of your genome and just look for it...
+            ... but the human genome is ~3 Gigabases (3 billion As, Cs, Gs, and Ts)
+            so this will take quite a long time.
+            <br><br>-->
+            Our goal is to create a data structure with 100,000 gene IDs and to 
+            be able scan it quickly for coffee associated genes IDs to retrieve 
+            their genomic coordinates. It would also be nice to be able to efficiently
+            update this data structure if/when we identify new coffee genes.
+            <br>
+            </p></div>
+			  </div>
+          </section>
+      </section>
+<!-- End Motivating example: Coffee SNPs -->
+
+<!-- Motivate Hash Tables -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Data Structures we have already discussed</h3>
+          <div class="textbox"><p>
+             Linked Lists: Good old linked lists. Of course could use these but 
+             they are slow, with searching, and arbitrary insertion/deletion O(n)<br>
+          </p></div>
+             <img src="LinkedList.png" style="width:50%">
+          <div class="textbox"><p><br>
+             Binary Search Trees: Good old BST are better, with insert/delete/search of O(log n).<br>
+          </p></div>
+              <img src="BST.png" style="width:30%">
+
+        </div>
+        </section>
+
+          <section>
+          <div class="standard">
+            <h3 class="title">The Gold Standard: Constant time operations O(1)</h3>
+            <div class="textbox"><p>
+              We know that array indexing is O(1), so we could store values
+              in an array, if only we could figure out how to transform arbitrary
+              keys (like gene IDs) into integer value appropriately scaled to the size of our array.
+              <br><br>
+            </p></div>
+            <img src="array-indexing.png" style="width:30%">
+            <br><br><br>
+            🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
+            </div>
+          </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Hash Tables: Efficiently mapping key/value pairs</h3>
+          <div class="textbox"><p>
+          It turns out this is _exactly_ what Hash Tables are designed to do! They
+          combine the magic of hash functions with the efficiency of array access to
+          create a practical and efficient data structure.
+          <br><br>
+          The primary components of a hash table are:
+          <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>The hash function</li>
+                <li>A data storage structure</li>
+                <li>A Collision Resolution Scheme</li>
+          </ul>
+        </div>
+        </section>
+      </section>
+<!-- End Motivate Hash Tables -->
+
+<!-- Hash Functions -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">What is a hash function?</h3>
+          <div class="textbox"><p>
+            In the simplest terms it is a function that maps arbitrary input data
+            to an integer value.
+          </p></div>
+          <br>
+            <img src="HashFunction.png" style="width:35%">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Determinism</h3>
+          <div class="textbox"><p>
+            Useful hash function properties: Determinism
+          </p></div>
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Efficiency</h3>
+          <div class="textbox"><p>
+          Useful hash function properties: Efficiency
+          </p></div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Uniformity</h3>
+          <div class="textbox"><p>
+            Useful hash function properties: Uniformity
+          </p></div>
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Here is your obligatory xkcd comic</h3>
+          <div class="textbox"><p>
+          </p></div>
+            <img src="xkcd-data-quality.png" style="width:75%">
+          </div>
+        </section>
+      </section>
+<!-- End Hash Functions -->
+
+<!-- Collisions & Collision Resolution -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">No hash function is perfect</h3>
+          <div class="textbox"><p>
+            What happens when hashes collide? We want to keep our O(1) average
+            insert/lookup/search without throwing away data.
+          </p></div>
+          <img src="hashing-crux.png">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Separate Chaining</h3>
+          <div class="textbox"><p>
+            Collision Resolution w/ Separate Chaining
+            <br><br>
+            The basic idea is to choose M to be sufficiently large that the lists are sufficiently short to enable efficient search through a two-step process: hash to find the list that could contain the key, then sequentially search through that list for the key.
+            <br><br>
+            We want to make sure the average number of keys per list is small, or else
+            we revert to linear-time list-based methods within each bucket.
+
+          </p></div>
+              <img src="L1-SC-Overview.png" style="width:35%">
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Linear Probing</h3>
+          <div class="textbox"><p>
+          Collision Resolution w/ Linear Probing
+          </p></div>
+        </div>
+        </section>
+      </section>
+<!-- End Collisions & Collision Resolution -->
+
+<!-- Load Factor & Hash table resizing -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Load Factor</h3>
+          <div class="textbox"><p>
+            Load factor
+          </p></div>
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Separate Chaining Load Factor</h3>
+          <div class="textbox"><p>
+            Separate Chaining Load Factor
+          </p></div>
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Linear Probing Load Factor</h3>
+          <div class="textbox"><p>
+          Linear Probing Load Factor
+          </p></div>
+        </div>
+        </section>
+
+      </section>
+<!-- End Load Factor & Hash table resizing -->
+
+		</div>
+	</div>
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/notes/notes.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/markdown/markdown.js"></script>
+	<script>
+		Reveal.initialize({
+			transition: 'none',
+			hash: true,
+			plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+			width: 1600,
+			height: 900,
+			minScale: 0.1,
+			maxScale: 5,
+			controls: true,
+			progress: true,
+			loop: false,
+			center: false,
+		});
+	</script>
+</body>
+</html>
