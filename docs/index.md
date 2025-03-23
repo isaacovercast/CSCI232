@@ -2,6 +2,7 @@
 image: /assets/images/hackers-5.jpg
 ---
 
+**NB: THIS IS A MOCK SITE FOR A TEACHING DEMONSTRATION**
 
 # Data Structures and Algorithms (CSCI 232)
 - **Term:** Spring 2025

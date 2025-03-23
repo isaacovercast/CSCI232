@@ -1,6 +1,8 @@
 
 # Course website dev notes
 
+All course materials live in my a github repository:  
+[https://github.com/isaacovercast/CSCI232](https://github.com/isaacovercast/CSCI232)
 
 ## Building this website
 

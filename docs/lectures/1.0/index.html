@@ -176,8 +176,8 @@
             In the simplest terms it is a function that maps arbitrary input data
             to an integer value.
           </p></div>
-          <br>
-            <img src="HashFunction.png" style="width:35%">
+          <br><br><br>
+            <img src="HashFunction.png" style="width:40%">
         </div>
         </section>
 
@@ -187,6 +187,10 @@
           <div class="textbox"><p>
             A good hash function must be deterministic, meaning it consistently produces the same hash code for a given input. This ensures that you get the same result every time you hash a particular key, essential for accurate data retrieval.
           </p></div>
+          <br>
+          <img class="fragment" src="NonDeterministicHash.png" style="width:60%">
+          <br><br><br>
+          <img class="fragment" src="DeterministicHash.png" style="width:60%">
           </div>
         </section>
 
@@ -198,6 +202,10 @@
           quickly compute the hash code for any given key. An efficient hash function 
           is important for ensuring overall hash table peformance.
           </p></div>
+          <br>
+          <img class="fragment" src="SlowHash.png" style="width:35%">
+          <br><br><br>
+          <img class="fragment" src="FastHash.png" style="width:35%">
         </section>
 
         <section>
@@ -206,6 +214,10 @@
           <div class="textbox"><p>
             Uniform distribution refers to the even spread of hash codes across the entire range of possible values. A good hash function should distribute the keys uniformly to minimize clustering and reduce the likelihood of collisions.
           </p></div>
+          <br>
+          <img class="fragment" src="NonUniformHash.png" style="width:40%">
+          <br><br><br>
+          <img class="fragment" src="UniformHash.png" style="width:40%">
           </div>
         </section>
       </section>
@@ -218,9 +230,9 @@
         <div class="standard">
           <h3 class="title">No hash function is perfect</h3>
           <div class="textbox"><p>
-            What happens when hashes collide? We want to keep our O(1) average
-            insert/lookup/search without throwing away data.
-          </p></div>
+            What happens when hashes do (inevitably) collide? We want to keep our 
+            O(1) average insert/lookup/search without throwing away data.
+          </p></div><br>
           <img src="hashing-crux.png" style="width:20%">
         </div>
         </section>
@@ -280,7 +292,7 @@
             the bucket array.
             <br><br>
             <p class="fragment">
-            Separate Chaining: The average number of keys per list must be small, 
+            Separate Chaining: The average number of keys per list (λ) must be small, 
             or else we revert to O(n) list-based methods within each bucket. In
             practice λ <= 1 provides acceptable performance.
             <br><br>
@@ -317,7 +329,7 @@
       <section>
       <div class="standard">
         <h3 class="title">End of Hash Table Lecture</h3>
-        <h4 class="textbox" style="color:white">Here is your obligatory xkcd comic:</h4>
+        <div class="textbox fragment" style="color:white; font-size:45px"><p>Here is your obligatory xkcd comic:</p></div>
         <br>
           <img class="fragment" src="xkcd-data-quality.png" style="width:75%">
         <div class="textbox"><p>
