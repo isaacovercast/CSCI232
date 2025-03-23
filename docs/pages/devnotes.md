@@ -42,6 +42,12 @@ Pretty old fashioned.
 - [Data Structures and Algorithms (github)](https://github.com/shushrutsharma/Data-Structures-and-Algorithms-Python?tab=readme-ov-file):
 A textbook-like collection of python code implementing several different data structures. Not comprehensive.
 
+## DS&A in rust
+Both of these are freely available online in github repositories
+
+- [Hands on data structures and algorithms with rust](https://github.com/PacktPublishing/Hands-On-Data-Structures-and-Algorithms-with-Rust)
+- [Rust book](https://github.com/QMHTMY/RustBook)
+
 ## Hash table visualizations
 
 - [Visu**algo** Hashtable](https://visualgo.net/en/hashtable?slide=1): Very fancy. Has a built in lesson
