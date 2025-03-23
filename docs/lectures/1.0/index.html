@@ -75,8 +75,10 @@
               changes in some parts of your genome influence coffee 
               consumption propensity.
               <br><br>
-              There are dozens of <a href="https://www.nature.com/articles/s41598-021-03153-7">Coffee consumption-associated genes</a> and you might have some, none, or all of them!
-   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-2|3-4|5-6|">
+              There are dozens of <a href="https://www.nature.com/articles/s41598-021-03153-7" style="color:aquamarine;">coffee 
+              consumption-associated genes</a> and you might have some, none, or 
+              all of them!
+   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-2|3-4|5-6">
             # Python flavored pseudocode
             for SNP in my_genome:
               if SNP is coffee_related:
@@ -93,14 +95,14 @@
           <h3 class="title">How do we find coffee consumption genes in our own genomes?</h3>
           <div class="textbox"><p>
             Beyond the coffee consumption genes, there are more than 100,000 other 
-            genes related to interesting phenotypes in the 
-            <a href="https://www.snpedia.com/index.php/Rs2472297">SNPedia database</a>,
-            all of which have _gene IDs_ and information about _genomic coordinates_ 
+            genetic variants (Single-nucleotide polymorphisms; SNPs) related to 
+            interesting phenotypes in the <a href="https://www.snpedia.com/index.php/Rs2472297" style="color:aquamarine;">SNPedia database</a>,
+            all of which have <span style="font-style:italic">SNP IDs</span> and information about <span style="font-style:italic">genomic coordinates</span>
             (where they live in the genome). If we want to process information about
             these genes how can we store this information efficiently?
             <br>
-            </p></div>
-            <img src="Chromosome.png" style="width:30%">
+            </p></div><br>
+            <img src="Chromosome.png" style="width:85%">
 			  </div>
           </section>
       </section>
@@ -130,11 +132,11 @@
             <div class="textbox"><p>
               We know that array indexing is O(1), so we could store values
               in an array, if only we could figure out how to transform arbitrary
-              keys (like gene IDs) into integer value appropriately scaled to the size of our array.
-              <br><br>
+              keys (like SNP IDs) into integer value appropriately scaled to the size of our array.
+              <br>
             </p></div>
-            <img src="array-indexing.png" style="width:30%">
-            <br><br><br>
+            <img src="array-indexing.png" style="width:40%">
+            <br><br>
             🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
             </div>
           </section>
@@ -146,16 +148,15 @@
           It turns out this is _exactly_ what Hash Tables are designed to do! They
           combine the magic of hash functions with the efficiency of array access to
           create a practical and efficient data structure.
-          <br>
           </p></div>
-          <img src="HashTableOverview.png" style="width:30%">
-          <br><br>
+          <img src="HashTableOverview.png" style="width:35%">
+          <br>
           <div class="textbox"><p>
           The primary components of a hash table are:
           <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
-                <li>The hash function</li>
-                <li>A data storage structure (An array of 'buckets')</li>
-                <li>A Collision Resolution Scheme</li>
+                <li class="fragment">The hash function</li>
+                <li class="fragment">A data storage structure (An array of 'buckets')</li>
+                <li class="fragment">A Collision Resolution Scheme</li>
           </ul>
         </div>
         </section>
@@ -211,8 +212,8 @@
           </p></div>
             <img src="xkcd-data-quality.png" style="width:75%">
           <div class="textbox"><p>
-          <br>NB: The joke here is that hash functions are lossy but deterministic, 
-          as we have learned.
+          <br><span class="fragment">NB: The joke here is that hash functions are 
+          lossy but deterministic, as we have learned.</span>
           </p></div></div>
         </section>
       </section>
@@ -305,8 +306,17 @@
           <div class="textbox"><p>
           What to do when λ exceeds a tolerable threshold?
           <br><br>
-
-          </p></div>
+          <span class="fragment" style="font-size:30px">We...</span>
+          <span class="fragment" style="font-size:60px">make...</span>
+          <span class="fragment" style="font-size:90px">it...</span>
+          <span class="fragment" style="font-size:120px">bigger!</span>
+          </p></div><br>
+          <img class="fragment" src="Resize.png" style="width:45%">
+          <br>
+          <div class="textbox fragment"><p>
+            If we double the size of the bucket array every time we cross the
+            chosen λ threshold we can 'spread out' the costs associated with
+            periodic rehashing (i.e. we maintain O(1) amortized run time). 
           </div>
         </section>
 
