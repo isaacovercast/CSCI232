@@ -6,7 +6,7 @@ day: Mo
 ---
 
 <figure markdown="span">
-  ![hackers-1](../assets/images/hackers-panel.png)
+  ![hackers-1](../assets/images/HashTableDiagram.png)
 </figure>
 
 ## Icebreaker question  
@@ -53,7 +53,13 @@ commit/push the changes when they are complete.
 
 -----------------------------------------------------
 
-<figure markdown="span">
-  ![hackers-1](../assets/images/hackers-1.jpg)
-</figure>
+<!--<img src="../../assets/images/BenderHash.png" width="400" height="400" class="center"/> -->
 
+<p align="center">
+<img src="../../assets/images/BenderHash.png" width="400" height="400"></a></p>
+
+<!--
+<figure style>
+  ![hackers-1](../assets/images/BenderHash.png)
+</figure>
+-->
