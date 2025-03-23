@@ -7,9 +7,9 @@ image: /assets/images/hackers-5.jpg
 - **Term:** Spring 2025
 - **Department:** Computer Science
 - **Instructor:**  Isaac Overcast ([iao2122@columbia.edu](mailto:iao2122@columbia.edu), he/him)
-- **Location:** TBD
-- **Day/Time:** TBD
-- **Office hours:** TBD.
+- **Location:** University Hall 210
+- **Day/Time:** Monday March 24 (10-11am)
+- **Office hours:** By request (email me)
 
 **Bulletin**: Advanced data structures and programming techniques and their 
 application. Topics include: trees, balanced trees, graphs, dictionaries, hash 

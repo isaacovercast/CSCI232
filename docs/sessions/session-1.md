@@ -34,8 +34,8 @@ you will be more familiar with the following topics:
 ## :material-human-male-board-poll: In class exercises
 - Why don't we just ask [ChatGPT](https://chatgpt.com/) to explain hash tables to us? It seems easier that way, and maybe then you won't need me anymore. :disappointed:
 - [Lecture 1: Introduction to hash tables](../../lectures/1.0/)
-- [Interactive Hash Table Exploration](../../tutorials/1.0-interactive-hash-tables)
-- [Hash Table Excercises (jupyter notebook)](../../tutorials/1.1-hash-table-experiments)
+- [Tutorial 1.0: Hash Table Excercises (jupyter notebook)](../../tutorials/1.0-hash-table-experiments)
+- [Tutorial 1.1: Interactive Hash Table Exploration](../../tutorials/1.1-interactive-hash-tables)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/isaacovercast/CSCI232/HEAD)
 
