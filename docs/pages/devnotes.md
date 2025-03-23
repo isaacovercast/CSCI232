@@ -80,4 +80,14 @@ but I never got that far.
 - [CSCI 232 Spring 2024 - Syllabus](https://www.cs.montana.edu/pearsall/classes/spring2024/232/syllabus.html)
 - [CSCI 232 Spring 2024 - Class Schedule](https://www.cs.montana.edu/pearsall/classes/spring2024/232/main.html)
 - [CSCI 232 Fall 2021](https://scholarworks.umt.edu/cgi/viewcontent.cgi?article=13106&context=syllabi)
+- [Lucy's course materials are all layed out nicely in github pages](https://lgw2.github.io/teaching/cscix32-spring-2025/syllabus/)
+
+### Materials from UIUC CS courses
+The Grainger College of Engineering has a massive CS program and all their
+course materials are standardized and available on their 
+[website](https://courses.grainger.illinois.edu/). It is a treasure trove of
+useful resources!
+
+- [CS225 Data Structures](https://courses.grainger.illinois.edu/cs225/sp2024/pages/lectures.html)
+- [CS 277 Algo & Data Stru for Data Sci](https://courses.grainger.illinois.edu/cs277/sp2025/policy/syllabus/)
 
