@@ -1,0 +1,18 @@
+
+pre code {
+  border: 2px solid #262626;
+  border-radius: 5px;       /* Optional rounded corners */	
+  margin: 10px 0;          /* Add some space outside the <pre> element */
+}
+
+
+pre.stdout {
+  background-color: #6d6d6d;
+  color: #ffffff;           /* Light text color */
+  border-radius: 5px;       /* Optional rounded corners */
+  padding: 1em;             /* Optional padding */
+  overflow: auto;           /* Enable horizontal scrolling */
+  font-family: monospace;   /* Ensure a monospace font */
+  line-height: 1.5;         /* Improve readability */  
+  font-size: 0.9em;
+}

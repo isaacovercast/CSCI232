@@ -1,0 +1,172 @@
+
+
+/* fonts */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,300bold,400,400italic,400bold,700,700italic);
+
+/*********************************************
+ * GENERAL SLIDE STYLE
+ *********************************************/
+.reveal {
+  background-color: #262626;
+}
+
+.reveal .slides section {
+  font-family: "Lato", sans-serif;
+  font-size: 34px; 
+}
+
+.reveal .slides .title {
+  margin-left: auto; 
+  margin-top: 10%;
+  color: #5ab4ac;
+  line-height: 1.2;
+}
+
+.reveal .slides .title5 {
+  margin-left: auto; 
+  margin-top: 5%;
+  color: #5ab4ac;
+  line-height: 1.2;
+}
+
+.reveal .slides .standard {
+  margin-left: auto; 
+  margin-top: 2%;
+}
+
+.reveal .slides .textbox {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.reveal .slides .textbox p {
+  font-size: 0.9em; 
+  text-align: left;
+  color: #F0EAD6;
+  line-height: 1.55em;
+}
+
+.reveal b {
+  font-weight: 800;
+}
+
+.reveal i {
+  font-style: italic;
+}
+
+.reveal .slides .standard-textbox-image {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  align-items: top;
+/*  gap: 10px;*/
+/*  margin: 10px 0;*/
+}
+
+.reveal .slides .standard-textbox-image .image {
+  max-width: 35%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+ .reveal h1,
+ .reveal h2,
+ .reveal h3,
+ .reveal h4,
+ .reveal h5,
+ .reveal h6 {
+   margin: 0 0 30px 0;
+   font-family: "Lato", sans-serif;
+   font-weight: 400;
+   text-shadow: none;
+   word-wrap: break-word; 
+}
+
+.reveal h1 {
+  font-size: 2em; 
+  line-height: 1.0em; 
+  text-shadow: none;
+}
+
+.reveal h2 {
+  font-size: 1.77em; color: darkgoldenrod;}
+
+.reveal h3 {
+  font-size: 1.55em; }
+
+.reveal h4 {
+  font-size: 1.33em; }
+
+
+
+/***********************************
+BULLET POINTS
+***********************************/
+
+/* Styling the unordered list */
+.reveal .slides ul.bulletbox {
+  margin-left: 10%;
+  margin-right: 10%;
+  list-style-position: inside;  /* Ensures bullets stay aligned with the text */
+  padding-left: 0;  /* Removes default padding */
+}
+
+/* Styling the list items */
+.reveal .slides ul.bulletbox li {
+  font-size: 0.9em; 
+  text-align: left;
+  color: #F0EAD6;
+  line-height: 1.55em;
+  margin-bottom: 0px; /* Adds space between list items */
+  padding-left: 1.5em; /* Creates space between the bullet and the text */
+}
+
+
+/***********************************
+APPLIES TO CODE BLOCKS 
+***********************************/
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  word-wrap: break-word;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  outline: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.reveal code {
+  text-align: left;
+  font-family: monospace;
+  text-transform: none; 
+}
+
+.reveal pre code {
+  display: block;
+  padding: 20px 20px ;
+  overflow: auto;
+  max-height: 500px;
+  word-wrap: normal;
+  max-height: 650px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+
+/***********************************
+APPLIES NAVIGATION
+***********************************/
+.reveal .controls {
+  color: #5ab4ac; 
+}
+
+.reveal .progress {
+  color: #5ab4ac; 
+}
+
+
