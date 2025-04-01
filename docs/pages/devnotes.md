@@ -4,12 +4,6 @@
 All course materials live in my a github repository:  
 [https://github.com/isaacovercast/CSCI232](https://github.com/isaacovercast/CSCI232)
 
-#### Visu**Algo** Cheat-sheet
-
-Insert items to generate separate chaining in the text:  
-
-90, 80, 51, 71, 62, 52, 2, 42, 53, 44, 24, 14, 45, 85, 15, 26, 56, 67, 17, 18
-
 ## Building this website
 
 Install mkdocs-material into your current environment.
@@ -102,4 +96,14 @@ useful resources!
 
 - [CS225 Data Structures](https://courses.grainger.illinois.edu/cs225/sp2024/pages/lectures.html)
 - [CS 277 Algo & Data Stru for Data Sci](https://courses.grainger.illinois.edu/cs277/sp2025/policy/syllabus/)
+
+#### Visu**Algo** Cheat-sheet
+
+Insert items to generate separate chaining in the text:  
+
+90, 80, 51, 71, 62, 52, 2, 42, 53, 44, 24, 14, 45, 85, 15, 26, 56, 67, 17, 18
+
+Items to generate Linear probing in the text:
+
+91, 84, 19, 59, 99
 

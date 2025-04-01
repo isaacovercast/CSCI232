@@ -5,16 +5,10 @@ date: 2025-03-24
 day: Mo
 ---
 
-
 <figure markdown="span">
   ![hackers-1](../assets/images/HashTableDiagram2.png)
 </figure>
 
-<!--
-
-<p align="center">
-<img src="../../assets/images/HashTableDiagram2.png" height="10"></p>
--->
 ## Icebreaker question  
 [If you could magically change one annoying thing about coding forever, what would it be?](https://www.menti.com/alfkdjwcnv51)
 
