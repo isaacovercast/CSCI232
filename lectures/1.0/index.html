@@ -1,0 +1,373 @@
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Deren Eaton">
+
+  <!-- core, theme, and additional CSS styling -->
+  <link rel="stylesheet" href="../revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../stylesheets/slides.css">
+  <!-- <link rel="stylesheet" href="../revealjs/dist/theme/black.css"> -->
+  <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+      <!-- Title slide -->
+
+      <section data-background-image="./img/UM_logo.png" data-background-size="25%" data-background-position="5% 95%">
+        <div style="margin-left: auto; margin-top: 15%">
+          <h2 class="title" style="color:#5ab4ac;line-height: 1.25">
+            Data Structures and Algorithms (CSCI 232)</h2>
+          <h3 style="color:grey; font-weight: 400; line-height: 1.5">
+            <i>Lecture 1: Hash tables</i></h3>
+        </div>
+      </section>
+
+<!-- Table of Contents -->
+      <section>
+        <div class="standard">
+          <h3 class="title">Introduction to Hash Tables</h3>
+          <div class="textbox"><p>
+              <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>Hash tables: An efficient data structure for storing <em>key</em>/<em>value</em> pairs</li>
+                <li>Hash functions: mapping keys to integer values</li>
+                <li>Useful hash function properties: Determinism, efficiency, & uniformity of hashes</li>
+                <li>Collision-handling schemes: Separate chaining & Linear probing</li>
+                <li>Load factor & hash table resizing</li>
+              </ul>
+          </p></div>
+        </div>
+      </section>
+<!-- End Table of Contents -->
+
+<!-- Motivating example: Coffee SNPs -->
+      <section>
+          <section>
+	           <div class="standard">
+      	        <h3 class="title">Let's say you drink a lot of coffee</h3>
+                <div class="textbox"><p>
+                  Some people drink a lot of coffee (like me), and some people
+                  drink tea, and some people don't drink any caffienated beverages
+                  at all.
+                </p></div>
+                  <br>
+                  <img src="coffee-code.jpg" style="width:25%">
+                  <br><br>
+                <div class="textbox"><p>
+                  If you've never thought about _why_ this is, you are in for a treat!
+                </p></div>
+            </div>
+        </section>
+
+        <section>
+	      <div class="standard">
+	        <h3 class="title">Inside your DNA there are genes that conspire to make you do this!</h3>
+          <div class="textbox"><p>
+              Changes in the DNA of your genome can make you taller, give
+              you a rosier disposition, or make you sneeze in bright sunlight. And
+              changes in some parts of your genome influence coffee 
+              consumption propensity.
+              <br><br>
+              There are dozens of <a href="https://www.nature.com/articles/s41598-021-03153-7" style="color:aquamarine;">coffee 
+              consumption-associated genes</a> and you might have some, none, or 
+              all of them!
+   	      <pre style="width:50%"><code data-trim class="language-python" style="margin-top: 0%;" data-line-numbers="|1-2|3-4|5-6">
+            # Python flavored pseudocode
+            for SNP in my_genome:
+              if SNP is coffee_related:
+                  my.coffee_consumption += 1
+              else:
+                  pass on coffee
+            </code></pre>
+              </p></div>
+            </div>
+          </section>
+
+          <section>
+            <div class="standard">
+          <h3 class="title">How do we find coffee consumption genes in our own genomes?</h3>
+          <div class="textbox"><p>
+            There are 100,000+ genetic variants (Single-nucleotide polymorphisms; SNPs)
+            in the <a href="https://www.snpedia.com/index.php/Rs2472297" style="color:aquamarine;">SNPedia database</a>,
+            all of which have <span style="font-style:italic">SNP IDs</span> and 
+            <span style="font-style:italic">genomic coordinates</span>
+            (where they live in the genome). If we want to process information about
+            these <span style="font-style:italic">key</span>/<span style="font-style:
+            italic">value</span> pairs (i.e. SNPs & coordinates) how can we store this information efficiently?
+            <br>
+            </p></div><br>
+            <img src="Chromosome.png" style="width:85%">
+			  </div>
+          </section>
+
+          <section>
+            <div class="standard">
+          <h3 class="title">Given a SNP ID we want to find its location efficiently</h3>
+          <div class="textbox"><p>
+            </p></div><br>
+            <img src="MagicHappens.png" style="width:85%">
+        </div>
+          </section>
+
+      </section>
+<!-- End Motivating example: Coffee SNPs -->
+
+<!-- Motivate Hash Tables -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Data Structures we have already discussed</h3>
+          <span class="fragment">
+          <div class="textbox"><p>
+             Linked Lists: Good old linked lists. Of course could use these but 
+             they are slow, with searching, and arbitrary insertion/deletion O(n)<br>
+          </p></div>
+             <img src="LinkedList.png" style="width:50%">
+           </span>
+          <span class="fragment">
+          <div class="textbox"><p><br>
+             Binary Search Trees: Good old BST are better, with insert/delete/search of O(log n).<br>
+          </p></div>
+              <img src="BST.png" style="width:30%">
+          </span>
+        </div>
+        </section>
+
+          <section>
+          <div class="standard">
+            <h3 class="title">The Gold Standard: Constant time operations O(1)</h3>
+            <div class="textbox"><p>
+              We know that array indexing is O(1), so we could store values
+              in an array, if only we could figure out how to transform arbitrary
+              keys (like SNP IDs) into integer value appropriately scaled to the size of our array.
+              <br>
+            </p></div>
+            <img src="array-indexing.png" style="width:40%">
+            <br><br>
+            <span class="fragment">🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔</span>
+            </div>
+          </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Hash Tables: Efficiently mapping key/value pairs</h3>
+          <div class="textbox"><p>
+          It turns out this is _exactly_ what Hash Tables are designed to do! They
+          combine the magic of hash functions with the efficiency of array access to
+          create a practical and efficient data structure.
+          </p></div>
+          <img src="HashTableOverview.png" style="width:35%">
+          <br>
+          <div class="textbox"><p>
+          The primary components of a hash table are:
+          <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li class="fragment">The hash function</li>
+                <li class="fragment">A data storage structure (An array of 'buckets')</li>
+                <li class="fragment">A Collision Resolution Scheme</li>
+          </ul>
+        </div>
+        </section>
+      </section>
+<!-- End Motivate Hash Tables -->
+
+<!-- Hash Functions -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">What is a hash function?</h3>
+          <div class="textbox"><p>
+            In the simplest terms it is a function that maps arbitrary input data
+            to an integer value.
+          </p></div>
+          <br><br><br>
+            <img src="HashFunction.png" style="width:40%">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Determinism</h3>
+          <div class="textbox"><p>
+            A good hash function must be deterministic, meaning it consistently produces the same hash code for a given input. This ensures that you get the same result every time you hash a particular key, essential for accurate data retrieval.
+          </p></div>
+          <br>
+          <img class="fragment" src="NonDeterministicHash.png" style="width:60%">
+          <br><br><br>
+          <img class="fragment" src="DeterministicHash.png" style="width:60%">
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Efficiency</h3>
+          <div class="textbox"><p>
+          The hash function should be computationally efficient, meaning it should 
+          quickly compute the hash code for any given key. An efficient hash function 
+          is important for ensuring overall hash table peformance.
+          </p></div>
+          <br>
+          <img class="fragment" src="SlowHash.png" style="width:35%">
+          <br><br><br>
+          <img class="fragment" src="FastHash.png" style="width:35%">
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Useful hash function properties: Uniformity</h3>
+          <div class="textbox"><p>
+            Uniform distribution refers to the even spread of hash codes across the entire range of possible values. A good hash function should distribute the keys uniformly to minimize clustering and reduce the likelihood of collisions.
+          </p></div>
+          <br>
+          <img class="fragment" src="NonUniformHash.png" style="width:40%">
+          <br><br><br>
+          <img class="fragment" src="UniformHash.png" style="width:40%">
+          </div>
+        </section>
+      </section>
+
+<!-- End Hash Functions -->
+
+<!-- Collisions & Collision Resolution -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">No hash function is perfect</h3>
+          <div class="textbox"><p>
+            What happens when hashes do (inevitably) collide? We want to keep our 
+            O(1) average insert/lookup/search without throwing away data.
+          </p></div><br>
+          <img src="hashing-crux.png" style="width:20%">
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Separate Chaining</h3>
+          <div class="textbox"><p>
+            A simple way to deal with collisions is to give each
+            bucket a secondary container for storing all keys that map to a given
+            array index. In this way search becomes a two step process:
+            <ul class="bulletbox" style="margin-left: 12%; font-size: 35px">
+                <li>Hash the key to find the correct bucket</li>
+                <li>Search through the secondary list for the key</li>
+            </ul>
+            <br><br>
+
+          </p></div>
+              <img src="SeparateChaining.png" style="width:35%">
+          </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Collision Resolution w/ Linear Probing</h3>
+          <div class="textbox"><p>
+            An alternative is to store all items directly in the bucket array,
+            without need for a secondary data structure. This is referred to as an
+            'open addressing' scheme, because the location of a given item may not
+            necessarily be determined by its hash value.
+            <br><br>
+            Linear probing is an open addressing method that performs insertions (for 
+            example) by hashing the key and then 'probing' in a linear fashion
+            for an available bucket if the target bucket is occupied. Search and delete
+            operate the same way.
+            <br><br>
+          </p></div>
+          <img src="LinearProbing.png" style="width:45%">
+        </div>
+        </section>
+      </section>
+<!-- End Collisions & Collision Resolution -->
+
+<!-- Load Factor & Hash table resizing -->
+      <section>
+        <section>
+        <div class="standard">
+          <h3 class="title">Load Factor</h3>
+          <div class="textbox"><p>
+            Performance of hash table operations scales with how 'full' it is. We can
+            tell how full it is by calculating the _load factor_ (λ):
+            <br><br>
+            </p></div>
+            <p style="color:white;">λ = n/N</p>
+            <div class="textbox"><p>
+            Where <em>n</em> is the total number of items, and N is the size of 
+            the bucket array.
+            <br><br>
+            <p class="fragment">
+            Separate Chaining: The average number of keys per list (λ) must be small, 
+            or else we revert to O(n) list-based methods within each bucket. In
+            practice λ <= 1 provides acceptable performance.
+            <br><br>
+            <span class="fragment">
+            Linear Probing: In this case λ must always be < 1. When λ grows
+            beyond ~0.5, clustering of keys in the bucket array begin to reduce
+            efficiency of the probing strategy.
+            </span>
+          </p></div>
+        </div>
+        </section>
+
+        <section>
+        <div class="standard">
+          <h3 class="title">Load Factor & Hash Table Resizing</h3>
+          <div class="textbox"><p>
+          What to do when λ exceeds a tolerable threshold?
+          <br><br>
+          <span class="fragment" style="font-size:30px">We...</span>
+          <span class="fragment" style="font-size:60px">make...</span>
+          <span class="fragment" style="font-size:90px">it...</span>
+          <span class="fragment" style="font-size:120px">bigger!</span>
+          </p></div><br>
+          <img class="fragment" src="Resize.png" style="width:45%">
+          <br>
+          <div class="textbox fragment"><p><br>
+            If we double the size of the bucket array every time we cross the
+            chosen λ threshold we can 'spread out' the costs associated with
+            periodic rehashing (i.e. we maintain O(1) amortized run time). 
+          </div>
+        </section>
+      </section>
+<!-- End Load Factor & Hash table resizing -->
+      <section>
+      <div class="standard">
+        <h3 class="title">End of Hash Table Lecture</h3>
+        <div class="textbox fragment" style="color:white; font-size:45px"><p>Here is your obligatory xkcd comic:</p></div>
+        <br>
+          <img class="fragment" src="xkcd-data-quality.png" style="width:75%">
+        <div class="textbox"><p>
+        <br><span class="fragment">NB: The joke here is that hash functions are 
+        lossy but deterministic.</span>
+        </p></div></div>
+      </section>
+		</div>
+	</div>
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/notes/notes.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/markdown/markdown.js"></script>
+	<script>
+		Reveal.initialize({
+			transition: 'none',
+			hash: true,
+			plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+			width: 1600,
+			height: 900,
+			minScale: 0.1,
+			maxScale: 5,
+			controls: true,
+			progress: true,
+			loop: false,
+			center: false,
+		});
+	</script>
+</body>
+</html>
